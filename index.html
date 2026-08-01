@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AP Chemistry Stoichiometry Study Guide</title>
+    <style>
+        :root{
+            --bg:#f6f3ee;
+            --paper:#fffdf9;
+            --ink:#1f2933;
+            --muted:#65727e;
+            --accent:#6f7f6a;
+            --accent-2:#b78f64;
+            --soft:#e9eee6;
+            --line:#ddd7cd;
+            --warn:#fff4dd;
+            --warn-border:#d49a35;
+            --good:#edf6ee;
+            --good-border:#6c9a70;
+            --shadow:0 14px 35px rgba(47,50,45,.08);
+        }
+        *{box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{
+            margin:0;
+            font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background:var(--bg);
+            color:var(--ink);
+            line-height:1.65;
+        }
+        .layout{
+            display:grid;
+            grid-template-columns:280px minmax(0,1fr);
+            min-height:100vh;
+        }
+        aside{
+            position:sticky;
+            top:0;
+            height:100vh;
+            overflow:auto;
+            padding:28px 22px;
+            border-right:1px solid var(--line);
+            background:#efebe4;
+        }
+        .brand{
+            font-family:Georgia, "Times New Roman", serif;
+            font-size:1.35rem;
+            line-height:1.25;
+            margin-bottom:8px;
+        }
+        .subtitle{
+            color:var(--muted);
+            font-size:.9rem;
+            margin-bottom:24px;
+        }
+        nav a{
+            display:block;
+            color:var(--ink);
+            text-decoration:none;
+            padding:8px 10px;
+            margin:2px 0;
+            border-radius:9px;
+            font-size:.94rem;
+        }
+        nav a:hover{background:rgba(255,255,255,.65)}
+        .progress-wrap{
+            margin-top:24px;
+            padding-top:20px;
+            border-top:1px solid var(--line);
+        }
+        .progress-label{
+            display:flex;
+            justify-content:space-between;
+            font-size:.83rem;
+            color:var(--muted);
+            margin-bottom:7px;
+        }
+        .bar{height:8px;background:#d9d3ca;border-radius:999px;overflow:hidden}
+        .fill{height:100%;width:0;background:var(--accent);transition:.25s}
+        main{padding:46px 54px 90px}
+        .hero{
+            max-width:980px;
+            margin:0 auto 28px;
+            background:linear-gradient(135deg,#fffdf9,#f1ede6);
+            border:1px solid var(--line);
+            border-radius:24px;
+            padding:44px;
+            box-shadow:var(--shadow);
+        }
+        h1,h2,h3{
+            font-family:Georgia, "Times New Roman", serif;
+            line-height:1.2;
+        }
+        h1{font-size:clamp(2.25rem,5vw,4.4rem);margin:.1em 0 .25em}
+        h2{font-size:2rem;margin:0 0 18px}
+        h3{font-size:1.35rem;margin:26px 0 10px}
+        .eyebrow{
+            text-transform:uppercase;
+            letter-spacing:.16em;
+            font-size:.78rem;
+            font-weight:700;
+            color:var(--accent);
+        }
+        .hero p{max-width:760px;color:#44505a;font-size:1.05rem}
+        .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+        .chip{
+            background:var(--soft);
+            border:1px solid #d8e0d5;
+            border-radius:999px;
+            padding:7px 12px;
+            font-size:.85rem;
+        }
+        section.card{
+            max-width:980px;
+            margin:24px auto;
+            background:var(--paper);
+            border:1px solid var(--line);
+            border-radius:20px;
+            padding:34px;
+            box-shadow:var(--shadow);
+        }
+        .roadmap{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:12px;
+            margin:18px 0;
+        }
+        .roadmap div{
+            background:var(--soft);
+            border:1px solid #d9e1d6;
+            border-radius:14px;
+            padding:16px;
+            text-align:center;
+            font-weight:700;
+        }
+        .arrow{text-align:center;color:var(--accent);font-weight:800}
+        .formula{
+            background:#f1eee8;
+            border:1px solid var(--line);
+            border-radius:12px;
+            padding:12px 16px;
+            margin:12px 0;
+            font-family:"Cambria Math", Georgia, serif;
+            font-size:1.05rem;
+            overflow-x:auto;
+        }
+        .step{
+            border-left:4px solid var(--accent);
+            padding:8px 0 8px 18px;
+            margin:18px 0;
+        }
+        .step strong{display:block;margin-bottom:4px}
+        .answer{
+            background:var(--good);
+            border:1px solid var(--good-border);
+            border-radius:14px;
+            padding:16px 18px;
+            margin-top:18px;
+            font-weight:700;
+        }
+        .warning{
+            background:var(--warn);
+            border:1px solid var(--warn-border);
+            border-radius:14px;
+            padding:16px 18px;
+            margin:16px 0;
+        }
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin:16px 0;
+            font-size:.95rem;
+        }
+        th,td{
+            border-bottom:1px solid var(--line);
+            padding:12px 10px;
+            text-align:left;
+            vertical-align:top;
+        }
+        th{background:#f2eee8}
+        details{
+            border:1px solid var(--line);
+            border-radius:14px;
+            margin:14px 0;
+            overflow:hidden;
+            background:#fff;
+        }
+        summary{
+            cursor:pointer;
+            padding:16px 18px;
+            font-weight:700;
+            background:#f7f4ef;
+        }
+        details > div{padding:4px 18px 18px}
+        .checklist label{
+            display:block;
+            padding:8px 0;
+        }
+        input[type="checkbox"]{transform:scale(1.15);margin-right:9px}
+        .small{font-size:.9rem;color:var(--muted)}
+        .footer{
+            max-width:980px;
+            margin:30px auto 0;
+            color:var(--muted);
+            text-align:center;
+            font-size:.9rem;
+        }
+        @media (max-width:900px){
+            .layout{display:block}
+            aside{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}
+            nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+            main{padding:28px 18px 70px}
+            .hero{padding:28px}
+            section.card{padding:24px}
+            .roadmap{grid-template-columns:1fr 1fr}
+        }
+        @media print{
+            aside{display:none}
+            .layout{display:block}
+            main{padding:0}
+            body{background:white}
+            .hero,section.card{box-shadow:none;break-inside:avoid}
+            details{break-inside:avoid}
+            details > div{display:block}
+        }
+    </style>
+</head>
+<body>
+<div class="layout">
+    <aside>
+        <div class="brand">AP Chemistry<br>Stoichiometry Guide</div>
+        <div class="subtitle">Section IX • Summer Review</div>
+        <nav>
+            <a href="#start">Start Here</a>
+            <a href="#tools">Core Tools</a>
+            <a href="#q1">1. Sodium & Lithium Bromide</a>
+            <a href="#q2">2. Gas Volume → Molecules</a>
+            <a href="#q3">3. Propane Combustion</a>
+            <a href="#q4">4. Molecules → Moles</a>
+            <a href="#q5">5. Fe/O Empirical Formula</a>
+            <a href="#q6">6. Limiting Reactant</a>
+            <a href="#q7">7. Sn/F Empirical Formula</a>
+            <a href="#q8">8. Octane Combustion</a>
+            <a href="#q9">9. Sodium Azide</a>
+            <a href="#q10">10. Ammonia + Oxygen</a>
+            <a href="#answers">Answer Key</a>
+        </nav>
+        <div class="progress-wrap">
+            <div class="progress-label"><span>Study progress</span><span id="pct">0%</span></div>
+            <div class="bar"><div class="fill" id="fill"></div></div>
+        </div>
+    </aside>
+
+    <main>
+        <header class="hero" id="start">
+            <div class="eyebrow">Section IX</div>
+            <h1>Stoichiometry, Step by Step</h1>
+            <p>A beginner-friendly guide to mole conversions, balanced-equation ratios, limiting reactants, gas calculations, and empirical and molecular formulas.</p>
+            <div class="chips">
+                <span class="chip">Balance first</span>
+                <span class="chip">Convert to moles</span>
+                <span class="chip">Use coefficients</span>
+                <span class="chip">Convert to final unit</span>
+            </div>
+        </header>
+
+        <section class="card" id="tools">
+            <h2>The Big Idea</h2>
+            <p>A balanced chemical equation is a recipe written in <strong>moles</strong>. Most stoichiometry problems follow the same path:</p>
+            <div class="roadmap">
+                <div>1. Given amount</div>
+                <div>2. Moles of given</div>
+                <div>3. Moles wanted</div>
+                <div>4. Wanted unit</div>
+            </div>
+
+            <h3>Conversions to know</h3>
+            <div class="formula">moles = grams ÷ molar mass</div>
+            <div class="formula">grams = moles × molar mass</div>
+            <div class="formula">1 mol = 6.022 × 10²³ particles</div>
+            <div class="formula">At STP: 1 mol gas = 22.4 L gas</div>
+
+            <div class="warning">
+                <strong>Most important rule:</strong> coefficients in a balanced equation create mole ratios. Subscripts do not.
+            </div>
+
+            <div class="checklist">
+                <h3>Before solving</h3>
+                <label><input class="progress-check" type="checkbox">I balanced the equation.</label>
+                <label><input class="progress-check" type="checkbox">I identified the given and wanted units.</label>
+                <label><input class="progress-check" type="checkbox">I converted the given amount to moles.</label>
+                <label><input class="progress-check" type="checkbox">I used a coefficient-based mole ratio.</label>
+                <label><input class="progress-check" type="checkbox">I rounded only at the end.</label>
+            </div>
+        </section>
+
+        <section class="card" id="q1">
+            <h2>1. Sodium and Lithium Bromide</h2>
+            <p><strong>Problem:</strong> 30.5 g sodium reacts with excess lithium bromide. Find the mass of lithium produced.</p>
+
+            <div class="warning">
+                Chemically, sodium does not normally replace lithium because lithium is higher in the activity series. The worksheet appears designed to practice the math, so the assumed reaction is shown below.
+            </div>
+
+            <div class="step"><strong>Step 1: Write and balance the assumed reaction.</strong>
+                <div class="formula">Na + LiBr → NaBr + Li</div>
+                The equation is already balanced 1:1:1:1.
+            </div>
+
+            <div class="step"><strong>Step 2: Convert grams Na to moles Na.</strong>
+                <div class="formula">30.5 g Na × (1 mol Na / 22.99 g Na) = 1.33 mol Na</div>
+            </div>
+
+            <div class="step"><strong>Step 3: Use the mole ratio.</strong>
+                <div class="formula">1.33 mol Na × (1 mol Li / 1 mol Na) = 1.33 mol Li</div>
+            </div>
+
+            <div class="step"><strong>Step 4: Convert moles Li to grams Li.</strong>
+                <div class="formula">1.33 mol Li × (6.94 g Li / 1 mol Li) = 9.21 g Li</div>
+            </div>
+
+            <div class="answer">Worksheet-intended answer: 9.21 g Li</div>
+        </section>
+
+        <section class="card" id="q2">
+            <h2>2. Gas Volume to Molecules</h2>
+            <p><strong>Problem:</strong> How many molecules are in 100 L of CO₂ at STP?</p>
+
+            <div class="step"><strong>Step 1: Convert liters to moles.</strong>
+                <div class="formula">100 L CO₂ × (1 mol CO₂ / 22.4 L CO₂) = 4.46 mol CO₂</div>
+            </div>
+
+            <div class="step"><strong>Step 2: Convert moles to molecules.</strong>
+                <div class="formula">4.46 mol × (6.022 × 10²³ molecules / 1 mol) = 2.69 × 10²⁴ molecules</div>
+            </div>
+
+            <div class="answer">2.69 × 10²⁴ molecules CO₂</div>
+        </section>
+
+        <section class="card" id="q3">
+            <h2>3. Propane Combustion</h2>
+            <p><strong>Problem:</strong> How many grams of propane are needed to produce 45.9 g water?</p>
+
+            <div class="step"><strong>Step 1: Balance the combustion reaction.</strong>
+                <div class="formula">C₃H₈ + 5O₂ → 3CO₂ + 4H₂O</div>
+            </div>
+
+            <div class="step"><strong>Step 2: Convert grams H₂O to moles H₂O.</strong>
+                <div class="formula">45.9 g H₂O × (1 mol / 18.02 g) = 2.55 mol H₂O</div>
+            </div>
+
+            <div class="step"><strong>Step 3: Use the mole ratio.</strong>
+                <div class="formula">2.55 mol H₂O × (1 mol C₃H₈ / 4 mol H₂O) = 0.637 mol C₃H₈</div>
+            </div>
+
+            <div class="step"><strong>Step 4: Convert propane moles to grams.</strong>
+                <div class="formula">0.637 mol × 44.09 g/mol = 28.1 g C₃H₈</div>
+            </div>
+
+            <div class="answer">28.1 g C₃H₈</div>
+        </section>
+
+        <section class="card" id="q4">
+            <h2>4. Molecules to Moles</h2>
+            <p><strong>Problem:</strong> How many moles are in 3.02 × 10²⁶ molecules of water?</p>
+
+            <div class="step"><strong>Use Avogadro’s number as the conversion factor.</strong>
+                <div class="formula">(3.02 × 10²⁶ molecules) × (1 mol / 6.022 × 10²³ molecules) = 5.02 × 10² mol</div>
+            </div>
+
+            <div class="answer">5.02 × 10² mol H₂O, or 502 mol H₂O</div>
+        </section>
+
+        <section class="card" id="q5">
+            <h2>5. Empirical and Molecular Formula: Fe and O</h2>
+            <p><strong>Problem:</strong> A compound contains 11.66 g Fe and 5.01 g O. Its molar mass is 320 g/mol.</p>
+
+            <div class="step"><strong>Step 1: Convert each element to moles.</strong>
+                <div class="formula">Fe: 11.66 g ÷ 55.85 g/mol = 0.2088 mol</div>
+                <div class="formula">O: 5.01 g ÷ 16.00 g/mol = 0.3131 mol</div>
+            </div>
+
+            <div class="step"><strong>Step 2: Divide by the smaller number.</strong>
+                <div class="formula">Fe: 0.2088 ÷ 0.2088 = 1.00</div>
+                <div class="formula">O: 0.3131 ÷ 0.2088 = 1.50</div>
+            </div>
+
+            <div class="step"><strong>Step 3: Make the ratio whole numbers.</strong>
+                Multiply both by 2:
+                <div class="formula">Fe₁O₁.₅ × 2 → Fe₂O₃</div>
+            </div>
+
+            <div class="step"><strong>Step 4: Find the empirical-formula mass.</strong>
+                <div class="formula">2(55.85) + 3(16.00) = 159.70 g/mol</div>
+            </div>
+
+            <div class="step"><strong>Step 5: Find the multiplier.</strong>
+                <div class="formula">320 ÷ 159.70 ≈ 2</div>
+            </div>
+
+            <div class="answer">Empirical formula: Fe₂O₃<br>Molecular formula by the worksheet method: Fe₄O₆</div>
+
+            <p class="small">Note: ionic compounds are normally written in the simplest ratio, so iron(III) oxide is conventionally written Fe₂O₃.</p>
+        </section>
+
+        <section class="card" id="q6">
+            <h2>6. Limiting Reactant: Sodium Phosphate and Barium Nitrate</h2>
+            <p><strong>Problem:</strong> 3.50 g sodium phosphate reacts with 6.40 g barium nitrate. Find grams of barium phosphate.</p>
+
+            <div class="step"><strong>Step 1: Write correct formulas and balance.</strong>
+                <div class="formula">2Na₃PO₄ + 3Ba(NO₃)₂ → Ba₃(PO₄)₂ + 6NaNO₃</div>
+            </div>
+
+            <div class="step"><strong>Step 2: Convert each reactant to moles.</strong>
+                <div class="formula">Na₃PO₄: 3.50 g ÷ 163.94 g/mol = 0.0213 mol</div>
+                <div class="formula">Ba(NO₃)₂: 6.40 g ÷ 261.35 g/mol = 0.0245 mol</div>
+            </div>
+
+            <div class="step"><strong>Step 3: Calculate how much product each could make.</strong>
+                <div class="formula">From Na₃PO₄: 0.0213 × (1 / 2) = 0.0107 mol product</div>
+                <div class="formula">From Ba(NO₃)₂: 0.0245 × (1 / 3) = 0.00816 mol product</div>
+            </div>
+
+            <div class="step"><strong>Step 4: Choose the smaller product amount.</strong>
+                Barium nitrate makes less product, so it is the limiting reactant.
+            </div>
+
+            <div class="step"><strong>Step 5: Convert product moles to grams.</strong>
+                <div class="formula">0.00816 mol × 601.93 g/mol = 4.91 g</div>
+            </div>
+
+            <div class="answer">4.91 g Ba₃(PO₄)₂</div>
+        </section>
+
+        <section class="card" id="q7">
+            <h2>7. Empirical and Molecular Formula: Sn and F</h2>
+
+            <div class="step"><strong>Step 1: Convert grams to moles.</strong>
+                <div class="formula">Sn: 5.28 ÷ 118.71 = 0.0445 mol</div>
+                <div class="formula">F: 3.37 ÷ 19.00 = 0.177 mol</div>
+            </div>
+
+            <div class="step"><strong>Step 2: Divide by the smaller number.</strong>
+                <div class="formula">Sn: 0.0445 ÷ 0.0445 = 1.00</div>
+                <div class="formula">F: 0.177 ÷ 0.0445 ≈ 4.00</div>
+            </div>
+
+            <div class="step"><strong>Step 3: Write the empirical formula.</strong>
+                <div class="formula">SnF₄</div>
+            </div>
+
+            <div class="step"><strong>Step 4: Find the multiplier.</strong>
+                <div class="formula">Empirical mass = 118.71 + 4(19.00) = 194.71 g/mol</div>
+                <div class="formula">584.1 ÷ 194.71 ≈ 3</div>
+            </div>
+
+            <div class="answer">Empirical formula: SnF₄<br>Molecular formula by the worksheet method: Sn₃F₁₂</div>
+        </section>
+
+        <section class="card" id="q8">
+            <h2>8. Octane Combustion</h2>
+
+            <div class="step"><strong>Step 1: Balance the combustion reaction.</strong>
+                <div class="formula">2C₈H₁₈ + 25O₂ → 16CO₂ + 18H₂O</div>
+            </div>
+
+            <div class="step"><strong>Step 2: Convert octane to moles.</strong>
+                <div class="formula">10.0 g ÷ 114.23 g/mol = 0.0875 mol C₈H₁₈</div>
+            </div>
+
+            <div class="step"><strong>Step 3: Use the mole ratio.</strong>
+                <div class="formula">0.0875 × (25 mol O₂ / 2 mol C₈H₁₈) = 1.09 mol O₂</div>
+            </div>
+
+            <div class="step"><strong>Step 4: Convert O₂ to grams.</strong>
+                <div class="formula">1.09 mol × 32.00 g/mol = 35.0 g O₂</div>
+            </div>
+
+            <div class="answer">35.0 g O₂</div>
+        </section>
+
+        <section class="card" id="q9">
+            <h2>9. Sodium Azide Decomposition</h2>
+
+            <div class="step"><strong>Step 1: Balance the decomposition.</strong>
+                <div class="formula">2NaN₃ → 2Na + 3N₂</div>
+            </div>
+
+            <div class="step"><strong>Step 2: Convert N₂ grams to moles.</strong>
+                <div class="formula">34.8 g ÷ 28.02 g/mol = 1.24 mol N₂</div>
+            </div>
+
+            <div class="step"><strong>Step 3: Use the mole ratio.</strong>
+                <div class="formula">1.24 mol N₂ × (2 mol NaN₃ / 3 mol N₂) = 0.828 mol NaN₃</div>
+            </div>
+
+            <div class="step"><strong>Step 4: Convert NaN₃ moles to grams.</strong>
+                <div class="formula">0.828 mol × 65.02 g/mol = 53.8 g NaN₃</div>
+            </div>
+
+            <div class="answer">53.8 g NaN₃</div>
+        </section>
+
+        <section class="card" id="q10">
+            <h2>10. Limiting Reactant: Ammonia and Oxygen</h2>
+
+            <div class="step"><strong>Step 1: Balance the equation.</strong>
+                <div class="formula">4NH₃ + 5O₂ → 4NO + 6H₂O</div>
+            </div>
+
+            <div class="step"><strong>Step 2: Convert both reactants to moles.</strong>
+                <div class="formula">NH₃: 1.50 g ÷ 17.03 g/mol = 0.0881 mol</div>
+                <div class="formula">O₂: 2.75 g ÷ 32.00 g/mol = 0.0859 mol</div>
+            </div>
+
+            <div class="step"><strong>Step 3: Calculate product from each reactant.</strong>
+                <div class="formula">From NH₃: 0.0881 × (4 NO / 4 NH₃) = 0.0881 mol NO</div>
+                <div class="formula">From O₂: 0.0859 × (4 NO / 5 O₂) = 0.0688 mol NO</div>
+            </div>
+
+            <div class="step"><strong>Step 4: Identify the limiting reactant.</strong>
+                Oxygen makes less NO, so oxygen is limiting.
+            </div>
+
+            <div class="step"><strong>Step 5: Convert NO to grams.</strong>
+                <div class="formula">0.0688 mol × 30.01 g/mol = 2.06 g NO</div>
+            </div>
+
+            <div class="answer">2.06 g NO</div>
+        </section>
+
+        <section class="card" id="answers">
+            <h2>Final Answer Key</h2>
+            <table>
+                <thead><tr><th>#</th><th>Answer</th></tr></thead>
+                <tbody>
+                <tr><td>1</td><td>9.21 g Li by the worksheet assumption; chemically, no reaction</td></tr>
+                <tr><td>2</td><td>2.69 × 10²⁴ molecules CO₂</td></tr>
+                <tr><td>3</td><td>28.1 g C₃H₈</td></tr>
+                <tr><td>4</td><td>5.02 × 10² mol H₂O</td></tr>
+                <tr><td>5</td><td>Empirical: Fe₂O₃; worksheet molecular form: Fe₄O₆</td></tr>
+                <tr><td>6</td><td>4.91 g Ba₃(PO₄)₂</td></tr>
+                <tr><td>7</td><td>Empirical: SnF₄; worksheet molecular form: Sn₃F₁₂</td></tr>
+                <tr><td>8</td><td>35.0 g O₂</td></tr>
+                <tr><td>9</td><td>53.8 g NaN₃</td></tr>
+                <tr><td>10</td><td>2.06 g NO</td></tr>
+                </tbody>
+            </table>
+
+            <details>
+                <summary>Fast test-day checklist</summary>
+                <div>
+                    <ol>
+                        <li>Balance the equation.</li>
+                        <li>Convert the given quantity to moles.</li>
+                        <li>Use a coefficient-based mole ratio.</li>
+                        <li>Convert to the requested final unit.</li>
+                        <li>If both reactants are given, test both for the limiting reactant.</li>
+                        <li>Round only after the final calculation.</li>
+                    </ol>
+                </div>
+            </details>
+        </section>
+
+        <div class="footer">AP Chemistry • Section IX Stoichiometry Study Guide</div>
+    </main>
+</div>
+
+<script>
+    const checks = [...document.querySelectorAll('.progress-check')];
+    const fill = document.getElementById('fill');
+    const pct = document.getElementById('pct');
+    function updateProgress(){
+        const done = checks.filter(c => c.checked).length;
+        const percent = Math.round((done/checks.length)*100);
+        fill.style.width = percent + '%';
+        pct.textContent = percent + '%';
+        localStorage.setItem('stoichChecks', JSON.stringify(checks.map(c=>c.checked)));
+    }
+    const saved = JSON.parse(localStorage.getItem('stoichChecks') || 'null');
+    if(saved) checks.forEach((c,i)=>c.checked=!!saved[i]);
+    checks.forEach(c=>c.addEventListener('change', updateProgress));
+    updateProgress();
+</script>
+</body>
+</html>
