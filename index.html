@@ -221,10 +221,40 @@ html
         color:#e8f0f4;
         background:rgba(255,255,255,.06);
     }
+
+    .summer-map a,
+    .u1-overview a,
+    .u0-jump a{
+        cursor:pointer;
+    }
+    .summer-map a:focus-visible,
+    .u1-overview a:focus-visible,
+    .u0-jump a:focus-visible{
+        outline:3px solid rgba(80,120,108,.22);
+        outline-offset:2px;
+    }
+
+    /* Active Recall sidebar shortcut */
+    aside nav a.quiz-nav-link{
+        color:#d7ebe5 !important;
+        font-weight:760;
+        margin-top:2px;
+    }
+    aside nav a.quiz-nav-link::before{
+        content:"✓";
+        display:inline-block;
+        margin-right:7px;
+        color:#8fc0b1;
+        font-size:.82rem;
+    }
+    aside nav a.quiz-nav-link:hover,
+    aside nav a.quiz-nav-link.active{
+        color:#ffffff !important;
+    }
 </style></head><body><div class="layout"><aside><div class="brand">AP Chemistry<br/>Test 1 Study Hub</div><div class="sub">Summer Review + Unit 0 • Complete Course Reference</div><input class="search" id="search" placeholder="Search the study guide…"/><nav>
     <div class="navtitle">Test 1</div>
     <a href="#start">Overview</a>
-    <a href="#test1-map">Test 1 Map</a>
+    <a href="#test1-map">Test 1 Map</a><a class="nav-group-head quiz-nav-link" href="#quiz">Active Recall Quiz</a>
     <a href="#empirical">Empirical vs Molecular</a>
     <div class="navtitle">Summer Review</div>
     <a class="nav-group-head" href="#summer-review">Summer Review · Complete Guide</a><a class="subnav-link" href="#summer-ref">↳ Core Reference</a>
@@ -2748,5 +2778,63 @@ html
             }, { rootMargin: '-25% 0px -65% 0px' });
             targets.forEach(t => observer.observe(t));
         }
+    });
+</script><script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function wireJumpCards(selector) {
+            document.querySelectorAll(selector + ' a[href^="#"]').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    const target = document.querySelector(link.getAttribute('href'));
+                    if (!target) return;
+
+                    e.preventDefault();
+
+                    // If the destination itself is a collapsed <details>, open it.
+                    if (target.tagName === 'DETAILS') {
+                        target.open = true;
+                    }
+
+                    // If the destination lives inside collapsed <details>, open all parents.
+                    let parent = target.parentElement;
+                    while (parent) {
+                        if (parent.tagName === 'DETAILS') parent.open = true;
+                        parent = parent.parentElement;
+                    }
+
+                    // Scroll after opening so the browser calculates the correct position.
+                    setTimeout(function() {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        history.replaceState(null, '', link.getAttribute('href'));
+                    }, 40);
+                });
+            });
+        }
+
+        wireJumpCards('.summer-map');
+        wireJumpCards('.u1-overview');
+        wireJumpCards('.u0-jump');
+    });
+</script><script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const quizLink = document.querySelector('aside nav a[href="#quiz"]');
+        if (!quizLink) return;
+
+        quizLink.addEventListener('click', function(e) {
+            const target = document.getElementById('quiz');
+            if (!target) return;
+
+            e.preventDefault();
+
+            let current = target;
+            while (current) {
+                if (current.tagName === 'DETAILS') current.open = true;
+                current = current.parentElement;
+            }
+
+            setTimeout(function() {
+                target.scrollIntoView({behavior:'smooth', block:'start'});
+                history.replaceState(null, '', '#quiz');
+            }, 40);
+        });
     });
 </script></body></html>
