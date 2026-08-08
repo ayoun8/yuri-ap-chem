@@ -1,587 +1,1076 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AP Chemistry Stoichiometry Study Guide</title>
-    <style>
-        :root{
-            --bg:#f6f3ee;
-            --paper:#fffdf9;
-            --ink:#1f2933;
-            --muted:#65727e;
-            --accent:#6f7f6a;
-            --accent-2:#b78f64;
-            --soft:#e9eee6;
-            --line:#ddd7cd;
-            --warn:#fff4dd;
-            --warn-border:#d49a35;
-            --good:#edf6ee;
-            --good-border:#6c9a70;
-            --shadow:0 14px 35px rgba(47,50,45,.08);
-        }
-        *{box-sizing:border-box}
-        html{scroll-behavior:smooth}
-        body{
-            margin:0;
-            font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background:var(--bg);
-            color:var(--ink);
-            line-height:1.65;
-        }
-        .layout{
-            display:grid;
-            grid-template-columns:280px minmax(0,1fr);
-            min-height:100vh;
-        }
-        aside{
-            position:sticky;
-            top:0;
-            height:100vh;
-            overflow:auto;
-            padding:28px 22px;
-            border-right:1px solid var(--line);
-            background:#efebe4;
-        }
-        .brand{
-            font-family:Georgia, "Times New Roman", serif;
-            font-size:1.35rem;
-            line-height:1.25;
-            margin-bottom:8px;
-        }
-        .subtitle{
-            color:var(--muted);
-            font-size:.9rem;
-            margin-bottom:24px;
-        }
-        nav a{
-            display:block;
-            color:var(--ink);
-            text-decoration:none;
-            padding:8px 10px;
-            margin:2px 0;
-            border-radius:9px;
-            font-size:.94rem;
-        }
-        nav a:hover{background:rgba(255,255,255,.65)}
-        .progress-wrap{
-            margin-top:24px;
-            padding-top:20px;
-            border-top:1px solid var(--line);
-        }
-        .progress-label{
-            display:flex;
-            justify-content:space-between;
-            font-size:.83rem;
-            color:var(--muted);
-            margin-bottom:7px;
-        }
-        .bar{height:8px;background:#d9d3ca;border-radius:999px;overflow:hidden}
-        .fill{height:100%;width:0;background:var(--accent);transition:.25s}
-        main{padding:46px 54px 90px}
-        .hero{
-            max-width:980px;
-            margin:0 auto 28px;
-            background:linear-gradient(135deg,#fffdf9,#f1ede6);
-            border:1px solid var(--line);
-            border-radius:24px;
-            padding:44px;
-            box-shadow:var(--shadow);
-        }
-        h1,h2,h3{
-            font-family:Georgia, "Times New Roman", serif;
-            line-height:1.2;
-        }
-        h1{font-size:clamp(2.25rem,5vw,4.4rem);margin:.1em 0 .25em}
-        h2{font-size:2rem;margin:0 0 18px}
-        h3{font-size:1.35rem;margin:26px 0 10px}
-        .eyebrow{
-            text-transform:uppercase;
-            letter-spacing:.16em;
-            font-size:.78rem;
-            font-weight:700;
-            color:var(--accent);
-        }
-        .hero p{max-width:760px;color:#44505a;font-size:1.05rem}
-        .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-        .chip{
-            background:var(--soft);
-            border:1px solid #d8e0d5;
-            border-radius:999px;
-            padding:7px 12px;
-            font-size:.85rem;
-        }
-        section.card{
-            max-width:980px;
-            margin:24px auto;
-            background:var(--paper);
-            border:1px solid var(--line);
-            border-radius:20px;
-            padding:34px;
-            box-shadow:var(--shadow);
-        }
-        .roadmap{
-            display:grid;
-            grid-template-columns:repeat(4,1fr);
-            gap:12px;
-            margin:18px 0;
-        }
-        .roadmap div{
-            background:var(--soft);
-            border:1px solid #d9e1d6;
-            border-radius:14px;
-            padding:16px;
-            text-align:center;
-            font-weight:700;
-        }
-        .arrow{text-align:center;color:var(--accent);font-weight:800}
-        .formula{
-            background:#f1eee8;
-            border:1px solid var(--line);
-            border-radius:12px;
-            padding:12px 16px;
-            margin:12px 0;
-            font-family:"Cambria Math", Georgia, serif;
-            font-size:1.05rem;
-            overflow-x:auto;
-        }
-        .step{
-            border-left:4px solid var(--accent);
-            padding:8px 0 8px 18px;
-            margin:18px 0;
-        }
-        .step strong{display:block;margin-bottom:4px}
-        .answer{
-            background:var(--good);
-            border:1px solid var(--good-border);
-            border-radius:14px;
-            padding:16px 18px;
-            margin-top:18px;
-            font-weight:700;
-        }
-        .warning{
-            background:var(--warn);
-            border:1px solid var(--warn-border);
-            border-radius:14px;
-            padding:16px 18px;
-            margin:16px 0;
-        }
-        table{
-            width:100%;
-            border-collapse:collapse;
-            margin:16px 0;
-            font-size:.95rem;
-        }
-        th,td{
-            border-bottom:1px solid var(--line);
-            padding:12px 10px;
-            text-align:left;
-            vertical-align:top;
-        }
-        th{background:#f2eee8}
-        details{
-            border:1px solid var(--line);
-            border-radius:14px;
-            margin:14px 0;
-            overflow:hidden;
-            background:#fff;
-        }
-        summary{
-            cursor:pointer;
-            padding:16px 18px;
-            font-weight:700;
-            background:#f7f4ef;
-        }
-        details > div{padding:4px 18px 18px}
-        .checklist label{
-            display:block;
-            padding:8px 0;
-        }
-        input[type="checkbox"]{transform:scale(1.15);margin-right:9px}
-        .small{font-size:.9rem;color:var(--muted)}
-        .footer{
-            max-width:980px;
-            margin:30px auto 0;
-            color:var(--muted);
-            text-align:center;
-            font-size:.9rem;
-        }
-        @media (max-width:900px){
-            .layout{display:block}
-            aside{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}
-            nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
-            main{padding:28px 18px 70px}
-            .hero{padding:28px}
-            section.card{padding:24px}
-            .roadmap{grid-template-columns:1fr 1fr}
-        }
-        @media print{
-            aside{display:none}
-            .layout{display:block}
-            main{padding:0}
-            body{background:white}
-            .hero,section.card{box-shadow:none;break-inside:avoid}
-            details{break-inside:avoid}
-            details > div{display:block}
-        }
-    </style>
-</head>
-<body>
-<div class="layout">
-    <aside>
-        <div class="brand">AP Chemistry<br>Stoichiometry Guide</div>
-        <div class="subtitle">Section IX • Summer Review</div>
-        <nav>
-            <a href="#start">Start Here</a>
-            <a href="#tools">Core Tools</a>
-            <a href="#q1">1. Sodium & Lithium Bromide</a>
-            <a href="#q2">2. Gas Volume → Molecules</a>
-            <a href="#q3">3. Propane Combustion</a>
-            <a href="#q4">4. Molecules → Moles</a>
-            <a href="#q5">5. Fe/O Empirical Formula</a>
-            <a href="#q6">6. Limiting Reactant</a>
-            <a href="#q7">7. Sn/F Empirical Formula</a>
-            <a href="#q8">8. Octane Combustion</a>
-            <a href="#q9">9. Sodium Azide</a>
-            <a href="#q10">10. Ammonia + Oxygen</a>
-            <a href="#answers">Answer Key</a>
-        </nav>
-        <div class="progress-wrap">
-            <div class="progress-label"><span>Study progress</span><span id="pct">0%</span></div>
-            <div class="bar"><div class="fill" id="fill"></div></div>
-        </div>
-    </aside>
-
-    <main>
-        <header class="hero" id="start">
-            <div class="eyebrow">Section IX</div>
-            <h1>Stoichiometry, Step by Step</h1>
-            <p>A beginner-friendly guide to mole conversions, balanced-equation ratios, limiting reactants, gas calculations, and empirical and molecular formulas.</p>
-            <div class="chips">
-                <span class="chip">Balance first</span>
-                <span class="chip">Convert to moles</span>
-                <span class="chip">Use coefficients</span>
-                <span class="chip">Convert to final unit</span>
-            </div>
-        </header>
-
-        <section class="card" id="tools">
-            <h2>The Big Idea</h2>
-            <p>A balanced chemical equation is a recipe written in <strong>moles</strong>. Most stoichiometry problems follow the same path:</p>
-            <div class="roadmap">
-                <div>1. Given amount</div>
-                <div>2. Moles of given</div>
-                <div>3. Moles wanted</div>
-                <div>4. Wanted unit</div>
-            </div>
-
-            <h3>Conversions to know</h3>
-            <div class="formula">moles = grams ÷ molar mass</div>
-            <div class="formula">grams = moles × molar mass</div>
-            <div class="formula">1 mol = 6.022 × 10²³ particles</div>
-            <div class="formula">At STP: 1 mol gas = 22.4 L gas</div>
-
-            <div class="warning">
-                <strong>Most important rule:</strong> coefficients in a balanced equation create mole ratios. Subscripts do not.
-            </div>
-
-            <div class="checklist">
-                <h3>Before solving</h3>
-                <label><input class="progress-check" type="checkbox">I balanced the equation.</label>
-                <label><input class="progress-check" type="checkbox">I identified the given and wanted units.</label>
-                <label><input class="progress-check" type="checkbox">I converted the given amount to moles.</label>
-                <label><input class="progress-check" type="checkbox">I used a coefficient-based mole ratio.</label>
-                <label><input class="progress-check" type="checkbox">I rounded only at the end.</label>
-            </div>
-        </section>
-
-        <section class="card" id="q1">
-            <h2>1. Sodium and Lithium Bromide</h2>
-            <p><strong>Problem:</strong> 30.5 g sodium reacts with excess lithium bromide. Find the mass of lithium produced.</p>
-
-            <div class="warning">
-                Chemically, sodium does not normally replace lithium because lithium is higher in the activity series. The worksheet appears designed to practice the math, so the assumed reaction is shown below.
-            </div>
-
-            <div class="step"><strong>Step 1: Write and balance the assumed reaction.</strong>
-                <div class="formula">Na + LiBr → NaBr + Li</div>
-                The equation is already balanced 1:1:1:1.
-            </div>
-
-            <div class="step"><strong>Step 2: Convert grams Na to moles Na.</strong>
-                <div class="formula">30.5 g Na × (1 mol Na / 22.99 g Na) = 1.33 mol Na</div>
-            </div>
-
-            <div class="step"><strong>Step 3: Use the mole ratio.</strong>
-                <div class="formula">1.33 mol Na × (1 mol Li / 1 mol Na) = 1.33 mol Li</div>
-            </div>
-
-            <div class="step"><strong>Step 4: Convert moles Li to grams Li.</strong>
-                <div class="formula">1.33 mol Li × (6.94 g Li / 1 mol Li) = 9.21 g Li</div>
-            </div>
-
-            <div class="answer">Worksheet-intended answer: 9.21 g Li</div>
-        </section>
-
-        <section class="card" id="q2">
-            <h2>2. Gas Volume to Molecules</h2>
-            <p><strong>Problem:</strong> How many molecules are in 100 L of CO₂ at STP?</p>
-
-            <div class="step"><strong>Step 1: Convert liters to moles.</strong>
-                <div class="formula">100 L CO₂ × (1 mol CO₂ / 22.4 L CO₂) = 4.46 mol CO₂</div>
-            </div>
-
-            <div class="step"><strong>Step 2: Convert moles to molecules.</strong>
-                <div class="formula">4.46 mol × (6.022 × 10²³ molecules / 1 mol) = 2.69 × 10²⁴ molecules</div>
-            </div>
-
-            <div class="answer">2.69 × 10²⁴ molecules CO₂</div>
-        </section>
-
-        <section class="card" id="q3">
-            <h2>3. Propane Combustion</h2>
-            <p><strong>Problem:</strong> How many grams of propane are needed to produce 45.9 g water?</p>
-
-            <div class="step"><strong>Step 1: Balance the combustion reaction.</strong>
-                <div class="formula">C₃H₈ + 5O₂ → 3CO₂ + 4H₂O</div>
-            </div>
-
-            <div class="step"><strong>Step 2: Convert grams H₂O to moles H₂O.</strong>
-                <div class="formula">45.9 g H₂O × (1 mol / 18.02 g) = 2.55 mol H₂O</div>
-            </div>
-
-            <div class="step"><strong>Step 3: Use the mole ratio.</strong>
-                <div class="formula">2.55 mol H₂O × (1 mol C₃H₈ / 4 mol H₂O) = 0.637 mol C₃H₈</div>
-            </div>
-
-            <div class="step"><strong>Step 4: Convert propane moles to grams.</strong>
-                <div class="formula">0.637 mol × 44.09 g/mol = 28.1 g C₃H₈</div>
-            </div>
-
-            <div class="answer">28.1 g C₃H₈</div>
-        </section>
-
-        <section class="card" id="q4">
-            <h2>4. Molecules to Moles</h2>
-            <p><strong>Problem:</strong> How many moles are in 3.02 × 10²⁶ molecules of water?</p>
-
-            <div class="step"><strong>Use Avogadro’s number as the conversion factor.</strong>
-                <div class="formula">(3.02 × 10²⁶ molecules) × (1 mol / 6.022 × 10²³ molecules) = 5.02 × 10² mol</div>
-            </div>
-
-            <div class="answer">5.02 × 10² mol H₂O, or 502 mol H₂O</div>
-        </section>
-
-        <section class="card" id="q5">
-            <h2>5. Empirical and Molecular Formula: Fe and O</h2>
-            <p><strong>Problem:</strong> A compound contains 11.66 g Fe and 5.01 g O. Its molar mass is 320 g/mol.</p>
-
-            <div class="step"><strong>Step 1: Convert each element to moles.</strong>
-                <div class="formula">Fe: 11.66 g ÷ 55.85 g/mol = 0.2088 mol</div>
-                <div class="formula">O: 5.01 g ÷ 16.00 g/mol = 0.3131 mol</div>
-            </div>
-
-            <div class="step"><strong>Step 2: Divide by the smaller number.</strong>
-                <div class="formula">Fe: 0.2088 ÷ 0.2088 = 1.00</div>
-                <div class="formula">O: 0.3131 ÷ 0.2088 = 1.50</div>
-            </div>
-
-            <div class="step"><strong>Step 3: Make the ratio whole numbers.</strong>
-                Multiply both by 2:
-                <div class="formula">Fe₁O₁.₅ × 2 → Fe₂O₃</div>
-            </div>
-
-            <div class="step"><strong>Step 4: Find the empirical-formula mass.</strong>
-                <div class="formula">2(55.85) + 3(16.00) = 159.70 g/mol</div>
-            </div>
-
-            <div class="step"><strong>Step 5: Find the multiplier.</strong>
-                <div class="formula">320 ÷ 159.70 ≈ 2</div>
-            </div>
-
-            <div class="answer">Empirical formula: Fe₂O₃<br>Molecular formula by the worksheet method: Fe₄O₆</div>
-
-            <p class="small">Note: ionic compounds are normally written in the simplest ratio, so iron(III) oxide is conventionally written Fe₂O₃.</p>
-        </section>
-
-        <section class="card" id="q6">
-            <h2>6. Limiting Reactant: Sodium Phosphate and Barium Nitrate</h2>
-            <p><strong>Problem:</strong> 3.50 g sodium phosphate reacts with 6.40 g barium nitrate. Find grams of barium phosphate.</p>
-
-            <div class="step"><strong>Step 1: Write correct formulas and balance.</strong>
-                <div class="formula">2Na₃PO₄ + 3Ba(NO₃)₂ → Ba₃(PO₄)₂ + 6NaNO₃</div>
-            </div>
-
-            <div class="step"><strong>Step 2: Convert each reactant to moles.</strong>
-                <div class="formula">Na₃PO₄: 3.50 g ÷ 163.94 g/mol = 0.0213 mol</div>
-                <div class="formula">Ba(NO₃)₂: 6.40 g ÷ 261.35 g/mol = 0.0245 mol</div>
-            </div>
-
-            <div class="step"><strong>Step 3: Calculate how much product each could make.</strong>
-                <div class="formula">From Na₃PO₄: 0.0213 × (1 / 2) = 0.0107 mol product</div>
-                <div class="formula">From Ba(NO₃)₂: 0.0245 × (1 / 3) = 0.00816 mol product</div>
-            </div>
-
-            <div class="step"><strong>Step 4: Choose the smaller product amount.</strong>
-                Barium nitrate makes less product, so it is the limiting reactant.
-            </div>
-
-            <div class="step"><strong>Step 5: Convert product moles to grams.</strong>
-                <div class="formula">0.00816 mol × 601.93 g/mol = 4.91 g</div>
-            </div>
-
-            <div class="answer">4.91 g Ba₃(PO₄)₂</div>
-        </section>
-
-        <section class="card" id="q7">
-            <h2>7. Empirical and Molecular Formula: Sn and F</h2>
-
-            <div class="step"><strong>Step 1: Convert grams to moles.</strong>
-                <div class="formula">Sn: 5.28 ÷ 118.71 = 0.0445 mol</div>
-                <div class="formula">F: 3.37 ÷ 19.00 = 0.177 mol</div>
-            </div>
-
-            <div class="step"><strong>Step 2: Divide by the smaller number.</strong>
-                <div class="formula">Sn: 0.0445 ÷ 0.0445 = 1.00</div>
-                <div class="formula">F: 0.177 ÷ 0.0445 ≈ 4.00</div>
-            </div>
-
-            <div class="step"><strong>Step 3: Write the empirical formula.</strong>
-                <div class="formula">SnF₄</div>
-            </div>
-
-            <div class="step"><strong>Step 4: Find the multiplier.</strong>
-                <div class="formula">Empirical mass = 118.71 + 4(19.00) = 194.71 g/mol</div>
-                <div class="formula">584.1 ÷ 194.71 ≈ 3</div>
-            </div>
-
-            <div class="answer">Empirical formula: SnF₄<br>Molecular formula by the worksheet method: Sn₃F₁₂</div>
-        </section>
-
-        <section class="card" id="q8">
-            <h2>8. Octane Combustion</h2>
-
-            <div class="step"><strong>Step 1: Balance the combustion reaction.</strong>
-                <div class="formula">2C₈H₁₈ + 25O₂ → 16CO₂ + 18H₂O</div>
-            </div>
-
-            <div class="step"><strong>Step 2: Convert octane to moles.</strong>
-                <div class="formula">10.0 g ÷ 114.23 g/mol = 0.0875 mol C₈H₁₈</div>
-            </div>
-
-            <div class="step"><strong>Step 3: Use the mole ratio.</strong>
-                <div class="formula">0.0875 × (25 mol O₂ / 2 mol C₈H₁₈) = 1.09 mol O₂</div>
-            </div>
-
-            <div class="step"><strong>Step 4: Convert O₂ to grams.</strong>
-                <div class="formula">1.09 mol × 32.00 g/mol = 35.0 g O₂</div>
-            </div>
-
-            <div class="answer">35.0 g O₂</div>
-        </section>
-
-        <section class="card" id="q9">
-            <h2>9. Sodium Azide Decomposition</h2>
-
-            <div class="step"><strong>Step 1: Balance the decomposition.</strong>
-                <div class="formula">2NaN₃ → 2Na + 3N₂</div>
-            </div>
-
-            <div class="step"><strong>Step 2: Convert N₂ grams to moles.</strong>
-                <div class="formula">34.8 g ÷ 28.02 g/mol = 1.24 mol N₂</div>
-            </div>
-
-            <div class="step"><strong>Step 3: Use the mole ratio.</strong>
-                <div class="formula">1.24 mol N₂ × (2 mol NaN₃ / 3 mol N₂) = 0.828 mol NaN₃</div>
-            </div>
-
-            <div class="step"><strong>Step 4: Convert NaN₃ moles to grams.</strong>
-                <div class="formula">0.828 mol × 65.02 g/mol = 53.8 g NaN₃</div>
-            </div>
-
-            <div class="answer">53.8 g NaN₃</div>
-        </section>
-
-        <section class="card" id="q10">
-            <h2>10. Limiting Reactant: Ammonia and Oxygen</h2>
-
-            <div class="step"><strong>Step 1: Balance the equation.</strong>
-                <div class="formula">4NH₃ + 5O₂ → 4NO + 6H₂O</div>
-            </div>
-
-            <div class="step"><strong>Step 2: Convert both reactants to moles.</strong>
-                <div class="formula">NH₃: 1.50 g ÷ 17.03 g/mol = 0.0881 mol</div>
-                <div class="formula">O₂: 2.75 g ÷ 32.00 g/mol = 0.0859 mol</div>
-            </div>
-
-            <div class="step"><strong>Step 3: Calculate product from each reactant.</strong>
-                <div class="formula">From NH₃: 0.0881 × (4 NO / 4 NH₃) = 0.0881 mol NO</div>
-                <div class="formula">From O₂: 0.0859 × (4 NO / 5 O₂) = 0.0688 mol NO</div>
-            </div>
-
-            <div class="step"><strong>Step 4: Identify the limiting reactant.</strong>
-                Oxygen makes less NO, so oxygen is limiting.
-            </div>
-
-            <div class="step"><strong>Step 5: Convert NO to grams.</strong>
-                <div class="formula">0.0688 mol × 30.01 g/mol = 2.06 g NO</div>
-            </div>
-
-            <div class="answer">2.06 g NO</div>
-        </section>
-
-        <section class="card" id="answers">
-            <h2>Final Answer Key</h2>
-            <table>
-                <thead><tr><th>#</th><th>Answer</th></tr></thead>
-                <tbody>
-                <tr><td>1</td><td>9.21 g Li by the worksheet assumption; chemically, no reaction</td></tr>
-                <tr><td>2</td><td>2.69 × 10²⁴ molecules CO₂</td></tr>
-                <tr><td>3</td><td>28.1 g C₃H₈</td></tr>
-                <tr><td>4</td><td>5.02 × 10² mol H₂O</td></tr>
-                <tr><td>5</td><td>Empirical: Fe₂O₃; worksheet molecular form: Fe₄O₆</td></tr>
-                <tr><td>6</td><td>4.91 g Ba₃(PO₄)₂</td></tr>
-                <tr><td>7</td><td>Empirical: SnF₄; worksheet molecular form: Sn₃F₁₂</td></tr>
-                <tr><td>8</td><td>35.0 g O₂</td></tr>
-                <tr><td>9</td><td>53.8 g NaN₃</td></tr>
-                <tr><td>10</td><td>2.06 g NO</td></tr>
-                </tbody>
-            </table>
-
-            <details>
-                <summary>Fast test-day checklist</summary>
-                <div>
-                    <ol>
-                        <li>Balance the equation.</li>
-                        <li>Convert the given quantity to moles.</li>
-                        <li>Use a coefficient-based mole ratio.</li>
-                        <li>Convert to the requested final unit.</li>
-                        <li>If both reactants are given, test both for the limiting reactant.</li>
-                        <li>Round only after the final calculation.</li>
-                    </ol>
-                </div>
-            </details>
-        </section>
-
-        <div class="footer">AP Chemistry • Section IX Stoichiometry Study Guide</div>
-    </main>
-</div>
-
-<script>
-    const checks = [...document.querySelectorAll('.progress-check')];
-    const fill = document.getElementById('fill');
-    const pct = document.getElementById('pct');
-    function updateProgress(){
-        const done = checks.filter(c => c.checked).length;
-        const percent = Math.round((done/checks.length)*100);
-        fill.style.width = percent + '%';
-        pct.textContent = percent + '%';
-        localStorage.setItem('stoichChecks', JSON.stringify(checks.map(c=>c.checked)));
+html
+<html><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>AP Chemistry Test 1 Study Hub</title><style>
+    :root{--bg:#f5f2ec;--paper:#fffdf9;--ink:#20262c;--muted:#66717c;--sage:#64735f;--sage2:#e8eee5;--line:#ddd6cb;--gold:#fff4d9;--green:#edf7ee;--blue:#edf5f7;--purple:#f3eef7}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.68 Inter,system-ui,sans-serif}.layout{display:grid;grid-template-columns:300px 1fr;min-height:100vh}aside{position:sticky;top:0;height:100vh;overflow:auto;background:#eee9e1;border-right:1px solid var(--line);padding:22px 18px}.brand{font:700 1.45rem Georgia,serif}.sub{color:var(--muted);font-size:.88rem;margin:4px 0 14px}.search{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px}.navtitle{font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-weight:800;margin:16px 7px 4px}nav a{display:block;color:var(--ink);text-decoration:none;padding:7px 9px;border-radius:8px;font-size:.9rem}nav a:hover{background:white}.prog{border-top:1px solid var(--line);margin-top:16px;padding-top:12px}.bar{height:8px;background:#d8d1c7;border-radius:99px;overflow:hidden}.fill{height:100%;background:var(--sage);width:0}.prow{display:flex;justify-content:space-between;color:var(--muted);font-size:.82rem}.actions{display:flex;gap:7px;margin-top:9px}.actions button,.quiz button{border:1px solid var(--line);background:white;border-radius:9px;padding:7px 9px;cursor:pointer}main{padding:38px 48px 80px}.wrap{max-width:1080px;margin:auto}.hero,.card{background:var(--paper);border:1px solid var(--line);border-radius:22px;box-shadow:0 12px 34px rgba(30,38,32,.07)}.hero{padding:40px;margin-bottom:22px;background:linear-gradient(135deg,#fffdf9,#f0ede6)}.card{padding:30px;margin:22px 0}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.75rem;font-weight:850;color:var(--sage)}h1,h2,h3,h4{font-family:Georgia,serif;line-height:1.18}h1{font-size:clamp(2.3rem,5vw,4.1rem);margin:.1em 0 .2em}h2{font-size:2rem;margin:0 0 12px}h3{font-size:1.32rem}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.chip{background:var(--sage2);border:1px solid #d2ddcf;border-radius:999px;padding:6px 10px;font-size:.83rem}.route{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:17px}.route a{padding:12px;background:white;border:1px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);font-weight:750;text-align:center}.topichead{display:flex;justify-content:space-between;gap:12px}.tag{background:var(--sage);color:white;border-radius:999px;padding:7px 10px;font-size:.75rem;font-weight:800;height:max-content}details{border:1px solid var(--line);border-radius:14px;margin:12px 0;overflow:hidden;background:white}summary{cursor:pointer;list-style:none;padding:14px 16px;background:#f8f5f0;font-weight:800}summary::-webkit-details-marker{display:none}.content{padding:5px 17px 19px}.formula{font-family:Georgia,serif;background:#f1eee8;border:1px solid var(--line);border-radius:11px;padding:10px 12px;margin:10px 0}.note,.trap,.ace,.extra{padding:13px 15px;border-radius:12px;margin:12px 0}.note{background:var(--blue);border:1px solid #91b0b8}.trap{background:var(--gold);border:1px solid #d7a74b}.ace{background:var(--green);border:1px solid #7ba27e}.extra{background:var(--purple);border:1px solid #ad94bb}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.mini{border:1px solid var(--line);border-radius:12px;padding:13px;background:#fcfaf7}.steps{counter-reset:s}.step{counter-increment:s;position:relative;padding:10px 8px 10px 45px;border-left:2px solid #d8e0d5;margin:8px 0}.step:before{content:counter(s);position:absolute;left:8px;top:9px;width:25px;height:25px;border-radius:50%;display:grid;place-items:center;background:var(--sage);color:white;font-weight:800}table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.93rem}th,td{padding:9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f2eee8}.master{display:flex;gap:9px;border-top:1px solid #eee8de;margin-top:13px;padding-top:12px}.master input{margin-top:5px;transform:scale(1.15)}.hidden{display:none!important}.quizbox{border:1px solid var(--line);border-radius:14px;padding:16px}.choices button{width:100%;text-align:left;margin:5px 0}.feedback{font-weight:750;margin-top:9px}.ok{color:#2f6934}.bad{color:#9b4141}footer{text-align:center;color:var(--muted);font-size:.87rem;padding:20px}@media(max-width:950px){.layout{display:block}aside{position:relative;height:auto}main{padding:24px 15px}.grid2,.grid3{grid-template-columns:1fr}.route{grid-template-columns:1fr 1fr}}@media(max-width:560px){.route{grid-template-columns:1fr}.topichead{display:block}}
+
+    /* Compatibility styles for preserved Units 1–5 */
+    .unit{scroll-margin-top:18px}
+    .unit-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+    .unit-num{flex:0 0 auto;background:var(--sage);color:#fff;border-radius:999px;padding:7px 12px;font-size:.78rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+    .unit-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:18px 0 6px}
+    .unit-link{display:block;text-decoration:none;color:var(--ink);background:var(--sage2);border:1px solid #d9e1d6;border-radius:14px;padding:14px;text-align:center;font-weight:700;font-size:.9rem}
+    .topic-body{padding:5px 18px 20px}
+    .callout,.answer,.warning,.teacher-tip{border-radius:14px;padding:15px 17px;margin:14px 0}
+    .callout{background:var(--blue);border:1px solid var(--blueLine)}
+    .answer{background:var(--green);border:1px solid var(--greenLine);font-weight:700}
+    .warning{background:var(--gold);border:1px solid var(--goldLine)}
+    .teacher-tip{background:var(--purple);border:1px solid var(--purpleLine)}
+    .method{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:10px;margin:14px 0}
+    .method div{background:var(--sage2);border:1px solid #d9e1d6;border-radius:13px;padding:13px;font-weight:700}
+    .checkrow{display:flex;align-items:flex-start;gap:8px;border-top:1px solid #eee8dd;margin-top:16px;padding-top:13px}
+    .checkrow input{margin-top:5px;transform:scale(1.15)}
+    .small{font-size:.9rem;color:var(--muted)}
+    .quickbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .quickbar button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;cursor:pointer}
+    @media(max-width:1000px){.unit-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:620px){.unit-grid{grid-template-columns:1fr}.unit-header{display:block}.unit-num{display:inline-block;margin-bottom:10px}}
+
+    :root{
+        --bg:#f4f6f8;
+        --paper:#ffffff;
+        --ink:#17212b;
+        --muted:#66727f;
+        --sage:#345b52;
+        --sage2:#eaf1ef;
+        --line:#dfe4e8;
+        --blue:#eef5ff;
+        --blueLine:#8eb0d6;
+        --gold:#fff7df;
+        --goldLine:#d8b15f;
+        --green:#edf7f0;
+        --greenLine:#86ad8f;
+        --purple:#f5f0fa;
+        --purpleLine:#bba3cd;
+        --shadow:0 8px 28px rgba(24,35,45,.06);
     }
-    const saved = JSON.parse(localStorage.getItem('stoichChecks') || 'null');
+    body{background:var(--bg);font-size:15.5px}
+    aside{background:#182129;color:#eef4f5;border-right:0;padding:22px 16px}
+    aside .brand{color:white;font-family:Inter,system-ui,sans-serif;font-size:1.18rem;letter-spacing:-.02em}
+    aside .sub{color:#aeb9c1}
+    aside .search{background:#222e37;color:white;border-color:#34424d}
+    aside .search::placeholder{color:#87949e}
+    aside .navtitle{color:#7f909c;font-size:.65rem;margin-top:18px}
+    aside nav a{color:#cbd5db;padding:6px 9px;border-left:2px solid transparent;border-radius:6px}
+    aside nav a:hover,aside nav a.active{background:#24323c;color:white;border-left-color:#7db5a7}
+    aside .progress{border-color:#31404b}
+    main{padding-top:32px}
+    .hero{background:linear-gradient(145deg,#ffffff,#f8fbfa);box-shadow:var(--shadow);border-color:var(--line)}
+    .card{box-shadow:var(--shadow);border-color:var(--line)}
+    h1,h2,h3,h4{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:-.025em}
+    h1{font-weight:780}h2{font-weight:750}h3{font-weight:720}
+    .eyebrow{color:#46786d}
+    .tag,.unit-num{background:#345b52}
+    summary{background:#f8fafb}
+    details{border-color:#e2e7ea}
+    .formula{background:#f6f8fa;border-color:#e1e6ea;font-family:"Cambria Math","STIX Two Math",serif}
+    .test1-card{scroll-margin-top:20px}
+    .lead{font-size:1.03rem;color:#40505c;max-width:900px}
+    .dashboard-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin:20px 0}
+    .dash{display:flex;flex-direction:column;min-height:128px;padding:16px;border:1px solid var(--line);border-radius:14px;background:#fbfcfd}
+    .dash span{font-size:.72rem;font-weight:850;letter-spacing:.11em;color:#7a8790;margin-bottom:15px}
+    .dash b{font-size:1rem;margin-bottom:5px}.dash small{color:var(--muted);line-height:1.45}
+    .dash.priority{background:#eef6f3;border-color:#9bbeb5}
+    .compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+    .compare>div{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fbfcfd}
+    .compare h3{margin-top:0}
+    .decision{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:9px;margin:16px 0}
+    .decision div{border:1px solid var(--line);background:#fbfcfd;border-radius:12px;padding:13px}
+    .decision b,.decision span{display:block}.decision span{color:var(--muted);font-size:.87rem;margin-top:4px}
+    .roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:15px 0}
+    .roadmap div{padding:12px;border-radius:11px;background:var(--sage2);border:1px solid #d5e3df;text-align:center;font-weight:750}
+    .rxn td:last-child{font-family:"Cambria Math",serif}
+    .focus-card{border-top:4px solid #4e8175}
+    @media(max-width:900px){.dashboard-grid{grid-template-columns:1fr 1fr}.roadmap{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.dashboard-grid,.compare,.roadmap{grid-template-columns:1fr}}
+
+    .u1-overview{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:18px 0 20px}.u1-overview a{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:13px;background:#fbfcfd}.u1-overview a span{font-size:.7rem;letter-spacing:.12em;color:#70808c;font-weight:850;margin-bottom:5px}.u1-overview a:hover{border-color:#94b9ae;background:#f3f8f6}.u1topic{scroll-margin-top:18px}.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.timeline div{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fbfcfd}.timeline b,.timeline span{display:block}.timeline span{color:var(--muted);font-size:.88rem;margin-top:5px}.pes-focus{border-left:4px solid #527eae}.supplemental{border-left:4px solid #9b8b68}.practice-lab{border-left:4px solid #6f8b7f}.u1-practice-grid{grid-template-columns:repeat(4,1fr)}aside nav a.u1sub{font-size:.78rem;color:#93a5af;padding:4px 9px 4px 16px}@media(max-width:900px){.u1-overview,.timeline,.u1-practice-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.u1-overview,.timeline,.u1-practice-grid{grid-template-columns:1fr}}
+
+    .unit0-collapsible{scroll-margin-top:18px}
+    .u0-jump{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0 8px}
+    .u0-jump a{display:block;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:11px;padding:10px 12px;background:#fbfcfd;font-size:.93rem}
+    .u0-jump a:hover{background:#f4f8f7;border-color:#9ebfb5}
+    .u0-detail{margin:14px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+    .u0-detail>summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:750;background:#f8fafb}
+    .u0-detail>summary::-webkit-details-marker{display:none}
+    .u0-detail[open]>summary{border-bottom:1px solid var(--line)}
+    .u0-body{padding:6px 18px 20px}
+    @media(max-width:900px){.u0-jump{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.u0-jump{grid-template-columns:1fr}}
+</style></head><body><div class="layout"><aside><div class="brand">AP Chemistry<br/>Test 1 Study Hub</div><div class="sub">Summer Review + Unit 0 • Complete Course Reference</div><input class="search" id="search" placeholder="Search the study guide…"/><nav>
+    <div class="navtitle">Test 1</div>
+    <a href="#start">Overview</a>
+    <a href="#test1-map">Test 1 Map</a>
+    <a href="#empirical">Empirical vs Molecular</a>
+    <div class="navtitle">Summer Review</div>
+    <a href="#summer-ref">Core Reference</a>
+    <a href="#summer-naming">I · Nomenclature</a>
+    <a href="#summer-da">II · Dimensional Analysis</a>
+    <a href="#summer-sig">III · Significant Figures</a>
+    <a href="#summer-sci">IV · Scientific Notation</a>
+    <a href="#summer-rxn">V · Reactions</a>
+    <a href="#summer-electron">VI · Electron Structure</a>
+    <a href="#summer-mole">VII · Mole Concept</a>
+    <a href="#summer-bond">VIII · Bonding</a>
+    <a href="#summer-stoich">IX · Stoichiometry</a>
+    <div class="navtitle">Unit 0 Notes</div>
+    <a href="#unit0">Unit 0 · Collapsible Guide</a><a href="#science">0A · Scientific Method</a>
+    <a href="#matter">0A · States of Matter</a>
+    <a href="#changes">0A · Physical vs Chemical</a>
+    <a href="#sci">0B · Scientific Notation</a>
+    <a href="#si">0B · SI Units</a>
+    <a href="#dim">0B · Dimensional Analysis</a>
+    <a href="#temp">0B · Temperature</a>
+    <a href="#density">0B · Density</a>
+    <a href="#sigfig">0B · Sig Figs</a>
+    <a href="#accuracy">0B · Accuracy &amp; Precision</a>
+    <a href="#history">0C · Atomic Theory</a>
+    <a href="#atom">0C · Atoms &amp; Ions</a>
+    <a href="#ionic">0D · Ionic Naming</a>
+    <a href="#poly">0D · Polyatomic Ions</a>
+    <a href="#acids">0D · Acids</a>
+    <a href="#molecular">0D · Molecular Naming</a>
+    <a href="#hydrates">0D · Hydrates</a>
+    <div class="navtitle">Later Units</div>
+    <a href="#unit1">Unit 1 · Complete Guide</a><a class="u1sub" href="#u1-1">↳ 1.1 Mole</a><a class="u1sub" href="#u1-2">↳ 1.2 Isotopes</a><a class="u1sub" href="#u1-3">↳ 1.3 Empirical/Molecular</a><a class="u1sub" href="#u1-4">↳ 1.4 Pure/Impure</a><a class="u1sub" href="#u1-5">↳ 1.5 Electron Structure</a><a class="u1sub" href="#u1-6">↳ 1.6 PES</a><a class="u1sub" href="#u1-7">↳ 1.7 Periodicity</a><a class="u1sub" href="#u1-8">↳ 1.8 Ions</a>
+    <a href="#unit2">Unit 2</a>
+    <a href="#unit3">Unit 3</a>
+    <a href="#unit4">Unit 4</a>
+    <a href="#unit5">Unit 5</a>
+</nav><div class="prog"><div class="prow"><span>Mastery</span><span id="pct">0%</span></div><div class="bar"><div class="fill" id="fill"></div></div><div class="actions"><button id="openAll">Expand</button><button id="closeAll">Collapse</button></div></div></aside><main><div class="wrap">
+    <section class="hero" id="start">
+        <div class="eyebrow">AP Chemistry • Test 1</div>
+        <h1>Test 1 Study Hub</h1>
+        <p>Everything in one place: the full summer review packet, Unit 0 foundations, and an expanded empirical-vs-molecular-formula lesson. Work through the modules in order, then use the later course units only when you need extra reinforcement.</p>
+        <div class="chips">
+            <span class="chip">Summer Review I–IX</span>
+            <span class="chip">Unit 0A–0D</span>
+            <span class="chip">Empirical &amp; Molecular Formulas</span>
+            <span class="chip">Worked Examples</span>
+            <span class="chip">Answer Keys</span>
+            <span class="chip">Saved Mastery</span>
+        </div>
+        <div class="route">
+            <a href="#test1-map">Start Here</a>
+            <a href="#empirical">Formula Focus</a>
+            <a href="#summer-stoich">Stoichiometry</a>
+            <a href="#science">Unit 0</a>
+        </div>
+    </section>
+    <section class="card searchable test1-card" data-keywords="test 1 roadmap summer packet unit 0 empirical molecular" id="test1-map">
+        <div class="eyebrow">Test 1</div>
+        <h2>What to Know</h2>
+        <p class="lead">The test combines the summer review packet with Unit 0. The overlap is useful: nomenclature, dimensional analysis, significant figures, scientific notation, atomic structure, and chemical reasoning appear in both places.</p>
+        <div class="dashboard-grid">
+            <div class="dash"><span>01</span><b>Measurement</b><small>scientific notation • SI prefixes • conversions • density • sig figs</small></div>
+            <div class="dash"><span>02</span><b>Nomenclature</b><small>ionic • molecular • acids • polyatomic ions • hydrates</small></div>
+            <div class="dash"><span>03</span><b>Atomic Structure</b><small>p/n/e • ions • electron configurations • periodic trends</small></div>
+            <div class="dash priority"><span>04</span><b>Formula Focus</b><small>empirical formula • molecular formula • whole-number ratios</small></div>
+            <div class="dash"><span>05</span><b>Reactions</b><small>predict products • classify • balance • solubility</small></div>
+            <div class="dash"><span>06</span><b>Moles &amp; Stoichiometry</b><small>grams • particles • STP • mole ratios • limiting reactants</small></div>
+            <div class="dash"><span>07</span><b>Bonding</b><small>Lewis structures • resonance • formal-charge thinking</small></div>
+            <div class="dash"><span>08</span><b>Foundations</b><small>matter • phase changes • physical/chemical • scientific method</small></div>
+        </div>
+        <div class="ace"><b>Study standard:</b> do not stop when an answer “looks familiar.” You are ready when you can classify the problem, state the rule, show the setup, and solve a new version without notes.</div>
+    </section><section class="card searchable test1-card focus-card" data-keywords="empirical molecular formula percent composition whole number ratio Fe O Sn F" id="empirical">
+    <div class="topichead"><div><div class="eyebrow">Test 1 Priority</div><h2>Empirical vs Molecular Formula — Complete Guide</h2></div><span class="tag">Know cold</span></div>
+    <p class="lead"><strong>Empirical formula</strong> = simplest whole-number ratio of atoms. <strong>Molecular formula</strong> = actual number of each atom in one molecule and is always a whole-number multiple of the empirical formula.</p>
+    <div class="compare">
+        <div><h3>Empirical formula</h3><p>Answers: “What is the simplest ratio?”</p><div class="formula">C₆H₁₂O₆ → CH₂O</div></div>
+        <div><h3>Molecular formula</h3><p>Answers: “How many atoms are actually in the molecule?”</p><div class="formula">CH₂O × 6 → C₆H₁₂O₆</div></div>
+    </div>
+    <details open=""><summary>Method A: Given masses of each element</summary><div class="content">
+        <div class="steps">
+            <div class="step"><b>Convert every element from grams to moles.</b><br/>Never compare gram amounts directly. Atomic masses differ.</div>
+            <div class="step"><b>Divide every mole amount by the smallest mole amount.</b><br/>This normalizes one element to 1.</div>
+            <div class="step"><b>Inspect the ratios.</b><br/>If they are close to whole numbers, use them as subscripts. If not, multiply all ratios by the same small integer.</div>
+            <div class="step"><b>Write the empirical formula.</b></div>
+        </div>
+        <table>
+            <tr><th>Ratio after dividing</th><th>What to do</th></tr>
+            <tr><td>1.00, 2.00, 3.00…</td><td>Use directly.</td></tr>
+            <tr><td>1.50</td><td>Multiply all ratios by 2.</td></tr>
+            <tr><td>1.33 or 2.67</td><td>Multiply all by 3.</td></tr>
+            <tr><td>1.25 or 1.75</td><td>Multiply all by 4.</td></tr>
+            <tr><td>1.20, 1.40, 1.60, 1.80</td><td>Often multiply all by 5.</td></tr>
+        </table>
+        <div class="trap"><b>Do not round 1.50 to 2.</b> A ratio of 1 : 1.5 becomes 2 : 3, not 1 : 2.</div>
+    </div></details>
+    <details open=""><summary>Method B: Given percentages</summary><div class="content">
+        <div class="steps">
+            <div class="step"><b>Assume 100.0 g of compound.</b><br/>Then each percentage becomes the same number of grams: 40.0% C → 40.0 g C.</div>
+            <div class="step"><b>Convert grams to moles for every element.</b></div>
+            <div class="step"><b>Divide by the smallest mole amount.</b></div>
+            <div class="step"><b>Make the ratio whole-numbered and write the empirical formula.</b></div>
+        </div>
+    </div></details>
+    <details open=""><summary>How to get the molecular formula</summary><div class="content">
+        <div class="steps">
+            <div class="step"><b>Find the empirical formula first.</b></div>
+            <div class="step"><b>Calculate the empirical-formula mass.</b></div>
+            <div class="step"><b>Find the multiplier n.</b><div class="formula">n = molar mass of compound ÷ empirical-formula mass</div></div>
+            <div class="step"><b>Round n to the nearest whole number only if the chemistry clearly supports it.</b></div>
+            <div class="step"><b>Multiply every empirical subscript by n.</b></div>
+        </div>
+    </div></details>
+    <details open=""><summary>Summer packet example: Fe and O</summary><div class="content">
+        <p><b>Given:</b> 11.66 g Fe, 5.01 g O; molar mass = 320 g/mol.</p>
+        <div class="formula">Fe: 11.66 ÷ 55.845 = 0.2088 mol</div>
+        <div class="formula">O: 5.01 ÷ 15.999 = 0.3131 mol</div>
+        <div class="formula">Divide by 0.2088 → Fe : O = 1.000 : 1.500</div>
+        <p>Multiply both by 2:</p>
+        <div class="formula">2 : 3 → empirical formula Fe₂O₃</div>
+        <div class="formula">empirical mass ≈ 159.69 g/mol</div>
+        <div class="formula">320 ÷ 159.69 ≈ 2</div>
+        <div class="answer">Packet worksheet method: empirical = Fe₂O₃; molecular-form calculation = Fe₄O₆.</div>
+        <div class="note"><b>Chemistry convention:</b> ionic compounds are normally written as simplest-ratio formula units, so Fe₂O₃ is the standard chemical formula. The packet is using this item to practice the empirical/molecular calculation procedure.</div>
+    </div></details>
+    <details><summary>Summer packet example: Sn and F</summary><div class="content">
+        <div class="formula">Sn: 5.28 ÷ 118.71 = 0.04448 mol</div>
+        <div class="formula">F: 3.37 ÷ 18.998 = 0.1774 mol</div>
+        <div class="formula">Divide by 0.04448 → 1 : 3.99 ≈ 1 : 4</div>
+        <div class="answer">Empirical formula = SnF₄</div>
+        <div class="formula">empirical mass ≈ 194.70 g/mol; 584.1 ÷ 194.70 = 3</div>
+        <div class="answer">Packet worksheet molecular-form calculation = Sn₃F₁₂.</div>
+    </div></details>
+    <details><summary>Fast error check</summary><div class="content">
+        <ul>
+            <li>If you used grams as subscripts, restart: convert to moles first.</li>
+            <li>If you have decimal subscripts, you are not finished.</li>
+            <li>If your “molecular formula” is not an integer multiple of the empirical formula, something is wrong.</li>
+            <li>If n is nowhere near an integer, recheck molar masses and rounding.</li>
+            <li>Do not simplify the final molecular formula after multiplying; simplification would turn it back into an empirical formula.</li>
+        </ul>
+    </div></details>
+    <label class="master"><input type="checkbox"/> I can find empirical and molecular formulas from masses or percentages and explain the difference between them.</label>
+</section><section class="card searchable test1-card" data-keywords="summer review polyatomic ions strong acids strong bases solubility rules special reactions" id="summer-ref">
+    <div class="topichead"><div><div class="eyebrow">Summer Review</div><h2>Core Reference Sheet</h2></div><span class="tag">Memorize</span></div>
+    <h3>Polyatomic ions from the packet</h3>
+    <table>
+        <tr><th>Charge</th><th>Ions</th></tr>
+        <tr><td>−1</td><td>C₂H₃O₂⁻ acetate; NO₃⁻ nitrate; NO₂⁻ nitrite; CN⁻ cyanide; OCN⁻ cyanate; SCN⁻ thiocyanate; MnO₄⁻ permanganate; OH⁻ hydroxide; HSO₄⁻ bisulfate; HCO₃⁻ bicarbonate; O₂⁻ superoxide; H₂PO₄⁻ dihydrogen phosphate; ClO₄⁻ perchlorate; ClO₃⁻ chlorate; ClO₂⁻ chlorite; ClO⁻ hypochlorite.</td></tr>
+        <tr><td>−2</td><td>SO₄²⁻ sulfate; SO₃²⁻ sulfite; CO₃²⁻ carbonate; C₂O₄²⁻ oxalate; CrO₄²⁻ chromate; Cr₂O₇²⁻ dichromate; S₂O₃²⁻ thiosulfate; O₂²⁻ peroxide; SeO₄²⁻ selenate; HPO₄²⁻ hydrogen phosphate.</td></tr>
+        <tr><td>−3</td><td>PO₄³⁻ phosphate; AsO₄³⁻ arsenate; AsO₃³⁻ arsenite.</td></tr>
+        <tr><td>+1</td><td>NH₄⁺ ammonium.</td></tr>
+    </table>
+    <div class="note">The packet notes that Br, I, and F may substitute into the chlorine oxyanion pattern.</div>
+    <h3>Strong acids</h3>
+    <div class="formula">HCl • HBr • HI • H₂SO₄ • HNO₃ • HClO₃ • HClO₄</div>
+    <h3>Strong bases</h3>
+    <p>Packet convention: Group I hydroxides and Group II hydroxides, except Be(OH)₂ and Mg(OH)₂.</p>
+    <h3>Solubility rules from the packet</h3>
+    <table>
+        <tr><th>Ion</th><th>General rule</th><th>Exceptions listed</th></tr>
+        <tr><td>NO₃⁻</td><td>Soluble</td><td>None</td></tr>
+        <tr><td>ClO₄⁻</td><td>Soluble</td><td>None</td></tr>
+        <tr><td>Cl⁻</td><td>Soluble</td><td>Ag⁺, Hg₂²⁺, Pb²⁺</td></tr>
+        <tr><td>I⁻</td><td>Soluble</td><td>Ag⁺, Hg₂²⁺, Pb²⁺</td></tr>
+        <tr><td>SO₄²⁻</td><td>Soluble</td><td>Ca²⁺, Ba²⁺, Sr²⁺, Hg²⁺, Pb²⁺, Ag⁺</td></tr>
+        <tr><td>CO₃²⁻</td><td>Insoluble</td><td>Group IA and NH₄⁺</td></tr>
+        <tr><td>PO₄³⁻</td><td>Insoluble</td><td>Group IA and NH₄⁺</td></tr>
+        <tr><td>OH⁻</td><td>Insoluble</td><td>Group IA, Ca²⁺, Ba²⁺, Sr²⁺</td></tr>
+        <tr><td>S²⁻</td><td>Insoluble</td><td>Group IA, Group IIA, NH₄⁺</td></tr>
+        <tr><td>Na⁺, K⁺, NH₄⁺</td><td>Soluble</td><td>None</td></tr>
+    </table>
+    <div class="ace"><b>Precipitation workflow:</b> swap ions → write neutral formulas → apply solubility rules → identify any solid precipitate.</div>
+</section><section class="card searchable test1-card" data-keywords="summer nomenclature ionic molecular acids prefixes roman numerals" id="summer-naming">
+    <div class="topichead"><div><div class="eyebrow">Summer Review I</div><h2>Nomenclature</h2></div><span class="tag">28 problems</span></div>
+    <div class="decision">
+        <div><b>Metal + nonmetal / polyatomic?</b><span>Ionic naming</span></div>
+        <div><b>Two nonmetals?</b><span>Molecular prefixes</span></div>
+        <div><b>Formula begins with H and is acid context?</b><span>Acid naming</span></div>
+    </div>
+    <details open=""><summary>Complete packet answer key</summary><div class="content">
+        <table>
+            <tr><th>#</th><th>Prompt</th><th>Answer</th></tr>
+            <tr><td>1</td><td>P₄O₁₀</td><td>tetraphosphorus decoxide / tetraphosphorus decaoxide</td></tr>
+            <tr><td>2</td><td>CaF₂</td><td>calcium fluoride</td></tr>
+            <tr><td>3</td><td>P₂S₃</td><td>diphosphorus trisulfide</td></tr>
+            <tr><td>4</td><td>carbon monoxide</td><td>CO</td></tr>
+            <tr><td>5</td><td>sodium hydride</td><td>NaH</td></tr>
+            <tr><td>6</td><td>aluminum selenide</td><td>Al₂Se₃</td></tr>
+            <tr><td>7</td><td>xenon hexafluoride</td><td>XeF₆</td></tr>
+            <tr><td>8</td><td>dinitrogen monoxide</td><td>N₂O</td></tr>
+            <tr><td>9</td><td>KClO₃</td><td>potassium chlorate</td></tr>
+            <tr><td>10</td><td>Pb(OH)₃</td><td>lead(III) hydroxide</td></tr>
+            <tr><td>11</td><td>Ca(MnO₄)₂</td><td>calcium permanganate</td></tr>
+            <tr><td>12</td><td>N₂O₄</td><td>dinitrogen tetroxide</td></tr>
+            <tr><td>13</td><td>Ti(HPO₄)₂</td><td>titanium(IV) hydrogen phosphate</td></tr>
+            <tr><td>14</td><td>manganese(VII) oxide</td><td>Mn₂O₇</td></tr>
+            <tr><td>15</td><td>francium dichromate</td><td>Fr₂Cr₂O₇</td></tr>
+            <tr><td>16</td><td>copper(II) dihydrogen phosphate</td><td>Cu(H₂PO₄)₂</td></tr>
+            <tr><td>17</td><td>silver chromate</td><td>Ag₂CrO₄</td></tr>
+            <tr><td>18</td><td>ammonium oxalate</td><td>(NH₄)₂C₂O₄</td></tr>
+            <tr><td>19</td><td>(NH₄)₂SO₃</td><td>ammonium sulfite</td></tr>
+            <tr><td>20</td><td>Ni₃(PO₄)₂</td><td>nickel(II) phosphate</td></tr>
+            <tr><td>21</td><td>Fe(IO₂)₃</td><td>iron(III) iodite</td></tr>
+            <tr><td>22</td><td>NaBrO₂</td><td>sodium bromite</td></tr>
+            <tr><td>23</td><td>H₃PO₃</td><td>phosphorous acid</td></tr>
+            <tr><td>24</td><td>tartaric acid</td><td>C₄H₆O₆ (often H₂C₄H₄O₆)</td></tr>
+            <tr><td>25</td><td>hydrotelluric acid</td><td>H₂Te(aq)</td></tr>
+            <tr><td>26</td><td>mercury(I) nitrate</td><td>Hg₂(NO₃)₂</td></tr>
+            <tr><td>27</td><td>vanadium(V) oxide</td><td>V₂O₅</td></tr>
+            <tr><td>28</td><td>tetraphosphorus decaoxide</td><td>P₄O₁₀</td></tr>
+        </table>
+    </div></details>
+</section><section class="card searchable test1-card" data-keywords="summer dimensional analysis 515 m miles inches meters gallons silicon cylinder density" id="summer-da">
+    <div class="topichead"><div><div class="eyebrow">Summer Review II</div><h2>Dimensional Analysis</h2></div><span class="tag">Show work</span></div>
+    <p>Treat units like algebra. Build conversion factors so every unwanted unit cancels.</p>
+    <div class="formula">given × conversion factor × conversion factor → requested unit</div>
+    <details open=""><summary>Packet problems and results</summary><div class="content">
+        <table>
+            <tr><th>#</th><th>Setup / result</th></tr>
+            <tr><td>1</td><td>515 m × (1 mi / 1609.344 m) = <b>0.320 mi</b></td></tr>
+            <tr><td>2</td><td>200 in × (2.54 cm/in) × (1 m/100 cm) = <b>5.08 m</b></td></tr>
+            <tr><td>3</td><td>325 d × 24 × 60 × 60 = <b>2.81 × 10⁷ s</b></td></tr>
+            <tr><td>4</td><td>20 US gal × 3.78541 L/gal × 1000 mL/L ≈ <b>7.57 × 10⁴ mL</b></td></tr>
+            <tr><td>5</td><td>3 m = <b>300 cm</b></td></tr>
+            <tr><td>6</td><td>10 km = <b>10,000 m</b></td></tr>
+            <tr><td>7</td><td>15,050 mg = <b>15.050 g</b></td></tr>
+            <tr><td>8</td><td>3264 mL = <b>3.264 L</b></td></tr>
+            <tr><td>9</td><td>9,674,444 g = <b>9674.444 kg</b></td></tr>
+            <tr><td>10</td><td>Silicon cylinder: V = 2170 g ÷ 2.33 g/cm³ = 931 cm³; r = √[931/(π×16.8)] = 4.20 cm; diameter = <b>8.40 cm</b>.</td></tr>
+        </table>
+    </div></details>
+</section><section class="card searchable test1-card" data-keywords="summer significant figures 1.92 0.030100 460.00 rounding calculations" id="summer-sig">
+    <div class="topichead"><div><div class="eyebrow">Summer Review III</div><h2>Significant Figures</h2></div><span class="tag">High yield</span></div>
+    <div class="grid2">
+        <div class="mini"><b>× or ÷</b><br/>Round to the fewest significant figures.</div>
+        <div class="mini"><b>+ or −</b><br/>Round to the least precise decimal place.</div>
+    </div>
+    <details open=""><summary>Packet answers</summary><div class="content">
+        <table><tr><th>Item</th><th>Answer</th></tr>
+            <tr><td>1. 1.92 mm</td><td>3 sig figs</td></tr><tr><td>2. 0.030100 kJ</td><td>5</td></tr><tr><td>3. 6.022×10²³</td><td>4</td></tr><tr><td>4. 460.00 L</td><td>5</td></tr><tr><td>5. 0.00036 cm³</td><td>2</td></tr><tr><td>6. 100</td><td>usually 1 unless notation specifies otherwise</td></tr><tr><td>7. 1001</td><td>4</td></tr><tr><td>8. 0.001</td><td>1</td></tr><tr><td>9. 0.0101</td><td>3</td></tr>
+            <tr><td>10. 1.27 / 5.296</td><td>0.240 g/cm³</td></tr><tr><td>11. 12.235 / 1.01</td><td>12.1 g/L</td></tr><tr><td>12. 12.2 + 0.38</td><td>12.6 g</td></tr><tr><td>13. 17.3 + 2.785</td><td>20.1 g</td></tr><tr><td>14. 2.1 × 3.21</td><td>6.7</td></tr><tr><td>15. 200.1 × 120</td><td>2.4 × 10⁴ under the packet's assumed precision</td></tr><tr><td>16. 17.6 + 2.838 + 2.3 + 110.77</td><td>133.5</td></tr>
+        </table>
+    </div></details>
+</section><section class="card searchable test1-card" data-keywords="summer scientific notation 350000000 0.0000721 765400000000" id="summer-sci">
+    <div class="topichead"><div><div class="eyebrow">Summer Review IV</div><h2>Scientific Notation</h2></div><span class="tag">Fast points</span></div>
+    <table>
+        <tr><th>Original</th><th>Scientific notation</th></tr>
+        <tr><td>350,000,000 cal</td><td>3.5 × 10⁸ cal</td></tr>
+        <tr><td>0.0000721 mol</td><td>7.21 × 10⁻⁵ mol</td></tr>
+        <tr><td>0.0000000809 Å</td><td>8.09 × 10⁻⁸ Å</td></tr>
+        <tr><td>765,400,000,000 atoms</td><td>7.654 × 10¹¹ atoms</td></tr>
+    </table>
+</section><section class="card searchable test1-card" data-keywords="summer reactions synthesis decomposition single replacement double replacement combustion precipitation neutralization balance products" id="summer-rxn">
+    <div class="topichead"><div><div class="eyebrow">Summer Review V</div><h2>Predicting &amp; Balancing Reactions</h2></div><span class="tag">30 reactions</span></div>
+    <div class="decision">
+        <div><b>1 reactant → many</b><span>decomposition</span></div>
+        <div><b>many → 1 product</b><span>synthesis</span></div>
+        <div><b>element + compound</b><span>single replacement</span></div>
+        <div><b>ionic + ionic</b><span>double replacement</span></div>
+        <div><b>hydrocarbon + O₂</b><span>combustion</span></div>
+    </div>
+    <div class="trap"><b>Balance with coefficients only.</b> Changing a subscript changes the identity of the substance.</div>
+    <details open=""><summary>Complete packet reaction key</summary><div class="content">
+        <table class="rxn">
+            <tr><th>#</th><th>Type</th><th>Balanced equation</th></tr>
+            <tr><td>1</td><td>Decomposition</td><td>CaCO₃ → CaO + CO₂</td></tr>
+            <tr><td>2</td><td>Synthesis</td><td>4Al + 3O₂ → 2Al₂O₃</td></tr>
+            <tr><td>3</td><td>Single replacement</td><td>Fe + CuSO₄ → FeSO₄ + Cu</td></tr>
+            <tr><td>4</td><td>Combustion</td><td>C₆H₁₂ + 9O₂ → 6CO₂ + 6H₂O</td></tr>
+            <tr><td>5</td><td>Single replacement</td><td>Zn + H₂SO₄ → ZnSO₄ + H₂</td></tr>
+            <tr><td>6</td><td>Single replacement</td><td>Cl₂ + MgI₂ → MgCl₂ + I₂</td></tr>
+            <tr><td>7</td><td>Decomposition — packet convention</td><td>2NaOH → Na₂O + H₂O</td></tr>
+            <tr><td>8</td><td>Single replacement</td><td>Fe + 2HCl → FeCl₂ + H₂</td></tr>
+            <tr><td>9</td><td>Acid-base / double replacement</td><td>3NaOH + H₃PO₄ → Na₃PO₄ + 3H₂O</td></tr>
+            <tr><td>10</td><td>Gas-forming double replacement</td><td>(NH₄)₂SO₄ + Ca(OH)₂ → CaSO₄ + 2NH₃ + 2H₂O</td></tr>
+            <tr><td>11</td><td>Precipitation</td><td>2AgNO₃ + K₂SO₄ → Ag₂SO₄(s) + 2KNO₃</td></tr>
+            <tr><td>12</td><td>Neutralization / precipitation</td><td>3Mg(OH)₂ + 2H₃PO₄ → Mg₃(PO₄)₂ + 6H₂O</td></tr>
+            <tr><td>13</td><td>Single replacement</td><td>2Na + 2H₂O → 2NaOH + H₂</td></tr>
+            <tr><td>14</td><td>Decomposition</td><td>2KClO₃ → 2KCl + 3O₂</td></tr>
+            <tr><td>15</td><td>Double replacement</td><td>Al₂(SO₄)₃ + Ca₃(PO₄)₂ → 2AlPO₄ + 3CaSO₄</td></tr>
+            <tr><td>16</td><td>Synthesis</td><td>SO₂ + H₂O → H₂SO₃</td></tr>
+            <tr><td>17</td><td>Gas-forming double replacement</td><td>2(NH₄)₃PO₄ + 3Ba(OH)₂ → Ba₃(PO₄)₂ + 6NH₃ + 6H₂O</td></tr>
+            <tr><td>18</td><td>Neutralization</td><td>Ca(OH)₂ + 2HNO₃ → Ca(NO₃)₂ + 2H₂O</td></tr>
+            <tr><td>19</td><td>Combustion</td><td>C₃H₈ + 5O₂ → 3CO₂ + 4H₂O</td></tr>
+            <tr><td>20</td><td>Synthesis</td><td>2Li + S → Li₂S</td></tr>
+            <tr><td>21</td><td>Double replacement + gas formation</td><td>2NaHCO₃ + Cu(NO₃)₂ → CuCO₃(s) + 2NaNO₃ + CO₂ + H₂O</td></tr>
+            <tr><td>22</td><td>Decomposition — idealized packet answer</td><td>2MgO → 2Mg + O₂</td></tr>
+            <tr><td>23</td><td>Acid-base synthesis</td><td>HC₂H₃O₂ + NH₃ → NH₄C₂H₃O₂</td></tr>
+            <tr><td>24</td><td>Double replacement / precipitation</td><td>2FeCl₃ + 3Ag₂SO₃ → Fe₂(SO₃)₃ + 6AgCl</td></tr>
+            <tr><td>25</td><td>Single replacement</td><td>2Al + 3NiCl₂ → 2AlCl₃ + 3Ni</td></tr>
+            <tr><td>26</td><td>Double replacement — packet formal equation</td><td>4LiCl + Pb(NO₂)₄ → 4LiNO₂ + PbCl₄</td></tr>
+            <tr><td>27</td><td>Neutralization</td><td>3H₂SO₄ + 2Al(OH)₃ → Al₂(SO₄)₃ + 6H₂O</td></tr>
+            <tr><td>28</td><td>Precipitation</td><td>Cd(NO₃)₂ + Na₂S → CdS(s) + 2NaNO₃</td></tr>
+            <tr><td>29</td><td>Precipitation</td><td>Cr₂(SO₄)₃ + 3(NH₄)₂CO₃ → Cr₂(CO₃)₃(s) + 3(NH₄)₂SO₄</td></tr>
+            <tr><td>30</td><td>Combustion</td><td>CH₄ + 2O₂ → CO₂ + 2H₂O</td></tr>
+        </table>
+        <div class="note"><b>Packet-convention note:</b> the summer review includes some idealized/formal reaction patterns. Learn the pattern your packet is assessing and keep the packet answer key distinct from later, more detailed reaction chemistry.</div>
+    </div></details>
+</section><section class="card searchable test1-card" data-keywords="summer electron structure periodicity nickel arsenic palladium mercury uranium lead electronegativity radius ionization copper antimony" id="summer-electron">
+    <div class="topichead"><div><div class="eyebrow">Summer Review VI</div><h2>Electron Structure &amp; Periodicity</h2></div><span class="tag">11 problems</span></div>
+    <p><b>Filling rules:</b> Aufbau order, Pauli exclusion, and Hund's rule. Across a period, effective nuclear charge generally rises, atomic radius decreases, and electronegativity/ionization energy generally rise.</p>
+    <details open=""><summary>Complete packet answers</summary><div class="content">
+        <table>
+            <tr><th>#</th><th>Answer</th></tr>
+            <tr><td>1</td><td>Ni: [Ar] 4s² 3d⁸; 3d orbitals contain three paired boxes and two singly occupied boxes after Hund filling.</td></tr>
+            <tr><td>2</td><td>As: [Ar] 4s² 3d¹⁰ 4p³ → <b>3 unpaired electrons</b>.</td></tr>
+            <tr><td>3</td><td>Pd: <b>[Kr] 4d¹⁰</b> (exception; 5s empty).</td></tr>
+            <tr><td>4</td><td>Hg: [Xe] 4f¹⁴ 5d¹⁰ 6s² → <b>2 outer-shell valence electrons</b> under the packet treatment.</td></tr>
+            <tr><td>5</td><td>U: <b>[Rn] 5f³ 6d¹ 7s²</b>.</td></tr>
+            <tr><td>6</td><td>Pb: <b>[Xe] 4f¹⁴ 5d¹⁰ 6s² 6p²</b>.</td></tr>
+            <tr><td>7</td><td>Cl is more electronegative than S because it is farther right in the same period.</td></tr>
+            <tr><td>8</td><td>K has larger atomic radius than Br because radius decreases left → right across a period.</td></tr>
+            <tr><td>9</td><td>P has lower ionization energy than N because P is below N and its valence electrons are farther out/more shielded.</td></tr>
+            <tr><td>10</td><td>Cu: <b>[Ar] 3d¹⁰ 4s¹</b>.</td></tr>
+            <tr><td>11</td><td>Sb average atomic mass = (0.5725)(120.9038)+(0.4275)(122.0041) ≈ <b>121.37 amu</b>.</td></tr>
+        </table>
+    </div></details>
+</section><section class="card searchable test1-card" data-keywords="summer mole concept grams particles gas STP avogadro NaOH Au Ne CaBr2 water Ar SO3" id="summer-mole">
+    <div class="topichead"><div><div class="eyebrow">Summer Review VII</div><h2>Mole Concept</h2></div><span class="tag">Conversion hub</span></div>
+    <div class="roadmap">
+        <div>grams ↔ moles</div><div>particles ↔ moles</div><div>gas volume at STP ↔ moles</div>
+    </div>
+    <div class="formula">1 mol = 6.022 × 10²³ particles</div>
+    <div class="formula">Packet STP convention: 1 mol gas = 22.4 L</div>
+    <details open=""><summary>Packet answers</summary><div class="content">
+        <table>
+            <tr><th>Problem</th><th>Answer</th></tr>
+            <tr><td>12.64 g NaOH → mol</td><td>12.64 ÷ 40.00 = <b>0.3160 mol NaOH</b></td></tr>
+            <tr><td>3.00 × 10²⁴ atoms Au → mol</td><td><b>4.98 mol Au</b></td></tr>
+            <tr><td>40.0 L Ne at STP → mol</td><td><b>1.79 mol Ne</b></td></tr>
+            <tr><td>800. g CaBr₂ → mol</td><td><b>4.00 mol CaBr₂</b></td></tr>
+            <tr><td>3.011 × 10²² molecules H₂O → mol</td><td><b>0.05000 mol H₂O</b></td></tr>
+            <tr><td>6.78 L Ar at STP → mol</td><td><b>0.303 mol Ar</b></td></tr>
+        </table>
+        <h3>0.250 mol SO₃</h3>
+        <div class="formula">mass = 0.250 × 80.06 = 20.0 g SO₃</div>
+        <div class="formula">total atoms = 0.250 × 6.022×10²³ molecules × 4 atoms/molecule = 6.02×10²³ atoms</div>
+        <div class="formula">volume at STP = 0.250 × 22.4 = 5.60 L</div>
+    </div></details>
+</section><section class="card searchable test1-card" data-keywords="summer Lewis structures bonding SeCl2 nitrate OF2 BF3 sulfate ammonium CO2 CH3NH2 HCOOH HCN resonance" id="summer-bond">
+    <div class="topichead"><div><div class="eyebrow">Summer Review VIII</div><h2>Lewis Structures &amp; Bonding</h2></div><span class="tag">10 structures</span></div>
+    <div class="steps">
+        <div class="step"><b>Count total valence electrons.</b> Add electrons for negative charge; subtract for positive charge.</div>
+        <div class="step"><b>Choose the central atom.</b> Usually least electronegative, never H.</div>
+        <div class="step"><b>Connect atoms with single bonds.</b></div>
+        <div class="step"><b>Complete terminal octets, then place leftovers on the center.</b></div>
+        <div class="step"><b>If needed, form multiple bonds.</b></div>
+        <div class="step"><b>Check formal charges and resonance.</b></div>
+    </div>
+    <details open=""><summary>Packet structures — what each should show</summary><div class="content">
+        <table>
+            <tr><th>#</th><th>Species</th><th>Essential structure features</th></tr>
+            <tr><td>1</td><td>SeCl₂</td><td>Cl—Se—Cl; Se has 2 lone pairs, each Cl 3 lone pairs; bent.</td></tr>
+            <tr><td>2</td><td>NO₃⁻</td><td>Three equivalent resonance contributors; one N=O and two N—O in each contributor; bracketed − charge overall.</td></tr>
+            <tr><td>3</td><td>OF₂</td><td>F—O—F; O has 2 lone pairs; each F has 3; bent.</td></tr>
+            <tr><td>4</td><td>BF₃</td><td>Three B—F single bonds; B has an allowed incomplete octet (6 e⁻); trigonal planar.</td></tr>
+            <tr><td>5</td><td>SO₄²⁻</td><td>Tetrahedral sulfate; resonance. A common expanded-octet contributor uses two S=O and two S—O⁻ bonds.</td></tr>
+            <tr><td>6</td><td>NH₄⁺</td><td>Four N—H single bonds, no lone pair on N; tetrahedral; bracketed + charge.</td></tr>
+            <tr><td>7</td><td>CO₂</td><td>O=C=O; each O has 2 lone pairs; linear.</td></tr>
+            <tr><td>8</td><td>CH₃NH₂</td><td>H₃C—NH₂; C has 4 single bonds; N has 3 single bonds + 1 lone pair.</td></tr>
+            <tr><td>9</td><td>HCOOH</td><td>H—C(=O)—O—H; both O atoms have 2 lone pairs.</td></tr>
+            <tr><td>10</td><td>HCN</td><td>H—C≡N: ; N has 1 lone pair; linear.</td></tr>
+        </table>
+    </div></details>
+</section><section class="card searchable test1-card" data-keywords="summer stoichiometry sodium lithium bromide carbon dioxide propane water empirical molecular limiting barium phosphate octane sodium azide ammonia oxygen" id="summer-stoich">
+    <div class="topichead"><div><div class="eyebrow">Summer Review IX</div><h2>Stoichiometry</h2></div><span class="tag">10 problems</span></div>
+    <div class="roadmap"><div>1. Balance</div><div>2. Convert to moles</div><div>3. Use mole ratio</div><div>4. Convert to requested unit</div></div>
+    <div class="trap"><b>If two reactants are given:</b> determine the product obtainable from each. The reactant that makes less product is limiting.</div>
+    <details open=""><summary>Complete packet answer key</summary><div class="content">
+        <table>
+            <tr><th>#</th><th>Topic</th><th>Answer</th></tr>
+            <tr><td>1</td><td>Na + LiBr</td><td>9.21 g Li under the worksheet's assumed reaction pattern.</td></tr>
+            <tr><td>2</td><td>100 L CO₂ at STP</td><td>2.69 × 10²⁴ molecules CO₂.</td></tr>
+            <tr><td>3</td><td>Propane → 45.9 g H₂O</td><td>28.1 g C₃H₈.</td></tr>
+            <tr><td>4</td><td>3.02 × 10²⁶ molecules H₂O</td><td>5.01 × 10² mol H₂O.</td></tr>
+            <tr><td>5</td><td>Fe/O formula</td><td>Empirical Fe₂O₃; worksheet molecular-form calculation Fe₄O₆.</td></tr>
+            <tr><td>6</td><td>Na₃PO₄ + Ba(NO₃)₂</td><td>Ba(NO₃)₂ limiting; 4.91 g Ba₃(PO₄)₂.</td></tr>
+            <tr><td>7</td><td>Sn/F formula</td><td>Empirical SnF₄; worksheet molecular-form calculation Sn₃F₁₂.</td></tr>
+            <tr><td>8</td><td>10.0 g octane combustion</td><td>35.0 g O₂ required.</td></tr>
+            <tr><td>9</td><td>NaN₃ → 34.8 g N₂</td><td>53.8 g NaN₃.</td></tr>
+            <tr><td>10</td><td>NH₃ + O₂ → NO + H₂O</td><td>O₂ limiting; 2.06 g NO.</td></tr>
+        </table>
+    </div></details>
+    <details><summary>Limiting-reactant worked example</summary><div class="content">
+        <div class="formula">2Na₃PO₄ + 3Ba(NO₃)₂ → Ba₃(PO₄)₂ + 6NaNO₃</div>
+        <div class="formula">3.50 g Na₃PO₄ ÷ 163.94 = 0.0213 mol</div>
+        <div class="formula">6.40 g Ba(NO₃)₂ ÷ 261.35 = 0.0245 mol</div>
+        <div class="formula">From Na₃PO₄: 0.0213 × (1/2) = 0.0107 mol product</div>
+        <div class="formula">From Ba(NO₃)₂: 0.0245 × (1/3) = 0.00816 mol product</div>
+        <p>Smaller product amount comes from Ba(NO₃)₂, so it is limiting.</p>
+        <div class="formula">0.00816 mol × 601.93 g/mol = 4.91 g Ba₃(PO₄)₂</div>
+    </div></details>
+</section><section class="card searchable unit0-collapsible" data-keywords="unit 0 scientific method matter measurement sig figs density atomic theory naming acids ions molecular compounds hydrates" id="unit0"><div class="eyebrow">Unit 0</div><h2>Unit 0 Foundations</h2><p class="lead">All Unit 0 content is now organized into collapsible sections so it is easier to navigate without losing any of the depth.</p><div class="u0-jump"><a href="#mustknow">Unit 0 Quick Reference</a><a href="#science">Chemistry &amp; Scientific Problem Solving</a><a href="#matter">States of Matter &amp; Particle Diagrams</a><a href="#changes">Physical vs Chemical Properties &amp; Changes</a><a href="#sci">Scientific Notation</a><a href="#si">SI Units &amp; Prefixes</a><a href="#dim">Dimensional Analysis</a><a href="#temp">Temperature</a><a href="#density">Derived Units, Volume &amp; Density</a><a href="#sigfig">Significant Figures &amp; Rounding</a><a href="#accuracy">Accuracy, Precision &amp; Percent Error</a><a href="#history">Atomic Theory: Scientist ↔ Discovery</a><a href="#atom">Protons, Neutrons, Electrons &amp; Ions</a><a href="#ionic">Binary Ionic Compounds</a><a href="#poly">Polyatomic Ions</a><a href="#acids">Acid Nomenclature</a><a href="#molecular">Binary Molecular Compounds</a><a href="#hydrates">Hydrates</a><a href="#tasks">Unit 0 Task Answers</a><a href="#quiz">Mixed Mastery Quiz</a></div><details class="u0-detail searchable" id="mustknow" open=""><summary>Unit 0 · Unit 0 Quick Reference</summary><div class="u0-body"><div class="grid2"><div class="mini"><b>Physical vs chemical:</b> physical = composition unchanged; chemical = atoms rearrange into different substances.</div><div class="mini"><b>Sig figs:</b> ×/÷ → fewest sig figs. +/− → fewest decimal places.</div><div class="mini"><b>Atomic structure:</b> Z=p; A=p+n; neutral p=e; cation loses e⁻; anion gains e⁻.</div><div class="mini"><b>Ionic formulas:</b> total positive and negative charge must sum to zero.</div><div class="mini"><b>Acids:</b> -ate→-ic; -ite→-ous; binary acids use hydro-…-ic.</div><div class="mini"><b>Molecular compounds:</b> two nonmetals use prefixes; mono- is not used on the first element.</div></div><div class="trap"><b>Most dangerous traps:</b> Roman numeral is charge, not atom count; do not use molecular prefixes for ionic compounds; boiling is physical; average atomic mass is not mass number; units must cancel in dimensional analysis.</div></div></details><details class="u0-detail searchable" id="science" open=""><summary>Topic 0A · Chemistry &amp; Scientific Problem Solving</summary><div class="u0-body"><div class="topichead"><div><div class="eyebrow">Topic 0A</div><h2>Chemistry &amp; Scientific Problem Solving</h2></div><span class="tag">Conceptual</span></div><details open=""><summary>What chemistry studies</summary><div class="content"><p>The notes define chemistry as the science dealing with <b>matter and the changes matter undergoes</b>. Matter has mass and occupies space.</p><div class="ace"><b>Exam translation:</b> chemistry questions often ask what matter is made of, how particles are arranged, what properties matter has, or how one substance changes into another.</div></div></details><details><summary>Observation → hypothesis → experiment</summary><div class="content"><div class="steps"><div class="step"><b>State the problem and make observations.</b> Quantitative observations involve numbers/measurement; qualitative observations do not.</div><div class="step"><b>Form a possible explanation.</b> The notes call this a hypothesis.</div><div class="step"><b>Perform experiments to test it.</b> Results can lead to modification and further testing.</div></div><table><tr><th>Statement</th><th>Type</th></tr><tr><td>“The solution is blue.”</td><td>Qualitative observation</td></tr><tr><td>“The mass is 12.41 g.”</td><td>Quantitative observation</td></tr><tr><td>“The color changed because a new product formed.”</td><td>Hypothesis/explanation</td></tr></table></div></details><details><summary>Theory vs law</summary><div class="content"><p>In the notes, a <b>theory explains</b> while a <b>law states general observed behavior</b>. The law example is conservation of mass: mass remains unchanged through chemical change.</p><div class="trap">A theory does not become a law simply because it is “proven more.” They answer different kinds of questions.</div></div></details><label class="master"><input type="checkbox"/>I can distinguish observation, hypothesis, theory, and law.</label></div></details><details class="u0-detail searchable" id="matter"><summary>Topic 0A · States of Matter &amp; Particle Diagrams</summary><div class="u0-body"><div class="topichead"><div><div class="eyebrow">Topic 0A</div><h2>States of Matter &amp; Particle Diagrams</h2></div><span class="tag">Visual</span></div><table><tr><th>State</th><th>Shape</th><th>Volume</th><th>Particle picture</th><th>Motion</th></tr><tr><td>Solid</td><td>Definite</td><td>Definite</td><td>Tightly packed</td><td>Vibrate near fixed positions</td></tr><tr><td>Liquid</td><td>Takes container shape</td><td>Definite</td><td>Close but disordered</td><td>Move around one another</td></tr><tr><td>Gas</td><td>No definite shape</td><td>No definite volume</td><td>Widely separated</td><td>Move freely, fill container</td></tr></table><div class="trap"><b>Particle-diagram trap:</b> particles do not become physically larger when a sample becomes a gas; the spacing changes.</div><label class="master"><input type="checkbox"/>I can identify a state from both properties and a particle picture.</label></div></details><details class="u0-detail searchable" id="changes"><summary>Topic 0A · Physical vs Chemical Properties &amp; Changes</summary><div class="u0-body"><div class="topichead"><div><div class="eyebrow">Topic 0A</div><h2>Physical vs Chemical Properties &amp; Changes</h2></div><span class="tag">High yield</span></div><details open=""><summary>Property versus change</summary><div class="content"><table><tr><th></th><th>Physical</th><th>Chemical</th></tr><tr><td>Property</td><td>Color, odor, density, hardness, solubility, melting point, boiling point</td><td>Behavior in reactions such as acid/base reactions or redox</td></tr><tr><td>Change</td><td>Chemical composition stays the same</td><td>Atoms rearrange to produce different composition</td></tr></table></div></details><details><summary>Phase-change names</summary><div class="content"><table><tr><th>Change</th><th>Name</th></tr><tr><td>solid→liquid</td><td>melting</td></tr><tr><td>liquid→gas</td><td>boiling</td></tr><tr><td>gas→liquid</td><td>condensing</td></tr><tr><td>solid→gas</td><td>sublimation</td></tr><tr><td>gas→solid</td><td>deposition / reverse sublimation</td></tr><tr><td>liquid→solid</td><td>freezing</td></tr></table><div class="ace">Every phase change above is physical because identity/composition remains the same.</div></div></details><details><summary>Particle-level distinction</summary><div class="content"><p>The notes emphasize that boiling water separates H₂O molecules from one another without splitting individual H₂O molecules. By contrast, electrolysis breaks water molecules apart and rearranges atoms.</p><div class="trap">Color or energy change can be evidence of a reaction, but the defining criterion is new chemical composition.</div></div></details><label class="master"><input type="checkbox"/>I can justify physical vs chemical change using composition and particles.</label></div></details><details class="u0-detail searchable" id="sci"><summary>Topic 0B · Scientific Notation</summary><div class="u0-body"><div class="topichead"><div><div class="eyebrow">Topic 0B</div><h2>Scientific Notation</h2></div><span class="tag">Calculation</span></div><div class="formula">a × 10ⁿ, with 1 ≤ |a| &lt; 10</div><p>Move the decimal <b>left</b> → positive exponent. Move it <b>right</b> → negative exponent.</p><div class="grid2"><div class="mini">42,000 → <b>4.2×10⁴</b></div><div class="mini">0.00012 → <b>1.2×10⁻⁴</b></div></div><details><summary>Task 0.1 answers</summary><div class="content"><table><tr><th>Ordinary</th><th>Scientific</th></tr><tr><td>24500</td><td>2.45×10⁴</td></tr><tr><td>356</td><td>3.56×10²</td></tr><tr><td>0.000985</td><td>9.85×10⁻⁴</td></tr><tr><td>0.222</td><td>2.22×10⁻¹</td></tr><tr><td>12200</td><td>1.22×10⁴</td></tr></table><table><tr><th>Scientific</th><th>Ordinary</th></tr><tr><td>4.2×10³</td><td>4200</td></tr><tr><td>2.15×10⁻⁴</td><td>0.000215</td></tr><tr><td>3.14×10⁻⁶</td><td>0.00000314</td></tr><tr><td>9.22×10⁵</td><td>922000</td></tr><tr><td>9.57×10²</td><td>957</td></tr></table></div></details><label class="master"><input type="checkbox"/>I can convert in both directions and choose the exponent sign correctly.</label></div></details><details class="u0-detail searchable" id="si"><summary>Topic 0B · SI Units &amp; Prefixes</summary><div class="u0-body"><div class="topichead"><div><div class="eyebrow">Topic 0B</div><h2>SI Units &amp; Prefixes</h2></div><span class="tag">Memorize</span></div><div class="grid2"><table><tr><th>Quantity</th><th>Unit</th><th>Symbol</th></tr><tr><td>Mass</td><td>kilogram</td><td>kg</td></tr><tr><td>Length</td><td>meter</td><td>m</td></tr><tr><td>Time</td><td>second</td><td>s</td></tr><tr><td>Amount</td><td>mole</td><td>mol</td></tr><tr><td>Temperature</td><td>kelvin</td><td>K</td></tr></table><table><tr><th>Prefix</th><th>Symbol</th><th>Factor</th></tr><tr><td>giga</td><td>G</td><td>10⁹</td></tr><tr><td>mega</td><td>M</td><td>10⁶</td></tr><tr><td>kilo</td><td>k</td><td>10³</td></tr><tr><td>deci</td><td>d</td><td>10⁻¹</td></tr><tr><td>centi</td><td>c</td><td>10⁻²</td></tr><tr><td>milli</td><td>m</td><td>10⁻³</td></tr><tr><td>micro</td><td>µ</td><td>10⁻⁶</td></tr><tr><td>nano</td><td>n</td><td>10⁻⁹</td></tr><tr><td>pico</td><td>p</td><td>10⁻¹²</td></tr></table></div><div class="trap">Capitalization matters: M = mega, m = milli; K is kelvin while k is kilo.</div><label class="master"><input type="checkbox"/>I know the units and prefixes listed in the notes.</label></div></details><details class="u0-detail searchable" id="dim"><summary>Topic 0B · Dimensional Analysis</summary><div class="u0-body"><div class="topichead"><div><div class="eyebrow">Topic 0B</div><h2>Dimensional Analysis</h2></div><span class="tag">Critical skill</span></div><div class="steps"><div class="step"><b>Write the given quantity and unit.</b></div><div class="step"><b>Multiply by a conversion factor.</b> Put the unwanted unit on the opposite side so it cancels.</div><div class="step"><b>Keep chaining factors</b> until the desired unit is the only one left.</div><div class="step"><b>Then calculate.</b></div></div><div class="formula">9.00 in × (2.54 cm / 1.00 in) = 22.9 cm</div><div class="trap">If the unit you want to eliminate does not cancel, the factor is upside down.</div><details><summary>Task 0.2 answers</summary><div class="content"><p>Using the packet's equivalences:</p><div class="formula">30 m × 1.094 yd/m × 1 mi/1760 yd ≈ 0.0186 mi</div><div class="formula">1500 yd × 1 mi/1760 yd ≈ 0.852 mi</div><div class="formula">206 mi × 1760 yd/mi × 1.000 m/1.094 yd ≈ 3.31×10⁵ m</div><div class="formula">34 kg × 2.205 lb/kg = 74.97 lb</div><div class="formula">34 lb × 1 kg/2.205 lb ≈ 15.4 kg</div><p><b>Larger:</b> 3.00 miles &gt; 3000 m; 25 lb &gt; 10.0 kg.</p></div></details><label class="master"><input type="checkbox"/>I can set up conversions by canceling units rather than memorizing directions.</label></div></details><details class="u0-detail searchable" id="temp"><summary>Topic 0B · Temperature</summary><div class="u0-body"><div class="topichead"><div><div class="eyebrow">Topic 0B</div><h2>Temperature</h2></div><span class="tag">Formula</span></div><div class="formula">K = °C + 273</div><div class="grid2"><div class="mini">13 K = <b>−260°C</b></div><div class="mini">1390°C = <b>1663 K</b></div></div><p>A temperature <b>change</b> has the same numerical size in °C and K because the scales differ only by a constant offset.</p><div class="trap">Kelvin is written K, not °K.</div><label class="master"><input type="checkbox"/>I can convert °C↔K and explain ΔT.</label></div></details><details class="u0-detail searchable" id="density"><summary>Topic 0B · Derived Units, Volume &amp; Density</summary><div class="u0-body"><div class="topichead"><div><div class="eyebrow">Topic 0B</div><h2>Derived Units, Volume &amp; Density</h2></div><span class="tag">Calculation</span></div><div class="formula">1.000 mL = 1.000 cm³</div><div class="formula">1.000 L = 1000. mL = 1000. cm³ = 1.000 dm³</div><div class="formula">D = m/V    m = DV    V = m/D</div><div class="ace">Use units to check the algebra. If density is g/mL and volume is mL, multiplying gives grams.</div><label class="master"><input type="checkbox"/>I can rearrange density and verify with units.</label></div></details><details class="u0-detail searchable" id="sigfig"><summary>Topic 0B · Significant Figures &amp; Rounding</summary><div class="u0-body"><div class="topichead"><div><div class="eyebrow">Topic 0B</div><h2>Significant Figures &amp; Rounding</h2></div><span class="tag">Very high yield</span></div><table><tr><th>Rule</th><th>Example</th></tr><tr><td>Nonzero digits count</td><td>357 → 3</td></tr><tr><td>Leading zeros do not count</td><td>0.00077 → 2</td></tr><tr><td>Captive zeros count</td><td>1024 → 4</td></tr><tr><td>Trailing zeros count only with a decimal point under the packet rule</td><td>34000000 → 2</td></tr><tr><td>Exact numbers have unlimited sig figs</td><td>counted/defined values</td></tr><tr><td>10ⁿ does not affect sig-fig count</td><td>4.7×10⁻⁵ → 2</td></tr></table><div class="grid2"><div class="mini"><b>× / ÷</b><br/>fewest <b>significant figures</b></div><div class="mini"><b>+ / −</b><br/>fewest <b>decimal places</b></div></div><div class="trap">This rule switch is one of the easiest ways to throw away a correct calculation.</div><details><summary>Task 0.4 answers</summary><div class="content"><p><b>Counts:</b> 250.7→4; 0.00077→2; 1024→4; 4.7×10⁻⁵→2; 34000000→2; 1003.→4.</p><table><tr><th>Calculation</th><th>Reported answer</th></tr><tr><td>(34.5)(23.46)</td><td>809 (3 sf)</td></tr><tr><td>123/3</td><td>40 if 3 is treated as measured 1-sf data</td></tr><tr><td>(2.61×10⁻¹)(356)</td><td>92.9</td></tr><tr><td>21.78+45.86</td><td>67.64</td></tr><tr><td>23.888897−11.2</td><td>12.7</td></tr><tr><td>6−3.0</td><td>3</td></tr></table><div class="note">The notes also say exact numbers have unlimited sig figs. If a teacher intends the “3” in 123/3 as an exact count rather than measured data, treatment differs; use the convention taught in class.</div></div></details><p>For multi-step work, the notes recommend generally keeping calculator digits until the end and then rounding once.</p><label class="master"><input type="checkbox"/>I can count sig figs and choose the right operation rule.</label></div></details><details class="u0-detail searchable" id="accuracy"><summary>Topic 0B · Accuracy, Precision &amp; Percent Error</summary><div class="u0-body"><div class="topichead"><div><div class="eyebrow">Topic 0B</div><h2>Accuracy, Precision &amp; Percent Error</h2></div><span class="tag">Data analysis</span></div><div class="grid2"><div class="mini"><b>Accuracy</b> = closeness to actual/accepted value.</div><div class="mini"><b>Precision</b> = closeness of repeated measurements to each other.</div></div><div class="formula">% error = |actual − calculated| / actual × 100</div><details><summary>Task 0.5</summary><div class="content"><p>Actual length = 6.000 m. Set Y measurements are 6.002 and 6.004 m with average 6.003 m.</p><div class="ace"><b>Most accurate: Set Y.</b> Its average is closest to 6.000 m.<br/><b>Most precise: Set Y.</b> Its repeated values are also closest to one another.</div></div></details><div class="trap">A set can be precise but inaccurate. “Close together” and “close to true” are separate questions.</div><label class="master"><input type="checkbox"/>I can distinguish accuracy and precision and use percent error.</label></div></details><details class="u0-detail searchable" id="history"><summary>Topic 0C · Atomic Theory: Scientist ↔ Discovery</summary><div class="u0-body"><div class="topichead"><div><div class="eyebrow">Topic 0C</div><h2>Atomic Theory: Scientist ↔ Discovery</h2></div><span class="tag">Memorize links</span></div><table><tr><th>Scientist</th><th>What the Unit 0 notes connect them to</th></tr><tr><td>Democritus</td><td>Early “atomos” idea: tiny indivisible particles</td></tr><tr><td>Lavoisier</td><td>Law of conservation of mass</td></tr><tr><td>Proust</td><td>Law of constant composition</td></tr><tr><td>Dalton</td><td>Atomic theory combining earlier ideas/laws</td></tr><tr><td>Crookes</td><td>Cathode ray tube: negative particles exist</td></tr><tr><td>J. J. Thomson</td><td>Cathode ray deflection: electron mass/charge ratio</td></tr><tr><td>Millikan</td><td>Oil drop: electron charge</td></tr><tr><td>Rutherford, Marsden &amp; Geiger</td><td>Gold foil: nucleus present</td></tr><tr><td>Bohr</td><td>Specific allowed electron orbits in his model</td></tr><tr><td>Schrödinger</td><td>Quantum model incorporating wave nature</td></tr><tr><td>Chadwick</td><td>Neutron discovery (1932)</td></tr></table><details><summary>Dalton's theory in plain English</summary><div class="content"><ol><li>Elements consist of atoms.</li><li>Dalton originally treated atoms of one element as identical; the notes flag isotopes as a later complication.</li><li>Different elements have different atoms.</li><li>Compounds contain fixed relative numbers/types of atoms → constant composition.</li><li>Chemical reactions rearrange atoms; they are not created/destroyed → conservation of mass.</li></ol></div></details><label class="master"><input type="checkbox"/>I can match every named scientist to the experiment/idea in the notes.</label></div></details><details class="u0-detail searchable" id="atom"><summary>Topic 0C · Protons, Neutrons, Electrons &amp; Ions</summary><div class="u0-body"><div class="topichead"><div><div class="eyebrow">Topic 0C</div><h2>Protons, Neutrons, Electrons &amp; Ions</h2></div><span class="tag">Foundational</span></div><table><tr><th>Particle</th><th>Charge</th><th>Mass in notes</th><th>Location</th></tr><tr><td>Proton</td><td>+1</td><td>1 amu</td><td>Nucleus</td></tr><tr><td>Neutron</td><td>0</td><td>1 amu</td><td>Nucleus</td></tr><tr><td>Electron</td><td>−1</td><td>1/1836 amu</td><td>Outside nucleus</td></tr></table><div class="formula">Z = protons</div><div class="formula">A = protons + neutrons → neutrons = A − Z</div><p><b>Neutral:</b> p=e. <b>Cation:</b> loses electrons, so p&gt;e. <b>Anion:</b> gains electrons, so e&gt;p.</p><div class="trap">Never change proton count to make an ion; changing protons changes the element.</div><details><summary>Task 0.6 answers</summary><div class="content"><table><tr><th>Species</th><th>p</th><th>e</th><th>n</th></tr><tr><td>²¹⁰₈₂Pb</td><td>82</td><td>82</td><td>128</td></tr><tr><td>³⁴₁₆S</td><td>16</td><td>16</td><td>18</td></tr></table><p>All first 20 neutral atoms have p=e. Using the simplified values in the packet's table, 10 have p=n: He, C, N, O, Ne, Mg, Si, S, Ar, Ca.</p></div></details><div class="extra"><b>Clarification beyond the packet's simplified exercise:</b> the periodic table generally shows average atomic mass, while an isotope's mass number is a whole-number proton+neutron count.</div><label class="master"><input type="checkbox"/>I can find p/n/e quickly and distinguish atomic number from mass number.</label></div></details><details class="u0-detail searchable" id="ionic"><summary>Topic 0D · Binary Ionic Compounds</summary><div class="u0-body"><div class="topichead"><div><div class="eyebrow">Topic 0D</div><h2>Binary Ionic Compounds</h2></div><span class="tag">Major target</span></div><div class="ace"><b>First decision:</b> metal + nonmetal → ionic. Formula must have net charge zero.</div><details open=""><summary>Name → formula algorithm</summary><div class="content"><div class="steps"><div class="step">Write the cation and anion with charges.</div><div class="step">Find the smallest whole-number ratio that balances total charge.</div><div class="step">Write those ratios as subscripts.</div><div class="step">Reduce subscripts if they share a common factor.</div></div><div class="formula">Mg²⁺ + N³⁻ → Mg₃N₂ because +6 balances −6</div></div></details><details><summary>Formula → name algorithm</summary><div class="content"><p>Name the positive ion first. A monatomic negative ion uses the root + <b>-ide</b>. If the metal has variable charge, infer its charge and show it as a Roman numeral.</p><div class="formula">CuO: O²⁻ → Cu²⁺ → copper(II) oxide</div><div class="formula">Cu₂O: total Cu charge = +2, so each Cu⁺ → copper(I) oxide</div><div class="trap">Roman numeral = charge on one metal ion, not number of metal atoms.</div></div></details><details><summary>Monatomic ions listed in the notes</summary><div class="content"><div class="grid2"><table><tr><th>Anion</th><th>Formula</th></tr><tr><td>bromide</td><td>Br⁻</td></tr><tr><td>chloride</td><td>Cl⁻</td></tr><tr><td>fluoride</td><td>F⁻</td></tr><tr><td>hydride</td><td>H⁻</td></tr><tr><td>iodide</td><td>I⁻</td></tr><tr><td>nitride</td><td>N³⁻</td></tr><tr><td>oxide</td><td>O²⁻</td></tr><tr><td>phosphide</td><td>P³⁻</td></tr><tr><td>sulfide</td><td>S²⁻</td></tr></table><table><tr><th>Cation</th><th>Formula</th></tr><tr><td>Aluminum</td><td>Al³⁺</td></tr><tr><td>Barium</td><td>Ba²⁺</td></tr><tr><td>Calcium</td><td>Ca²⁺</td></tr><tr><td>Copper(I)/(II)</td><td>Cu⁺ / Cu²⁺</td></tr><tr><td>Iron(II)/(III)</td><td>Fe²⁺ / Fe³⁺</td></tr><tr><td>Lead(II)/(IV)</td><td>Pb²⁺ / Pb⁴⁺</td></tr><tr><td>Magnesium</td><td>Mg²⁺</td></tr><tr><td>Potassium</td><td>K⁺</td></tr><tr><td>Silver</td><td>Ag⁺</td></tr><tr><td>Sodium</td><td>Na⁺</td></tr><tr><td>Zinc</td><td>Zn²⁺</td></tr></table></div></div></details><details><summary>Task 0.7 answers</summary><div class="content"><p><b>Names:</b> NaCl sodium chloride; SrO strontium oxide; AlN aluminum nitride; BaCl₂ barium chloride; K₂O potassium oxide; CuO copper(II) oxide; Cu₂O copper(I) oxide.</p><p><b>Formulas:</b> magnesium nitride Mg₃N₂; barium bromide BaBr₂; aluminum phosphide AlP; potassium iodide KI; lithium chloride LiCl; sodium fluoride NaF; tin(IV) bromide SnBr₄.</p></div></details><label class="master"><input type="checkbox"/>I can write and name binary ionic compounds including Roman numerals.</label></div></details><details class="u0-detail searchable" id="poly"><summary>Topic 0D · Polyatomic Ions</summary><div class="u0-body"><div class="topichead"><div><div class="eyebrow">Topic 0D</div><h2>Polyatomic Ions</h2></div><span class="tag">Memorize + logic</span></div><table><tr><th>Name from notes</th><th>Formula</th></tr><tr><td>ammonium</td><td>NH₄⁺</td></tr><tr><td>carbonate</td><td>CO₃²⁻</td></tr><tr><td>chromate(VI)</td><td>CrO₄²⁻</td></tr><tr><td>dichromate(VI)</td><td>Cr₂O₇²⁻</td></tr><tr><td>ethanedioate</td><td>C₂O₄²⁻</td></tr><tr><td>hydrogen carbonate</td><td>HCO₃⁻</td></tr><tr><td>hydrogen sulfate</td><td>HSO₄⁻</td></tr><tr><td>hydroxide</td><td>OH⁻</td></tr><tr><td>manganate(VII)/permanganate</td><td>MnO₄⁻</td></tr><tr><td>nitrate</td><td>NO₃⁻</td></tr><tr><td>nitrite</td><td>NO₂⁻</td></tr><tr><td>phosphate</td><td>PO₄³⁻</td></tr><tr><td>sulfate</td><td>SO₄²⁻</td></tr><tr><td>sulfite</td><td>SO₃²⁻</td></tr></table><details open=""><summary>Parentheses rule</summary><div class="content"><p>If more than one copy of a polyatomic ion is required, put the whole ion in parentheses.</p><div class="formula">Al³⁺ + SO₄²⁻ → Al₂(SO₄)₃</div><div class="trap">Al₂SO₄₃ does not correctly preserve three sulfate ions.</div></div></details><details><summary>Oxoanion oxygen-count pattern</summary><div class="content"><div class="formula">hypo-(element)-ite → (element)-ite → (element)-ate → per-(element)-ate</div><p>More oxygen as you move right. When only two are emphasized, <b>-ite has fewer O than -ate</b>: sulfite SO₃²⁻ vs sulfate SO₄²⁻.</p><p>The notes also state that <b>thio-</b> indicates sulfur replacing an oxygen atom in an anion.</p></div></details><details><summary>Task 0.8 answers</summary><div class="content"><table><tr><th>Name</th><th>Formula</th></tr><tr><td>ammonium nitrate</td><td>NH₄NO₃</td></tr><tr><td>copper(II) bromide</td><td>CuBr₂</td></tr><tr><td>copper(I) bromide</td><td>CuBr</td></tr><tr><td>zinc hydrogen sulfate</td><td>Zn(HSO₄)₂</td></tr><tr><td>aluminum sulfate</td><td>Al₂(SO₄)₃</td></tr><tr><td>sodium perchlorate</td><td>NaClO₄</td></tr><tr><td>copper(II) iodite</td><td>Cu(IO₂)₂</td></tr></table><table><tr><th>Formula</th><th>Name</th></tr><tr><td>NaNO₃</td><td>sodium nitrate</td></tr><tr><td>KMnO₄</td><td>potassium permanganate / manganate(VII)</td></tr><tr><td>CaC₂O₄</td><td>calcium ethanedioate</td></tr><tr><td>CuSO₄</td><td>copper(II) sulfate</td></tr><tr><td>Cu₂SO₄</td><td>copper(I) sulfate</td></tr><tr><td>KNO₂</td><td>potassium nitrite</td></tr><tr><td>LiClO₄</td><td>lithium perchlorate</td></tr></table></div></details><label class="master"><input type="checkbox"/>I can keep polyatomic ions intact and balance their charges.</label></div></details><details class="u0-detail searchable" id="acids"><summary>Topic 0D · Acid Nomenclature</summary><div class="u0-body"><div class="topichead"><div><div class="eyebrow">Topic 0D</div><h2>Acid Nomenclature</h2></div><span class="tag">Patterns</span></div><details open=""><summary>Binary acids</summary><div class="content"><div class="formula">hydro + nonmetal root + ic acid</div><p>Example from notes: HCl → <b>hydrochloric acid</b>.</p><div class="trap">Do not automatically put hydro- on oxoacids.</div></div></details><details><summary>Oxoacids</summary><div class="content"><div class="grid2"><div class="mini"><b>-ate → -ic acid</b><br/>sulfate → sulfuric acid</div><div class="mini"><b>-ite → -ous acid</b><br/>sulfite → sulfurous acid</div></div><table><tr><th>Anion</th><th>Acid</th></tr><tr><td>ClO⁻ hypochlorite</td><td>HClO hypochlorous acid</td></tr><tr><td>ClO₂⁻ chlorite</td><td>HClO₂ chlorous acid</td></tr><tr><td>ClO₃⁻ chlorate</td><td>HClO₃ chloric acid</td></tr><tr><td>ClO₄⁻ perchlorate</td><td>HClO₄ perchloric acid</td></tr></table><div class="ace">Keep hypo-/per-; only change -ite/-ate to -ous/-ic.</div></div></details><label class="master"><input type="checkbox"/>I can name binary acids and oxoacids from the packet rules.</label></div></details><details class="u0-detail searchable" id="molecular"><summary>Topic 0D · Binary Molecular Compounds</summary><div class="u0-body"><div class="topichead"><div><div class="eyebrow">Topic 0D</div><h2>Binary Molecular Compounds</h2></div><span class="tag">Prefixes</span></div><div class="ace"><b>First decision:</b> two nonmetals → molecular naming with prefixes.</div><table><tr><th>Prefix</th><th>#</th></tr><tr><td>mono</td><td>1</td></tr><tr><td>di</td><td>2</td></tr><tr><td>tri</td><td>3</td></tr><tr><td>tetra</td><td>4</td></tr><tr><td>penta</td><td>5</td></tr><tr><td>hexa</td><td>6</td></tr></table><ol><li>Name first element normally; use prefix for count except <b>mono- is omitted on first element</b>.</li><li>Name second element with a prefix and end it in <b>-ide</b>.</li><li>Drop awkward final prefix vowels when appropriate: monoxide, pentoxide.</li></ol><div class="trap">Do not use Roman numerals for molecular compounds.</div><details><summary>Examples from the notes</summary><div class="content"><p>BCl₃ boron trichloride; CCl₄ carbon tetrachloride; CO carbon monoxide; CO₂ carbon dioxide; NO nitrogen monoxide; NO₂ nitrogen dioxide.</p></div></details><details><summary>Task 0.9 answers</summary><div class="content"><table><tr><th>Name</th><th>Formula</th></tr><tr><td>dinitrogen tetroxide</td><td>N₂O₄</td></tr><tr><td>phosphorus pentachloride</td><td>PCl₅</td></tr><tr><td>iodine trifluoride</td><td>IF₃</td></tr><tr><td>nitrogen dioxide</td><td>NO₂</td></tr><tr><td>dihydrogen monoxide</td><td>H₂O</td></tr></table><table><tr><th>Formula</th><th>Name</th></tr><tr><td>N₂O₅</td><td>dinitrogen pentoxide</td></tr><tr><td>PCl₃</td><td>phosphorus trichloride</td></tr><tr><td>SF₆</td><td>sulfur hexafluoride</td></tr><tr><td>H₂O</td><td>dihydrogen monoxide (normally water)</td></tr><tr><td>Cl₂O</td><td>dichlorine monoxide</td></tr></table></div></details><label class="master"><input type="checkbox"/>I can classify molecular compounds and use prefixes correctly.</label></div></details><details class="u0-detail searchable" id="hydrates"><summary>Topic 0D · Hydrates</summary><div class="u0-body"><div class="topichead"><div><div class="eyebrow">Topic 0D</div><h2>Hydrates</h2></div><span class="tag">Naming</span></div><p>Hydrates are ionic formula units with water molecules incorporated into the solid structure. Heating can drive off the water; the remaining salt is <b>anhydrous</b>.</p><div class="formula">CuSO₄·5H₂O → copper(II) sulfate pentahydrate</div><div class="ace">The number after the dot gives water molecules per ionic formula unit.</div><label class="master"><input type="checkbox"/>I can name a hydrate and define anhydrous.</label></div></details><details class="u0-detail searchable" id="tasks"><summary>Unit 0 Practice · Unit 0 Task Answers</summary><div class="u0-body"><p>Attempt first; open only to check.</p><details><summary>0.1 Scientific notation</summary><div class="content"><p>2.45×10⁴; 3.56×10²; 9.85×10⁻⁴; 2.22×10⁻¹; 1.22×10⁴. Reverse: 4200; 0.000215; 0.00000314; 922000; 957.</p></div></details><details><summary>0.2 Unit conversions</summary><div class="content"><p>≈0.0186 mi; ≈0.852 mi; ≈3.31×10⁵ m; 74.97 lb; ≈15.4 kg. Larger: 3.00 mi; 25 lb.</p></div></details><details><summary>0.3 Temperature</summary><div class="content"><p>13 K = −260°C; 1390°C = 1663 K. Δ°C and ΔK are numerically equal because the scales differ by a constant offset.</p></div></details><details><summary>0.4 Sig figs</summary><div class="content"><p>Counts: 4, 2, 4, 2, 2, 4. Calculations: 809; 40 if 3 is measured 1-sf data; 92.9; 67.64; 12.7; 3.</p></div></details><details><summary>0.5 Accuracy &amp; precision</summary><div class="content"><p>Most accurate: Y. Most precise: Y.</p></div></details><details><summary>0.6 Atomic composition</summary><div class="content"><p>²¹⁰Pb: 82p, 82e, 128n. ³⁴S: 16p, 16e, 18n. First 20 neutral atoms: 20 have p=e; using packet's simplified values, 10 have p=n.</p></div></details><details><summary>0.7 Binary ionic</summary><div class="content"><p>Names: sodium chloride; strontium oxide; aluminum nitride; barium chloride; potassium oxide; copper(II) oxide; copper(I) oxide. Formulas: Mg₃N₂; BaBr₂; AlP; KI; LiCl; NaF; SnBr₄.</p></div></details><details><summary>0.8 Polyatomic ionic</summary><div class="content"><p>Formulas: NH₄NO₃; CuBr₂; CuBr; Zn(HSO₄)₂; Al₂(SO₄)₃; NaClO₄; Cu(IO₂)₂. Names: sodium nitrate; potassium permanganate; calcium ethanedioate; copper(II) sulfate; copper(I) sulfate; potassium nitrite; lithium perchlorate.</p></div></details><details><summary>0.9 Molecular</summary><div class="content"><p>Formulas: N₂O₄; PCl₅; IF₃; NO₂; H₂O. Names: dinitrogen pentoxide; phosphorus trichloride; sulfur hexafluoride; dihydrogen monoxide; dichlorine monoxide.</p></div></details></div></details><details class="u0-detail searchable" id="quiz"><summary>Active recall · Mixed Mastery Quiz</summary><div class="u0-body"><div class="quizbox"><div id="q" style="font-weight:800;margin-bottom:10px"></div><div class="choices" id="choices"></div><div class="feedback" id="fb"></div><button id="next" style="margin-top:10px">Next question</button></div></div></details></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="card"><div class="eyebrow">Teaching order</div><h2>Recommended Study Order</h2><div class="steps"><div class="step"><b>0B first:</b> notation → SI → dimensional analysis → temperature → density → sig figs → accuracy. Show units on every line.</div><div class="step"><b>0D second:</b> make the first classification before naming anything: ionic, polyatomic ionic, acid, molecular, or hydrate.</div><div class="step"><b>0C third:</b> p/n/e drills until each takes under 20 seconds; then scientist ↔ experiment flashcards.</div><div class="step"><b>0A last:</b> phase changes, particle diagrams, theory/law, and physical/chemical distinctions for quick conceptual points.</div></div><div class="ace"><b>Ready standard:</b> you can solve a new example you have never seen and explain why the method works.</div></section><footer>AP Chemistry Study Hub • Test 1 + Complete Unit 1 Reference • Unit 0 Collapsible</footer>
+    <section class="card" id="otherunits">
+        <div class="eyebrow">Full course hub</div>
+        <h2>Units 1–5 Reference</h2>
+        <p>Use these sections for later units, cumulative review, or extra practice on a Test 1 topic that overlaps with Unit 1.</p>
+        <div class="route">
+            <a href="#unit1">Unit 1</a><a href="#unit2">Unit 2</a><a href="#unit3">Unit 3</a>
+            <a href="#unit4">Unit 4</a><a href="#unit5">Unit 5</a>
+        </div>
+    </section><section class="card unit searchable unit1-expanded" data-keywords="unit 1 atoms elements periodicity mole isotopes mass spectrometry empirical molecular formula pure impure composition electron configuration electromagnetic radiation quantum numbers PES periodic trends ions atomic structure stoichiometry reactions" id="unit1">
+    <div class="unit-header"><div><div class="eyebrow">Unit 1 • Atoms, Elements &amp; Periodicity</div><h2>Complete Unit 1 Study Guide</h2><p class="lead">This section combines the Unit 1 notes, classroom slide decks, PES worksheet and key, atomic-structure practice, electron/periodic-table materials, stoichiometry notes, reaction-type review, and summer-review support files into one organized reference.</p></div><span class="unit-num">Topics 1.1–1.8</span></div>
+    <div class="u1-overview"><a href="#u1-1"><span>1.1</span><b>The Mole</b></a><a href="#u1-2"><span>1.2</span><b>Isotopes &amp; Mass Spec</b></a><a href="#u1-3"><span>1.3</span><b>Empirical &amp; Molecular</b></a><a href="#u1-4"><span>1.4</span><b>Pure &amp; Impure</b></a><a href="#u1-5"><span>1.5</span><b>Electronic Structure</b></a><a href="#u1-6"><span>1.6</span><b>PES</b></a><a href="#u1-7"><span>1.7</span><b>Periodicity</b></a><a href="#u1-8"><span>1.8</span><b>Formation of Ions</b></a></div>
+    <div class="ace"><b>Unit 1 through-line:</b> proton count identifies the element, neutron count creates isotopes, electron arrangement controls chemical behavior, and Coulombic attraction explains trends, ionization, ionic size, and PES binding energies.</div>
+    <details class="topic u1topic" id="u1-1" open=""><summary>1.1 · The Mole, Avogadro's Number &amp; Molar Mass</summary><div class="topic-body">
+        <h3>The mole is a counting unit</h3><p>One mole contains <strong>6.022 × 10²³ elementary entities</strong>. Match the entity to the substance: atoms, molecules, formula units, or ions.</p><div class="formula">1 mol = 6.022 × 10²³ particles</div><div class="compare"><div><h4>Mass ↔ moles</h4><div class="formula">n = m / M</div></div><div><h4>Moles ↔ particles</h4><div class="formula">N = nNₐ</div></div></div>
+        <h3>Atomic mass unit vs molar mass</h3><p>An isotope's microscopic mass can be stated in amu; one mole has the corresponding numerical mass in grams. The source notes use 1 amu ≈ 1.66 × 10⁻²⁴ g.</p><div class="note"><b>Do not confuse:</b> mass number is for one isotope and is a whole number; periodic-table atomic mass is a weighted isotopic average.</div>
+        <table><tr><th>Substance</th><th>Particle</th><th>Mass term</th></tr><tr><td>Molecular compound</td><td>molecule</td><td>molar / relative molecular mass</td></tr><tr><td>Ionic compound</td><td>formula unit</td><td>molar / relative formula mass</td></tr></table>
+        <details><summary>Worked conversion</summary><div class="content"><p><b>23.0 g CO₂ → moles → molecules</b></p><div class="formula">M(CO₂)=44.01 g mol⁻¹</div><div class="formula">23.0 g ÷ 44.01 = 0.523 mol CO₂</div><div class="formula">0.523 × 6.022×10²³ = 3.15×10²³ molecules</div></div></details><div class="trap"><b>Common mistake:</b> grams do not convert directly to particles; go through moles.</div><label class="checkrow"><input class="mastery" type="checkbox"/> I can move among grams, moles, particles, and formula-specific atom/ion counts.</label></div></details>
+    <details class="topic u1topic" id="u1-2"><summary>1.2 · Isotopes, Average Atomic Mass &amp; Mass Spectrometry</summary><div class="topic-body">
+        <p>Isotopes are atoms of the same element with the same proton count but different neutron counts.</p><div class="formula">protons = Z   |   neutrons = A − Z   |   neutral electrons = Z</div><div class="trap"><b>Same mass number does not mean isotopes.</b> ⁴⁰K and ⁴⁰Ar are different elements; ⁹⁰Sr and ⁹⁴Sr are isotopes.</div>
+        <h3>Weighted average</h3><div class="formula">average atomic mass = Σ(isotope mass × fractional abundance)</div><details><summary>Examples</summary><div class="content"><div class="formula">Ne: (22)(0.0801)+(21)(0.0199)+(20)(0.9000)=20.18 amu</div><div class="formula">85/87 example: (85)(0.71)+(87)(0.29)=85.58 amu</div></div></details>
+        <p>In a mass spectrum, peak position tracks isotope mass information and relative intensity tracks abundance. The weighted average must fall between isotope masses and closer to the more abundant isotope.</p><label class="checkrow"><input class="mastery" type="checkbox"/> I can identify isotopes, count p/n/e, and calculate weighted average atomic mass.</label></div></details>
+    <details class="topic u1topic" id="u1-3"><summary>1.3 · Empirical &amp; Molecular Formula</summary><div class="topic-body">
+        <div class="compare"><div><h4>Empirical formula</h4><p>Simplest whole-number atom ratio.</p><div class="formula">C₆H₆ → CH</div></div><div><h4>Molecular formula</h4><p>Actual atom counts; whole-number multiple of empirical formula.</p><div class="formula">CH × 6 → C₆H₆</div></div></div>
+        <h3>Percent composition → empirical formula</h3><div class="steps"><div class="step"><b>Assume 100 g.</b></div><div class="step"><b>Convert each mass to moles.</b></div><div class="step"><b>Divide all by the smallest mole amount.</b></div><div class="step"><b>Clear recognizable fractions.</b> ×2 for .500; ×3 for .333/.667; ×4 for .250/.750.</div><div class="step"><b>Write the simplest integer ratio.</b></div></div>
+        <details open=""><summary>Class example: 40.1% C, 6.60% H, 53.3% O</summary><div class="content"><table><tr><th></th><th>C</th><th>H</th><th>O</th></tr><tr><td>grams</td><td>40.1</td><td>6.60</td><td>53.3</td></tr><tr><td>moles</td><td>3.34</td><td>6.55</td><td>3.33</td></tr><tr><td>ratio</td><td>1</td><td>2</td><td>1</td></tr></table><div class="answer">Empirical formula = CH₂O</div></div></details>
+        <h3>Molecular multiplier</h3><div class="formula">multiplier = molar mass ÷ empirical-formula mass</div><p>CH₂O has an empirical mass near 30.03 g/mol. If the compound's molar mass is about 60.0 g/mol, the multiplier is 2 → C₂H₄O₂.</p>
+        <h3>Combustion-analysis extension</h3><div class="roadmap"><div>CO₂ → mol C</div><div>H₂O → mol H</div><div>sample − C/H masses → O mass</div><div>convert to mole ratio</div></div><div class="note">A classroom stoichiometry example uses 11.5 g of a C/H/O compound producing 22.0 g CO₂ and 13.5 g H₂O and obtains C₂H₆O.</div><div class="trap"><b>Never round 1.50 to 2.</b> Multiply the entire ratio by 2.</div><label class="checkrow"><input class="mastery" type="checkbox"/> I can determine empirical and molecular formula from composition or experimental data.</label></div></details>
+    <details class="topic u1topic" id="u1-4"><summary>1.4 · Pure Substances, Mixtures &amp; Percent Composition</summary><div class="topic-body">
+        <table><tr><th>Category</th><th>Defining feature</th><th>Composition</th></tr><tr><td>Element</td><td>one type of atom</td><td>fixed identity</td></tr><tr><td>Compound</td><td>elements chemically bonded in a definite ratio</td><td>fixed</td></tr><tr><td>Homogeneous mixture</td><td>uniform throughout</td><td>variable</td></tr><tr><td>Heterogeneous mixture</td><td>distinct regions / nonuniform</td><td>variable</td></tr></table>
+        <p>A pure compound has a fixed atom ratio and fixed mass percentages. Different chlorine percentages in samples labeled NaCl imply they cannot all be pure samples of the same compound.</p><div class="formula">% element = (mass contributed by element ÷ molar mass of compound) × 100</div><div class="formula">% H in H₂O = [2(1.008) ÷ (2(1.008)+16.00)] × 100 ≈ 11.19%</div><label class="checkrow"><input class="mastery" type="checkbox"/> I can classify pure substances/mixtures and calculate percent composition.</label></div></details>
+    <details class="topic u1topic" id="u1-5"><summary>1.5 · Atomic Models, Light, Quantum Theory &amp; Electron Configuration</summary><div class="topic-body">
+        <h3>Models</h3><div class="timeline"><div><b>Rutherford</b><span>dense positive nucleus; atom mostly empty space</span></div><div><b>Bohr</b><span>allowed energy levels; transitions explain line spectra</span></div><div><b>Quantum model</b><span>orbitals/wavefunctions replace fixed planetary paths</span></div></div><div class="formula">Coulombic attraction ∝ |q₁q₂| / r²</div>
+        <h3>Electromagnetic radiation</h3><table><tr><th>Quantity</th><th>Meaning</th></tr><tr><td>λ</td><td>wavelength, usually m or nm</td></tr><tr><td>ν</td><td>frequency, Hz = s⁻¹</td></tr><tr><td>c</td><td>2.998×10⁸ m/s</td></tr></table><div class="formula">c = λν</div><div class="formula">E = hν   (h ≈ 6.626×10⁻³⁴ J·s)</div><div class="ace"><b>Direction logic:</b> λ ↑ → ν ↓ → photon E ↓.</div>
+        <details><summary>Wave calculation</summary><div class="content"><div class="formula">6.50×10² nm = 6.50×10⁻⁷ m</div><div class="formula">ν=(2.998×10⁸)/(6.50×10⁻⁷)=4.61×10¹⁴ s⁻¹</div></div></details>
+        <h3>Quantization &amp; spectra</h3><p>Planck's model treats energy exchange as discrete quanta. Excited atoms emit discrete photon energies when electrons fall to lower levels, creating characteristic line spectra. White light gives a continuous spectrum.</p><h3>de Broglie</h3><div class="formula">λ = h / mv</div>
+        <h3>Quantum numbers</h3><table><tr><th>Number</th><th>Meaning</th><th>Allowed values</th></tr><tr><td>n</td><td>principal shell</td><td>1,2,3,…</td></tr><tr><td>ℓ</td><td>subshell/shape</td><td>0…n−1; 0=s,1=p,2=d,3=f</td></tr><tr><td>mℓ</td><td>specific orbital</td><td>−ℓ…+ℓ</td></tr><tr><td>mₛ</td><td>spin</td><td>+½ or −½</td></tr></table>
+        <table><tr><th>Subshell</th><th>Orbitals</th><th>Max e⁻</th></tr><tr><td>s</td><td>1</td><td>2</td></tr><tr><td>p</td><td>3</td><td>6</td></tr><tr><td>d</td><td>5</td><td>10</td></tr><tr><td>f</td><td>7</td><td>14</td></tr></table>
+        <h3>Filling rules</h3><div class="decision"><div><b>Aufbau</b><span>lower energy first</span></div><div><b>Pauli</b><span>max 2/orbital, opposite spin</span></div><div><b>Hund</b><span>single occupancy before pairing</span></div></div><div class="formula">1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p → 5s → 4d → 5p → 6s …</div>
+        <details><summary>Configurations &amp; exceptions</summary><div class="content"><p><b>Cu:</b> [Ar] 3d¹⁰ 4s¹.</p><p><b>Pd:</b> [Kr] 4d¹⁰.</p><p><b>Transition-metal cations:</b> remove electrons from the highest n value first; for first-row transition metals, remove 4s before 3d.</p></div></details><div class="trap"><b>Orbital ≠ shell ≠ subshell.</b> A 3d subshell contains five orbitals.</div><label class="checkrow"><input class="mastery" type="checkbox"/> I can use wave equations, explain spectra, assign quantum numbers, and write atom/ion configurations.</label></div></details>
+    <details class="topic u1topic pes-focus" id="u1-6"><summary>1.6 · Photoelectron Spectroscopy (PES)</summary><div class="topic-body">
+        <p>PES uses high-energy photons to eject electrons; the energy required reveals how strongly electrons were bound and therefore provides evidence for electron configuration.</p><div class="note"><b>Axis warning:</b> AP-style spectra may show binding energy decreasing left → right and use a nonlinear x-axis.</div>
+        <table><tr><th>Feature</th><th>Meaning</th></tr><tr><td>Peak position</td><td>binding energy; core electrons are more strongly bound</td></tr><tr><td>Peak height/area</td><td>relative number of electrons in that subshell</td></tr><tr><td>Number of peaks</td><td>occupied subshells represented</td></tr><tr><td>Large gaps</td><td>often separation between principal shells/core-valence regions</td></tr></table>
+        <details open=""><summary>Worksheet #1</summary><div class="content"><p>The key says equal peak heights mean the same number of electrons in each represented subshell. Three two-electron peaks give six electrons: <strong>carbon, 1s² 2s² 2p²</strong>. The highest-binding-energy peak is the 1s/core peak.</p></div></details>
+        <details open=""><summary>Worksheet #2</summary><div class="content"><p>The key labels the peaks 2, 2, and 4 electrons, totaling 8 electrons with 6 valence electrons.</p><div class="formula">1s² 2s² 2p⁴ → oxygen</div></div></details>
+        <h3>Isoelectronic species are not PES-identical</h3><p>Ca²⁺, Ar, and S²⁻ have the same electron count but different nuclear charge. More protons means stronger attraction, smaller radius, and generally greater electron binding.</p><div class="formula">isoelectronic: more protons → smaller radius → stronger binding</div>
+        <div class="steps"><div class="step"><b>Count peaks.</b></div><div class="step"><b>Use heights to assign electron counts.</b></div><div class="step"><b>Use binding energy to separate core/valence.</b></div><div class="step"><b>Write configuration and total electrons.</b></div><div class="step"><b>Identify element/ion.</b></div></div><label class="checkrow"><input class="mastery" type="checkbox"/> I can interpret PES peak position, height, electron configuration, and isoelectronic shifts.</label></div></details>
+    <details class="topic u1topic" id="u1-7"><summary>1.7 · Periodicity &amp; Coulombic Explanations</summary><div class="topic-body">
+        <p>Recurring outer-electron configurations create periodic properties. Group members have analogous valence structures and often similar chemistry.</p><table><tr><th>Property</th><th>Across →</th><th>Down ↓</th><th>Reason</th></tr><tr><td>Atomic radius</td><td>generally decreases</td><td>increases</td><td>across: greater nuclear charge; down: more shells/shielding</td></tr><tr><td>1st ionization energy</td><td>generally increases</td><td>decreases</td><td>electron attraction changes with charge, distance, shielding</td></tr><tr><td>Electronegativity</td><td>generally increases</td><td>generally decreases</td><td>smaller/high-Zeff atoms pull bonding electrons more strongly</td></tr><tr><td>Electron affinity</td><td>periodic with exceptions</td><td>general weakening tendency</td><td>subshell stability creates anomalies</td></tr></table><div class="ace"><b>Strong explanation:</b> cite nuclear charge, shielding, occupied shells, distance, and Coulombic attraction—not merely “because it is farther right.”</div>
+        <details><summary>Practice examples</summary><div class="content"><p>Lowest IE among Li, Na, K, Rb, Cs: <b>Cs</b>.</p><p>K vs Br radius: <b>K larger</b>.</p><p>P vs N IE: <b>P lower</b> because it is in a higher shell and more shielded.</p></div></details><h3>Successive ionization energies</h3><p>A large jump after removing n electrons indicates n valence electrons were removed before entering a tightly bound core shell.</p><label class="checkrow"><input class="mastery" type="checkbox"/> I can rank periodic properties and justify them with particle-level causes.</label></div></details>
+    <details class="topic u1topic" id="u1-8"><summary>1.8 · Formation of Ions &amp; Ionic Size</summary><div class="topic-body">
+        <table><tr><th>Ion</th><th>Change</th><th>Typical size</th></tr><tr><td>Cation</td><td>loses e⁻</td><td>smaller than neutral atom</td></tr><tr><td>Anion</td><td>gains e⁻</td><td>larger than neutral atom</td></tr></table><p>For an isoelectronic series, proton count controls size.</p><div class="formula">S²⁻ &gt; Ar &gt; Ca²⁺ in radius</div><p>For transition-metal cations, remove electrons from the highest principal energy level first.</p><div class="formula">Co: [Ar] 4s² 3d⁷ → Co²⁺: [Ar] 3d⁷</div><label class="checkrow"><input class="mastery" type="checkbox"/> I can determine ion configurations and compare ionic radii.</label></div></details>
+    <details class="topic u1topic supplemental"><summary>Supplement · Atomic Theory &amp; Experimental Evidence</summary><div class="topic-body"><table><tr><th>Scientist/work</th><th>High-value contribution</th></tr><tr><td>Democritus</td><td>early atom concept</td></tr><tr><td>Lavoisier</td><td>conservation of mass</td></tr><tr><td>Proust</td><td>definite composition</td></tr><tr><td>Dalton</td><td>atomic theory</td></tr><tr><td>Thomson</td><td>electron/cathode-ray evidence</td></tr><tr><td>Millikan</td><td>electron charge</td></tr><tr><td>Rutherford</td><td>nucleus / gold-foil evidence</td></tr><tr><td>Chadwick</td><td>neutron</td></tr><tr><td>Planck</td><td>quantized energy</td></tr><tr><td>de Broglie</td><td>matter waves</td></tr><tr><td>Heisenberg</td><td>uncertainty principle</td></tr><tr><td>Schrödinger</td><td>wave-mechanical orbitals</td></tr></table><label class="checkrow"><input class="mastery" type="checkbox"/> I can connect the main experiments/models to what each demonstrated.</label></div></details>
+    <details class="topic u1topic supplemental"><summary>Supplement · Reaction Types &amp; Stoichiometry Review</summary><div class="topic-body"><p>These files are kept as support material rather than mixed into the official 1.1–1.8 sequence.</p><table><tr><th>Pattern</th><th>Type</th></tr><tr><td>A+B→AB</td><td>synthesis</td></tr><tr><td>AB→A+B</td><td>decomposition</td></tr><tr><td>A+BC→AC+B</td><td>single replacement</td></tr><tr><td>AB+CD→AD+CB</td><td>double replacement</td></tr><tr><td>hydrocarbon+O₂→CO₂+H₂O</td><td>combustion</td></tr></table><p>The reaction worksheet emphasizes H₂, N₂, O₂, F₂, Cl₂, Br₂, and I₂ as diatomic elements, product-prediction rules, and states.</p><h3>Stoichiometry workflow</h3><div class="roadmap"><div>balance</div><div>known → moles</div><div>mole ratio</div><div>moles → desired unit</div></div><label class="checkrow"><input class="mastery" type="checkbox"/> I can recognize reaction patterns and use coefficients as mole-ratio conversion factors.</label></div></details>
+    <details class="topic u1topic practice-lab"><summary>Practice Lab · Skills Targeted by the Uploaded Unit 1 Worksheets</summary><div class="topic-body"><div class="dashboard-grid u1-practice-grid"><div class="dash"><span>A</span><b>Wave math</b><small>c=λν; unit conversions; E=hν</small></div><div class="dash"><span>B</span><b>Hydrogen spectrum</b><small>energy levels and photon transitions</small></div><div class="dash"><span>C</span><b>Matter waves</b><small>de Broglie wavelength</small></div><div class="dash"><span>D</span><b>Quantum numbers</b><small>n, ℓ, mℓ, mₛ</small></div><div class="dash"><span>E</span><b>Configurations</b><small>atoms, ions, exceptions</small></div><div class="dash"><span>F</span><b>Periodicity</b><small>IE, radius, EN, EA</small></div><div class="dash"><span>G</span><b>PES</b><small>peaks, binding energy, subshells</small></div><div class="dash"><span>H</span><b>Isoelectronic</b><small>same e⁻, different nuclear charge</small></div></div><div class="ace"><b>Best practice:</b> mix the problem types. The worksheets move between equations, configurations, PES spectra, and periodic reasoning.</div></div></details>
+</section><section class="unit card searchable" data-keywords="unit 2 molecular ionic compound structure bonds Lewis VSEPR geometry polarity hybridization sigma pi formal charge solids melting point unit 2" data-search="unit 2 molecular ionic compound structure bonds Lewis VSEPR geometry polarity hybridization sigma pi formal charge solids melting point" id="unit2">
+    <div class="unit-header"><div><div class="eyebrow">Unit 2</div><h2>Molecular &amp; Ionic Compound Structure</h2></div><span class="unit-num">10 MCQ</span></div>
+    <details class="topic" data-search="ionic polar covalent nonpolar Na2O O2 Cl2O C2H6">
+        <summary>1. Ionic vs polar vs nonpolar covalent</summary>
+        <div class="topic-body">
+            <p>Start by asking what kinds of atoms are bonded.</p>
+            <table>
+                <tr><th>Compound</th><th>Key classification</th></tr>
+                <tr><td>Na₂O</td><td>Ionic</td></tr>
+                <tr><td>O₂</td><td>Nonpolar covalent</td></tr>
+                <tr><td>Cl₂O</td><td>Polar covalent</td></tr>
+                <tr><td>C₂H₆</td><td>Nonpolar covalent</td></tr>
+            </table>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can classify a bond from the elements involved and bond polarity.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="Lewis structures steps valence electrons octet">
+        <summary>2. Lewis structures: reliable workflow</summary>
+        <div class="topic-body">
+            <div class="method"><div>1. Count valence e⁻</div><div>2. Pick central atom</div><div>3. Draw single bonds</div><div>4. Complete octets</div><div>5. Form multiple bonds if needed</div></div>
+            <div class="callout">A double bond or triple bond still counts as <strong>one electron domain</strong> when you move to VSEPR.</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can build a Lewis structure without guessing the geometry first.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="VSEPR geometry CO2 BF3 NH3 H2S linear trigonal planar pyramidal bent">
+        <summary>3. VSEPR molecular geometry</summary>
+        <div class="topic-body">
+            <table>
+                <tr><th>Molecule</th><th>Key geometry</th></tr>
+                <tr><td>CO₂</td><td>Linear</td></tr>
+                <tr><td>BF₃</td><td>Trigonal planar</td></tr>
+                <tr><td>NH₃</td><td>Trigonal pyramidal</td></tr>
+                <tr><td>H₂S</td><td>Bent</td></tr>
+            </table>
+            <div class="callout"><strong>Count domains around the central atom:</strong> each bond region counts once, even if it is a double or triple bond. Lone pairs also count.</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can count domains and name the molecular geometry.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="molecular polarity BeCl2 CH2O CBr4 CH3Br dipole symmetry">
+        <summary>4. Molecular polarity</summary>
+        <div class="topic-body">
+            <p>Use two questions: <strong>Are the bonds polar?</strong> Then <strong>does the geometry cancel the dipoles?</strong></p>
+            <table>
+                <tr><th>Molecule</th><th>Key answer</th><th>Reason to notice</th></tr>
+                <tr><td>BeCl₂</td><td>Nonpolar</td><td>Linear symmetry</td></tr>
+                <tr><td>CH₂O</td><td>Polar</td><td>Dipoles do not cancel</td></tr>
+                <tr><td>CBr₄</td><td>Nonpolar</td><td>Symmetric tetrahedral shape</td></tr>
+                <tr><td>CH₃Br</td><td>Polar</td><td>Asymmetric substituents</td></tr>
+            </table>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I check geometry before deciding whether a molecule is polar.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="hybridization sp sp2 sp3 CH3CN carbonyl oxygen">
+        <summary>5. Hybridization</summary>
+        <div class="topic-body">
+            <table>
+                <tr><th>Electron domains</th><th>Hybridization</th></tr>
+                <tr><td>2</td><td>sp</td></tr>
+                <tr><td>3</td><td>sp²</td></tr>
+                <tr><td>4</td><td>sp³</td></tr>
+            </table>
+            <p>For the left structure in the review, the key marks the CH₃ carbon <strong>sp³</strong> and the nitrile carbon <strong>sp</strong>. For the right structure, the carbonyl carbon is <strong>sp²</strong> and the single-bonded oxygen is <strong>sp³</strong>.</p>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can determine hybridization by counting electron domains.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="sigma pi bonds single double triple 5 sigma 2 pi 7 sigma 1 pi">
+        <summary>6. Sigma (σ) and pi (π) bonds</summary>
+        <div class="topic-body">
+            <table>
+                <tr><th>Bond</th><th>Contains</th></tr>
+                <tr><td>Single</td><td>1 σ</td></tr>
+                <tr><td>Double</td><td>1 σ + 1 π</td></tr>
+                <tr><td>Triple</td><td>1 σ + 2 π</td></tr>
+            </table>
+            <div class="answer">Key totals for the pictured molecules: left = 5 σ and 2 π; right = 7 σ and 1 π.</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can count σ and π bonds from a structure.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="formal charge sulfite SO3 2- structure better minimize charges">
+        <summary>7. Formal charge &amp; the better Lewis structure</summary>
+        <div class="topic-body">
+            <div class="formula">formal charge = valence e⁻ − nonbonding e⁻ − ½(bonding e⁻)</div>
+            <p>For the all-single-bond sulfite drawing, the key marks each O as −1 and S as +1. For the drawing with one S=O double bond, it marks the double-bonded O as 0, the two single-bonded O atoms as −1, and S as 0.</p>
+            <div class="answer">The key prefers the structure on the right because it minimizes formal charges.</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can calculate formal charge atom-by-atom and compare structures.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="ionic metallic molecular covalent network solids melting conductivity NaCl Cu I2 SiO2 C graphite">
+        <summary>8. Types of solids</summary>
+        <div class="topic-body">
+            <table>
+                <tr><th>Solid</th><th>Melting point</th><th>Conductivity of solid</th><th>In aqueous solution</th><th>Key example</th></tr>
+                <tr><td>Ionic</td><td>High</td><td>None</td><td>High</td><td>NaCl(s)</td></tr>
+                <tr><td>Metallic</td><td>High</td><td>High</td><td>None / does not dissolve</td><td>Cu(s)</td></tr>
+                <tr><td>Molecular</td><td>Low</td><td>None</td><td>None</td><td>I₂(s)</td></tr>
+                <tr><td>Covalent network</td><td>High</td><td>None (except graphite)</td><td>None</td><td>SiO₂(s), C(s)</td></tr>
+            </table>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can identify a solid type from bonding and properties.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="ionic melting point Al2O3 NaCl CaCl2 Na2S AlCl3 charge radius lattice">
+        <summary>9. Ionic bond strength &amp; melting point</summary>
+        <div class="topic-body">
+            <p>The key selects <strong>Al₂O₃</strong> as the highest-melting choice and notes that greater charge magnitude and smaller ionic radii produce stronger ionic attraction.</p>
+            <div class="formula">stronger electrostatic attraction ⇢ generally higher melting point</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I compare ionic charge magnitude and ion size when ranking lattice strength.</label>
+        </div>
+    </details>
+</section><section class="unit card searchable" data-keywords="unit 3 intermolecular forces properties london dispersion dipole hydrogen bonding boiling vapor ideal gas partial pressure molarity dilution solubility chromatography beer law unit 3" data-search="unit 3 intermolecular forces properties london dispersion dipole hydrogen bonding boiling vapor ideal gas partial pressure molarity dilution solubility chromatography beer law" id="unit3">
+    <div class="unit-header"><div><div class="eyebrow">Unit 3</div><h2>Intermolecular Forces &amp; Properties</h2></div><span class="unit-num">10 MCQ</span></div>
+    <details class="topic" data-search="IMF london dispersion dipole dipole hydrogen bond N O F">
+        <summary>1. Identify intermolecular forces</summary>
+        <div class="topic-body">
+            <table>
+                <tr><th>Force</th><th>When it appears</th></tr>
+                <tr><td>London dispersion</td><td>Present in all atoms and molecules</td></tr>
+                <tr><td>Dipole–dipole</td><td>Between polar molecules</td></tr>
+                <tr><td>Hydrogen bonding</td><td>When H is bonded to N, O, or F</td></tr>
+            </table>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can identify the strongest IMF present in a molecule.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="boiling point C2H6 C3H8 C4H10 HCl H2O PH3 vapor pressure">
+        <summary>2. Use IMFs to predict boiling point &amp; vapor pressure</summary>
+        <div class="topic-body">
+            <div class="callout"><strong>Stronger IMFs:</strong> generally higher boiling point and lower vapor pressure.</div>
+            <p>For C₂H₆ vs C₃H₈ vs C₄H₁₀, the key selects <strong>C₄H₁₀</strong>, noting stronger London dispersion forces as molecular size increases.</p>
+            <p>For HCl vs H₂O vs PH₃, the key selects <strong>H₂O</strong> because of hydrogen bonding.</p>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can connect IMF strength to boiling point and vapor pressure.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="ideal gas behavior high temperature low pressure CO2 NH3 F2">
+        <summary>3. Ideal gas behavior</summary>
+        <div class="topic-body">
+            <div class="answer">The key says gases behave most ideally at high temperature and low pressure.</div>
+            <p>Among CO₂, NH₃, and F₂, the key selects <strong>F₂</strong> and notes that weaker intermolecular forces favor more ideal behavior.</p>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I know the temperature/pressure conditions for most ideal behavior.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="partial pressure mole fraction N2 O2 CH4 3 atm">
+        <summary>4. Mole fraction &amp; partial pressure</summary>
+        <div class="topic-body">
+            <div class="formula">Xᵢ = nᵢ / ntotal</div>
+            <div class="formula">Pᵢ = XᵢPtotal</div>
+            <div class="step"><strong>Convert masses to moles.</strong>
+                28 g N₂ = 1.0 mol; 16 g O₂ = 0.5 mol; 16 g CH₄ = 1.0 mol. Total = 2.5 mol.
+            </div>
+            <div class="formula">X(O₂) = 0.5 / 2.5 = 0.20</div>
+            <div class="formula">P(O₂) = (0.20)(3.00 atm) = 0.600 atm</div>
+            <div class="answer">Mole fraction O₂ = 0.20; partial pressure O₂ = 0.600 atm.</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I convert every gas to moles before finding mole fraction.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="ideal gas law PV nRT hydrogen 27 C 2 atm 10 L">
+        <summary>5. Ideal gas law</summary>
+        <div class="topic-body">
+            <div class="formula">PV = nRT</div>
+            <div class="warning"><strong>Temperature must be Kelvin.</strong> 27.0°C ≈ 300 K.</div>
+            <div class="formula">n = (2.00 atm)(10.0 L) ÷ [(0.0821 L·atm·mol⁻¹·K⁻¹)(300 K)]</div>
+            <div class="answer">0.812 mol H₂</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I convert Celsius to Kelvin before using PV = nRT.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="unknown gas molar mass 0.064 g 44.8 mL STP 32 oxygen O2">
+        <summary>6. Identify an unknown gas from molar mass</summary>
+        <div class="topic-body">
+            <p>The key uses 22.4 L/mol at STP.</p>
+            <div class="formula">44.8 mL = 0.0448 L → 0.0448 L × (1 mol / 22.4 L) = 0.002 mol</div>
+            <div class="formula">molar mass = 0.064 g / 0.002 mol = 32 g/mol</div>
+            <div class="answer">Diatomic gas identity = O₂</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can calculate molar mass from gas mass and amount.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="molarity dilution Ni2 NiSO4 H2SO4 18M 6M 500 mL">
+        <summary>7. Molarity &amp; dilution</summary>
+        <div class="topic-body">
+            <div class="formula">M = mol / L</div>
+            <div class="step"><strong>Ni²⁺ in 250.0 mL of 0.50 M NiSO₄</strong>
+                0.250 L × 0.50 mol/L = 0.125 mol NiSO₄ = 0.125 mol Ni²⁺.
+            </div>
+            <div class="formula">M₁V₁ = M₂V₂</div>
+            <div class="step"><strong>Dilution</strong>
+                (18 M)(V₁) = (6 M)(500.0 mL), so V₁ ≈ 167 mL.
+            </div>
+            <div class="answer">0.125 mol Ni²⁺; 167 mL of 18 M stock.</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I know when to use M = mol/L versus M₁V₁ = M₂V₂.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="water solubility C3H8 CH2O CH3OH HCl like dissolves like">
+        <summary>8. Water solubility from IMFs</summary>
+        <div class="topic-body">
+            <p>The review asks which is most water soluble among C₃H₈, CH₂O, CH₃OH, and HCl. The key circles <strong>CH₃OH</strong>.</p>
+            <div class="callout">The key's selection is tied to strong favorable interactions with polar water, including hydrogen bonding for CH₃OH.</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I compare a solute's polarity and IMF compatibility with water.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="chromatography nonpolar paper polar solvent O P polarity">
+        <summary>9. Chromatography &amp; polarity</summary>
+        <div class="topic-body">
+            <p>The packet specifies a <strong>nonpolar stationary phase</strong> and a <strong>polar solvent</strong>. The key says P traveled farther with the polar solvent and therefore had greater affinity for the polar mobile phase.</p>
+            <div class="answer">Key answer: P is more polar.</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I compare attraction to the mobile phase versus stationary phase.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="Beer law absorbance copper brass 0.45 0.20 M 63.6 percent">
+        <summary>10. Beer’s law / calibration graph</summary>
+        <div class="topic-body">
+            <p>From the calibration graph, the key reads absorbance 0.45 as about <strong>0.20 M Cu²⁺</strong>.</p>
+            <div class="formula">(0.20 mol/L)(0.100 L) = 0.020 mol Cu²⁺</div>
+            <div class="formula">(0.020 mol)(63.55 g/mol) = 1.271 g Cu</div>
+            <div class="formula">(1.271 g / 2.00 g brass) × 100 = 63.6%</div>
+            <div class="answer">63.6% Cu</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can read concentration from a calibration graph and convert it to mass percent.</label>
+        </div>
+    </details>
+</section><section class="unit card searchable" data-keywords="unit 4 chemical reactions solubility net ionic electrolyte stoichiometry limiting reactant particle diagram titration salts acid base oxidation redox unit 4" data-search="unit 4 chemical reactions solubility net ionic electrolyte stoichiometry limiting reactant particle diagram titration salts acid base oxidation redox" id="unit4">
+    <div class="unit-header"><div><div class="eyebrow">Unit 4</div><h2>Chemical Reactions</h2></div><span class="unit-num">10 MCQ</span></div>
+    <details class="topic" data-search="solubility rules SNAP sodium nitrate ammonium potassium Na3PO4 BaCrO4 Fe NO3 AgCl ammonium sulfate">
+        <summary>1. Solubility rules</summary>
+        <div class="topic-body">
+            <div class="callout"><strong>Key mnemonic: SNAP</strong> — Sodium, Nitrate, Ammonium, Potassium are listed as always soluble on the answer key.</div>
+            <table>
+                <tr><th>Compound</th><th>Key answer</th></tr>
+                <tr><td>Na₃PO₄</td><td>Soluble</td></tr>
+                <tr><td>BaCrO₄</td><td>Insoluble</td></tr>
+                <tr><td>Fe(NO₃)₂</td><td>Soluble</td></tr>
+                <tr><td>AgCl</td><td>Insoluble</td></tr>
+                <tr><td>(NH₄)₂SO₄</td><td>Soluble</td></tr>
+            </table>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can use the packet's solubility rules to identify a precipitate.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="net ionic equation KI Pb nitrate PbI2 HNO2 KOH weak acid">
+        <summary>2. Net ionic equations</summary>
+        <div class="topic-body">
+            <div class="method"><div>1. Balance molecular equation</div><div>2. Split strong aqueous electrolytes</div><div>3. Keep solids/gases/weak species intact</div><div>4. Cancel spectators</div></div>
+            <div class="step"><strong>2 KI + Pb(NO₃)₂</strong>
+                The key's net ionic equation is:
+                <div class="formula">Pb²⁺(aq) + 2 I⁻(aq) → PbI₂(s)</div>
+            </div>
+            <div class="step"><strong>HNO₂ + KOH</strong>
+                HNO₂ is kept intact in the key because it is a weak acid.
+                <div class="formula">HNO₂(aq) + OH⁻(aq) → NO₂⁻(aq) + H₂O(l)</div>
+            </div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I know what to split and what to leave intact in a net ionic equation.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="electrolytes conductivity AgCl CCl4 NaCl strong weak nonelectrolyte">
+        <summary>3. Electrolytes &amp; conductivity</summary>
+        <div class="topic-body">
+            <p>Conductivity in aqueous solution depends on mobile ions. The key ranks:</p>
+            <div class="answer">CCl₄ &lt; AgCl &lt; NaCl</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can rank solution conductivity from ion formation and solubility.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="limiting reactant methane oxygen water 32 g 18 g 24 g">
+        <summary>4. Limiting reactant &amp; excess reactant</summary>
+        <div class="topic-body">
+            <div class="formula">CH₄ + 2 O₂ → CO₂ + 2 H₂O</div>
+            <div class="step"><strong>Convert both reactants to moles.</strong>
+                32 g CH₄ = 2 mol CH₄. 32 g O₂ = 1 mol O₂.
+            </div>
+            <div class="step"><strong>Use the coefficients.</strong>
+                1 mol O₂ can react with only 0.5 mol CH₄, so O₂ runs out first.
+            </div>
+            <div class="answer">Limiting reactant = O₂</div>
+            <div class="formula">1 mol O₂ → 1 mol H₂O → 18 g H₂O</div>
+            <div class="formula">CH₄ left = 2.0 − 0.5 = 1.5 mol → 24 g</div>
+            <div class="answer">18 g H₂O produced; 24 g CH₄ remains.</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I convert both reactants to moles before deciding what is limiting.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="particle diagram hydrogen oxygen water 2 H2 O2">
+        <summary>5. Particle diagrams</summary>
+        <div class="topic-body">
+            <div class="formula">2 H₂ + O₂ → 2 H₂O</div>
+            <p>Group particles according to the coefficients: every complete set of <strong>2 H₂ + 1 O₂</strong> becomes <strong>2 H₂O</strong>. Anything that cannot fit into another complete stoichiometric set remains as excess reactant.</p>
+            <div class="callout">Do not pair one H₂ with one O₂. The coefficients are the recipe.</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can translate a balanced equation into a particle-level drawing.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="titration HCl NaOH 20 mL 30 mL 0.10 M 0.15">
+        <summary>6. Titration concentration</summary>
+        <div class="topic-body">
+            <div class="formula">HCl + NaOH → NaCl + H₂O</div>
+            <div class="step"><strong>Moles NaOH used</strong>
+                (0.0300 L)(0.10 mol/L) = 0.00300 mol NaOH.
+            </div>
+            <p>The reaction is 1:1, so the key sets moles HCl = 0.00300 mol.</p>
+            <div class="formula">M(HCl) = 0.00300 mol / 0.0200 L = 0.15 M</div>
+            <div class="answer">0.15 M HCl</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I use stoichiometry between titrant and analyte before dividing by analyte volume.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="acidic basic neutral salts NaF KCl NH4 NaClO">
+        <summary>7. Acidic, basic, or neutral salts</summary>
+        <div class="topic-body">
+            <table>
+                <tr><th>Species as shown on review</th><th>Key answer</th></tr>
+                <tr><td>NaF(aq)</td><td>Basic</td></tr>
+                <tr><td>KCl(aq)</td><td>Neutral</td></tr>
+                <tr><td>NH₄(aq)</td><td>Acidic</td></tr>
+                <tr><td>NaClO(aq)</td><td>Basic</td></tr>
+            </table>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can classify the solution behavior of the salts listed on the review.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="oxidation number chlorine Cl2 HCl ClO3 Cl2O ClO2">
+        <summary>8. Oxidation numbers</summary>
+        <div class="topic-body">
+            <div class="callout">Use the packet's standard rules: free elements are 0; O is usually −2; H is usually +1; oxidation numbers sum to the species charge.</div>
+            <table>
+                <tr><th>Species</th><th>Key oxidation number for Cl</th></tr>
+                <tr><td>Cl₂</td><td>0</td></tr>
+                <tr><td>HCl</td><td>−1</td></tr>
+                <tr><td>ClO₃⁻</td><td>+5</td></tr>
+                <tr><td>Cl₂O</td><td>+1</td></tr>
+                <tr><td>ClO₂⁻</td><td>+3</td></tr>
+            </table>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can solve for an unknown oxidation number using the total charge.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="redox KMnO4 H2O2 oxidized reduced manganese peroxide">
+        <summary>9. Oxidation vs reduction</summary>
+        <div class="topic-body">
+            <div class="callout"><strong>OIL RIG:</strong> oxidation is loss of electrons; reduction is gain.</div>
+            <p>In the review reaction, the key states:</p>
+            <div class="answer">MnO₄⁻ is reduced: Mn changes from +7 to +2.<br/>H₂O₂ is oxidized: O changes from −1 to 0.</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can identify oxidation and reduction from changes in oxidation number.</label>
+        </div>
+    </details>
+</section><section class="unit card searchable" data-keywords="unit 5 kinetics reaction rate catalyst intermediate energy diagram rate law initial rate graph integrated rate law half life unit 5" data-search="unit 5 kinetics reaction rate catalyst intermediate energy diagram rate law initial rate graph integrated rate law half life" id="unit5">
+    <div class="unit-header"><div><div class="eyebrow">Unit 5</div><h2>Kinetics</h2></div><span class="unit-num">10 MCQ</span></div>
+    <details class="topic" data-search="reaction rate temperature molarity partial pressure catalyst volume increase decrease">
+        <summary>1. Factors that change reaction rate</summary>
+        <div class="topic-body">
+            <table>
+                <tr><th>Change</th><th>Key effect on rate</th></tr>
+                <tr><td>Decreasing temperature</td><td>Decrease</td></tr>
+                <tr><td>Increasing reactant molarity</td><td>Increase</td></tr>
+                <tr><td>Decreasing gaseous reactant partial pressure</td><td>Decrease</td></tr>
+                <tr><td>Adding a catalyst</td><td>Increase</td></tr>
+                <tr><td>Decreasing volume of a gaseous mixture</td><td>Increase</td></tr>
+            </table>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can explain rate changes using collision frequency or activation energy.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="catalyst intermediate SO2 NO2 SO3 NO O2 mechanism">
+        <summary>2. Catalyst vs intermediate in a mechanism</summary>
+        <div class="topic-body">
+            <div class="formula">Step 1: 2 SO₂ + 2 NO₂ → 2 SO₃ + 2 NO</div>
+            <div class="formula">Step 2: 2 NO + O₂ → 2 NO₂</div>
+            <div class="answer">Key: NO₂ is the catalyst; NO is the intermediate.</div>
+            <p>Look for a species consumed and later regenerated (catalyst) versus formed and later consumed (intermediate).</p>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can track a species through steps to classify it.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="catalyst activation energy alternative pathway">
+        <summary>3. How a catalyst works</summary>
+        <div class="topic-body">
+            <div class="answer">The key explanation: a catalyst provides an alternative reaction pathway with a lower activation energy.</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can state exactly what a catalyst changes.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="energy diagram endothermic exothermic steps rate determining activation energy catalyzed">
+        <summary>4. Read &amp; draw energy diagrams</summary>
+        <div class="topic-body">
+            <p>Use the vertical positions of reactants and products to decide endothermic vs exothermic. Count peaks to count mechanism steps.</p>
+            <table>
+                <tr><th>Feature</th><th>How to read it</th></tr>
+                <tr><td>Products above reactants</td><td>Endothermic</td></tr>
+                <tr><td>Products below reactants</td><td>Exothermic</td></tr>
+                <tr><td>Number of peaks</td><td>Number of steps</td></tr>
+                <tr><td>Largest relevant activation barrier</td><td>Rate-determining step</td></tr>
+                <tr><td>Catalyzed pathway</td><td>Lower activation barrier</td></tr>
+            </table>
+            <p>The key draws a 2-step endothermic diagram with Step 1 rate-determining, a 3-step exothermic diagram with Step 2 rate-determining, and a lower dashed catalyzed pathway.</p>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can read ΔH, number of steps, and the rate-determining step from a diagram.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="rate law mechanism ClO slow fast k ClO squared">
+        <summary>5. Rate law from an elementary mechanism</summary>
+        <div class="topic-body">
+            <p>The slow step on the review is:</p>
+            <div class="formula">2 ClO⁻ → ClO₂⁻ + Cl⁻   (slow)</div>
+            <p>The key uses the reactants of that slow elementary step:</p>
+            <div class="answer">Rate = k[ClO⁻]²</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can write a rate law from the stated slow elementary step.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="initial rate data A B rate law first order zero order k 0.3 s">
+        <summary>6. Rate law from initial-rate data</summary>
+        <div class="topic-body">
+            <table>
+                <tr><th>Exp.</th><th>[A]</th><th>[B]</th><th>Initial rate</th></tr>
+                <tr><td>1</td><td>0.1</td><td>0.1</td><td>3.0 × 10⁻²</td></tr>
+                <tr><td>2</td><td>0.1</td><td>0.3</td><td>3.0 × 10⁻²</td></tr>
+                <tr><td>3</td><td>0.2</td><td>0.1</td><td>6.0 × 10⁻²</td></tr>
+            </table>
+            <div class="step"><strong>Compare 1 → 2.</strong>
+                [B] triples while rate stays unchanged → zero order in B.
+            </div>
+            <div class="step"><strong>Compare 1 → 3.</strong>
+                [A] doubles and rate doubles → first order in A.
+            </div>
+            <div class="answer">Rate = k[A]; overall order = 1.</div>
+            <div class="formula">k = (0.030 M/s) / (0.10 M) = 0.30 s⁻¹</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I compare experiments where only one concentration changes.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="zero first second order graphs concentration ln 1 over A C4H6 N2O5 slope k">
+        <summary>7. Determine order from graphs</summary>
+        <div class="topic-body">
+            <table>
+                <tr><th>Order</th><th>Linear plot</th><th>Slope</th></tr>
+                <tr><td>Zero</td><td>[A] vs time</td><td>−k</td></tr>
+                <tr><td>First</td><td>ln[A] vs time</td><td>−k</td></tr>
+                <tr><td>Second</td><td>1/[A] vs time</td><td>+k</td></tr>
+            </table>
+            <div class="answer">Key: C₄H₆ is second order because 1/[C₄H₆] vs time is linear.<br/>Key: N₂O₅ is first order because ln[N₂O₅] vs time is linear.</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I identify order by finding which transformed plot is linear.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="half life first order 10 min 0.0693">
+        <summary>8. First-order half-life</summary>
+        <div class="topic-body">
+            <div class="formula">t½ = 0.693 / k</div>
+            <div class="formula">k = 0.693 / 10.0 min = 0.0693 min⁻¹</div>
+            <div class="answer">k = 0.0693 min⁻¹</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can rearrange the first-order half-life equation.</label>
+        </div>
+    </details>
+    <details class="topic" data-search="integrated rate law zero order 0.50 M 20 percent complete 10 min 0.01 M min">
+        <summary>9. Zero-order integrated rate law</summary>
+        <div class="topic-body">
+            <div class="formula">[A]t = [A]₀ − kt</div>
+            <p>20% complete means 80% remains:</p>
+            <div class="formula">[A]t = (0.80)(0.50 M) = 0.40 M</div>
+            <div class="formula">0.40 = 0.50 − k(10 min)</div>
+            <div class="answer">k = 0.010 M·min⁻¹</div>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I convert “percent complete” into concentration remaining before using the integrated rate law.</label>
+        </div>
+    </details>
+</section></div></main></div><script>
+    const checks=[...document.querySelectorAll('.master input, .mastery')];
+    const saved=JSON.parse(localStorage.getItem('apChemCompleteMastery')||'null');
     if(saved) checks.forEach((c,i)=>c.checked=!!saved[i]);
-    checks.forEach(c=>c.addEventListener('change', updateProgress));
-    updateProgress();
-</script>
-</body>
-</html>
+    function prog(){
+        const d=checks.filter(c=>c.checked).length;
+        const p=checks.length?Math.round(100*d/checks.length):0;
+        document.getElementById('fill').style.width=p+'%';
+        document.getElementById('pct').textContent=p+'%';
+        localStorage.setItem('apChemCompleteMastery',JSON.stringify(checks.map(c=>c.checked)));
+    }
+    checks.forEach(c=>c.addEventListener('change',prog)); prog();
+
+    document.getElementById('openAll').onclick=()=>document.querySelectorAll('details').forEach(d=>d.open=true);
+    document.getElementById('closeAll').onclick=()=>document.querySelectorAll('details').forEach(d=>d.open=false);
+
+    const search=document.getElementById('search');
+    search.addEventListener('input',()=>{
+        const q=search.value.toLowerCase().trim();
+        document.querySelectorAll('.searchable').forEach(s=>{
+            const meta=(s.dataset.keywords||s.dataset.search||'');
+            const hit=!q||(meta+' '+s.innerText).toLowerCase().includes(q);
+            s.classList.toggle('hidden',!hit);
+            if(q&&hit)s.querySelectorAll('details').forEach(d=>d.open=true);
+        });
+    });
+
+    const qs=[
+        {q:"Which is a chemical change?",a:["Melting ice","Boiling water","Electrolysis of water","Condensing steam"],c:2,x:"Chemical change requires rearrangement into substances with different composition."},
+        {q:"Which statement describes precision?",a:["Close to accepted value","Repeated values close to one another","Correct number of sig figs","No experimental uncertainty"],c:1,x:"Precision is closeness among repeated measurements."},
+        {q:"How many significant figures are in 0.004070?",a:["3","4","5","6"],c:1,x:"Leading zeros do not count; 4, 0, 7, 0 are significant."},
+        {q:"For multiplication/division, the final answer is limited by…",a:["Fewest decimal places","Fewest significant figures","Largest exponent","Smallest unit"],c:1,x:"Multiplication and division use the fewest significant figures."},
+        {q:"What is the formula for aluminum sulfate?",a:["AlSO4","Al3SO4","Al2(SO4)3","Al(SO4)2"],c:2,x:"2 Al³⁺ gives +6 and 3 sulfate ions give −6."},
+        {q:"What is Cu2O called?",a:["Copper oxide","Copper(II) oxide","Copper(I) oxide","Dicopper monoxide"],c:2,x:"O is −2 total, so each Cu must be +1."},
+        {q:"Which name is correct for N2O5?",a:["Nitrogen oxide","Nitrogen(V) oxide","Dinitrogen pentoxide","Dinitrogen pentaoxide"],c:2,x:"Two nonmetals use prefixes; pentoxide is the standard contraction."},
+        {q:"Chlorate becomes which acid name?",a:["Hydrochloric acid","Chlorous acid","Chloric acid","Perchloric acid"],c:2,x:"-ate becomes -ic acid."},
+        {q:"An atom has Z = 17 and A = 37. How many neutrons?",a:["17","20","37","54"],c:1,x:"n = A − Z = 20."},
+        {q:"A negative ion forms when an atom…",a:["loses protons","gains protons","loses electrons","gains electrons"],c:3,x:"Gaining electrons creates an anion."},
+        {q:"Which scientist is paired with the oil-drop experiment in the Unit 0 notes?",a:["Thomson","Millikan","Rutherford","Chadwick"],c:1,x:"Millikan's oil-drop experiment determined electron charge."},
+        {q:"Gas → solid is called…",a:["sublimation","deposition / reverse sublimation","condensation","freezing"],c:1,x:"The notes call gas → solid deposition or reverse sublimation."}
+    ];
+    let current;
+    function loadQ(){
+        current=qs[Math.floor(Math.random()*qs.length)];
+        const qp=document.getElementById('qprompt'), box=document.getElementById('choices'), fb=document.getElementById('feedback');
+        if(!qp||!box||!fb)return;
+        qp.textContent=current.q; fb.textContent=''; box.innerHTML='';
+        current.a.forEach((v,i)=>{
+            const b=document.createElement('button'); b.textContent=v;
+            b.onclick=()=>{
+                if(i===current.c){fb.className='feedback correct';fb.textContent='Correct — '+current.x}
+                else{fb.className='feedback wrong';fb.textContent='Not quite. '+current.x}
+            };
+            box.appendChild(b);
+        });
+    }
+    const next=document.getElementById('nextQ'); if(next){next.onclick=loadQ;loadQ();}
+
+    const links=[...document.querySelectorAll('nav a')];
+    const targets=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const io=new IntersectionObserver(es=>es.forEach(e=>{
+        if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))
+    }),{rootMargin:'-25% 0px -68% 0px'});
+    targets.forEach(t=>io.observe(t));
+</script></body></html>
