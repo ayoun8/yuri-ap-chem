@@ -1,1 +1,1940 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AP Chemistry — Unit 0 Test Hub</title></head><body><div id="loading" style="font:16px system-ui;padding:32px">Loading Unit 0 Study Hub…</div><script>(async()=>{const [a,b]=await Promise.all([fetch('.u0a').then(r=>r.text()),fetch('.u0b').then(r=>r.text())]);const b64=(a+b).trim();const bytes=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));const ds=new DecompressionStream('gzip');const html=await new Response(new Blob([bytes]).stream().pipeThrough(ds)).text();document.open();document.write(html);document.close();})().catch(e=>{document.getElementById('loading').textContent='Unable to load the study hub. Please refresh the page.';console.error(e)});</script></body></html>
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AP Chemistry — Unit 0 Test Hub</title><style>
+:root{
+  --bg:#f5f7f7; --paper:#ffffff; --ink:#19232d; --muted:#64717b;
+  --line:#dfe5e7; --sage:#3f6a60; --sage2:#edf4f1; --blue:#eef5fb;
+  --gold:#fff8e7; --rose:#fff1f1; --green:#edf8f0; --purple:#f5f1fa;
+  --nav:#172229; --nav2:#22323b; --shadow:0 10px 30px rgba(31,43,52,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15.7px/1.68 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input{font:inherit}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topin{max-width:1220px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 22px}
+.brand{font-weight:850;letter-spacing:-.02em}.brand small{display:block;color:var(--muted);font-weight:600;font-size:.75rem}
+.tabs{display:flex;gap:7px;flex-wrap:wrap}
+.tabbtn{border:1px solid var(--line);background:white;color:var(--ink);padding:8px 12px;border-radius:9px;cursor:pointer;font-weight:720}
+.tabbtn.active{background:var(--sage);color:#fff;border-color:var(--sage)}
+.shell{max-width:1220px;margin:auto;padding:26px 22px 80px}
+.tabpage{display:none}.tabpage.active{display:block}
+.hero,.card{background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:18px}
+.hero{padding:36px;margin-bottom:18px;background:linear-gradient(140deg,#fff,#f7fbf9)}
+.card{padding:25px;margin:16px 0}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.71rem;font-weight:850;color:var(--sage)}
+h1,h2,h3,h4{line-height:1.2;letter-spacing:-.025em;margin-top:.4em}
+h1{font-size:clamp(2.15rem,4.4vw,3.7rem);margin:.15em 0 .2em}
+h2{font-size:1.7rem;margin:.15em 0 .55em}
+h3{font-size:1.16rem}
+p{max-width:900px}
+.lead{font-size:1.04rem;color:#41515c}
+.chips,.jump{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chip,.pill{border-radius:999px;padding:6px 10px;font-size:.82rem;border:1px solid #d6e2de;background:var(--sage2)}
+.jump a{color:var(--ink);text-decoration:none;background:#fff;border:1px solid var(--line);padding:8px 11px;border-radius:9px;font-weight:700}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.mini{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fbfcfc}
+.callout,.trap,.answer,.why,.memory,.teacher{border-radius:11px;padding:12px 14px;margin:11px 0;border:1px solid var(--line)}
+.callout{background:var(--blue)}.trap{background:var(--gold);border-color:#e4ca83}.answer{background:var(--green);border-color:#a8cdae}.why{background:#f7fafb}.memory{background:var(--purple)}.teacher{background:#f5f8f7;border-color:#c9d9d4}
+.formula{font-family:"Cambria Math","STIX Two Math",Georgia,serif;background:#f7f9fa;border-left:3px solid #b8cac4;padding:8px 12px;margin:9px 0}
+details{border:1px solid var(--line);border-radius:12px;background:white;margin:9px 0;overflow:hidden}
+summary{cursor:pointer;font-weight:790;padding:12px 14px;background:#f8fafb;list-style:none}
+summary::-webkit-details-marker{display:none}
+.detailbody{padding:5px 15px 16px}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.92rem}
+th,td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f7f9fa}
+.step{display:grid;grid-template-columns:34px 1fr;gap:10px;margin:8px 0}
+.stepnum{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--sage);color:#fff;font-weight:850}
+.lesson-title{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}.tag{background:var(--sage);color:white;border-radius:999px;padding:5px 9px;font-size:.74rem;font-weight:800}
+.mastery{display:flex;align-items:flex-start;gap:9px;border-top:1px solid var(--line);padding-top:10px;margin-top:12px;color:#52616b}
+.mastery input{margin-top:5px}
+.q{border:1px solid var(--line);border-radius:12px;padding:14px;margin:10px 0;background:#fff}
+.qnum{font-weight:850;color:var(--sage)}
+.options{margin:8px 0 0 0;padding-left:22px}.options li{margin:3px 0}
+.keyrow{display:grid;grid-template-columns:48px 65px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid var(--line)}
+.correct{font-weight:850;color:#2b7042}
+.scorebox{background:var(--nav);color:#fff;border-radius:14px;padding:18px;margin:14px 0}
+.scorebar{height:9px;background:#354750;border-radius:99px;overflow:hidden}.scorefill{height:100%;width:0;background:#9dd5c5}
+.resource{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff}.resource a{color:#285f91}
+.timeline{border-left:3px solid #c8d8d3;padding-left:17px}.timeblock{margin:15px 0}.timeblock b{display:block}
+.printnote{font-size:.86rem;color:var(--muted)}
+.practice-controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.action{border:1px solid var(--line);background:#fff;padding:8px 11px;border-radius:9px;cursor:pointer;font-weight:700}.action.primary{background:var(--sage);color:#fff;border-color:var(--sage)}
+.hideanswers .anscontent{display:none}
+@media(max-width:820px){.grid2,.grid3{grid-template-columns:1fr}.topin{align-items:flex-start;flex-direction:column}.shell{padding:18px 12px 60px}.hero,.card{padding:20px}.keyrow{grid-template-columns:38px 52px 1fr}}
+@media print{.topbar,.practice-controls,.printnote{display:none!important}.tabpage{display:block!important}.card,.hero{box-shadow:none;break-inside:avoid}body{background:white}.shell{max-width:none}}
+
+.mcq-options{display:grid;gap:8px;margin-top:12px}
+.mcq-option{display:grid;grid-template-columns:22px 32px 1fr;align-items:start;gap:7px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;background:#fff;transition:.15s ease}
+.mcq-option:hover{background:#f7faf9;border-color:#b9cec7}
+.mcq-option input{margin-top:4px}
+.choice-letter{font-weight:850;color:var(--sage)}
+.mcq-option.correct-choice{background:#edf8f0;border-color:#8fbe9a}
+.mcq-option.wrong-choice{background:#fff1f1;border-color:#d8a3a3}
+.question-feedback{display:none;margin-top:10px;padding:10px 12px;border-radius:10px;background:#f7f9fa;border:1px solid var(--line)}
+.question-feedback.show{display:block}
+.grade-summary{margin-top:14px;border-radius:14px;padding:17px;background:var(--nav);color:white}
+.grade-summary strong{font-size:1.2rem}
+
+</style></head>
+<body>
+<div class="topbar"><div class="topin">
+<div class="brand">AP Chemistry Study Hub <small>Unit 0 Test Edition</small></div>
+<div class="tabs">
+<button class="tabbtn active" data-tab="home" onclick="showTab('home')">Unit 0 Test</button>
+<button class="tabbtn" data-tab="learn" onclick="showTab('learn')">Learn</button>
+
+<button class="tabbtn" data-tab="test" onclick="showTab('test')">Practice Test</button>
+<button class="tabbtn" data-tab="answers" onclick="showTab('answers')">Answer Key</button>
+<button class="tabbtn" data-tab="test2" onclick="showTab('test2')">Practice Test 2</button>
+<button class="tabbtn" data-tab="answers2" onclick="showTab('answers2')">Test 2 Key</button>
+</div>
+</div></div>
+<main class="shell">
+<div id="home" class="tabpage active">
+<section class="hero">
+<div class="eyebrow">AP Chemistry</div>
+<h1>Unit 0 Test Hub</h1>
+<p class="lead">This page is built around the Unit 0 test list and the corresponding summer-review materials. It assumes <b>zero prior chemistry</b>: every rule is introduced before it is used.</p>
+<div class="chips"><span class="chip">accuracy vs precision</span><span class="chip">percent error</span><span class="chip">significant figures</span><span class="chip">metric conversions</span><span class="chip">dimensional analysis</span><span class="chip">p/n/e</span><span class="chip">binary + ternary naming</span><span class="chip">physical vs chemical</span></div>
+<div class="jump"><a href="#" onclick="showTab('learn');return false">Start learning</a><a href="#" onclick="showTab('test');return false">Take practice test</a></div>
+</section>
+<section class="card">
+<div class="eyebrow">Priority map</div><h2>What matters most for this test</h2>
+<div class="grid2">
+<div class="mini"><b>Tier 1 · Must be automatic</b><p>Sig-fig operation rules, dimensional-analysis setup, percent error formula, p/n/e equations, ionic charge balancing.</p></div>
+<div class="mini"><b>Tier 2 · Must classify correctly</b><p>Accuracy vs precision, ionic vs molecular naming, physical vs chemical change.</p></div>
+<div class="mini"><b>Tier 3 · Memory load</b><p>Metric prefixes, molecular prefixes, common polyatomic ions, variable-charge Roman numerals.</p></div>
+<div class="mini"><b>AP-style transfer</b><p>Explain why an error affects accuracy/precision; infer charge from formula; reason from particle identity; use units to validate a calculation.</p></div>
+</div>
+</section>
+<section class="card">
+<h2>Fast diagnostic</h2>
+<p>Before teaching, start with these seven questions without notes. This tells you where to spend time.</p>
+<ol><li>Difference between accuracy and precision?</li><li>How many sig figs in 0.004050?</li><li>Convert 2.5 km to m with units cancelling.</li><li>What are p/n/e in ²³Na⁺?</li><li>Name CuCl₂.</li><li>Write calcium nitrate.</li><li>Is boiling water physical or chemical, and why?</li></ol>
+<div class="answer anscontent"><b>Diagnostic answers:</b> accuracy = closeness to true value, precision = repeatability; 4 sig figs; 2.5×10³ m; for ²³₁₁Na⁺: 11 p, 12 n, 10 e; copper(II) chloride; Ca(NO₃)₂; physical because H₂O remains H₂O.</div>
+</section>
+</div>
+<div id="learn" class="tabpage">
+<section class="hero">
+<div class="eyebrow">Unit 0 Test · Learn</div><h1>Unit 0 Test Review</h1>
+<p class="lead">Review each test topic below, then use the mastery checks and practice problems to make sure the concepts are solid.</p>
+<div class="jump">
+<a href="#accuracy">Accuracy & precision</a><a href="#sigfigs">Sig figs</a><a href="#metric">Conversions</a><a href="#unit-conversion-deep-dive">Conversion Deep Dive</a><a href="#atomic">p/n/e</a><a href="#naming">Naming</a><a href="#changes">Changes</a>
+</div>
+</section>
+
+<section class="card" id="accuracy">
+<div class="lesson-title"><div><div class="eyebrow">Topic 1</div><h2>Accuracy vs. Precision + Percent Error</h2></div><span class="tag">High yield</span></div>
+<p class="lead"><b>Key idea:</b> a measurement can be close to the correct value, close to otthe measurements, both, or neither. Those are two separate ideas.</p>
+<div class="grid2">
+  <div class="mini"><h3>Accuracy</h3><p>How close a measured value is to the accepted/true value.</p><div class="memory"><b>Memory:</b> accurate = “aimed at the right answer.”</div></div>
+  <div class="mini"><h3>Precision</h3><p>How close repeated measurements are to each other.</p><div class="memory"><b>Memory:</b> precise = “packed together.”</div></div>
+</div>
+<div class="formula">% error = |experimental − accepted| ÷ accepted × 100%</div>
+<div class="callout"><b>Why the absolute value?</b> Percent error usually reports the size of the error, not whetthe the experimental value was above or below the accepted value.</div>
+<details><summary>Four possible measurement patterns</summary><div class="detailbody">
+<table><tr><th>Pattern</th><th>What it means</th><th>Example if accepted = 10.00 g</th></tr>
+<tr><td>accurate + precise</td><td>clustered near truth</td><td>10.01, 10.00, 9.99</td></tr>
+<tr><td>precise, not accurate</td><td>clustered, but wrong center</td><td>8.41, 8.42, 8.41</td></tr>
+<tr><td>accurate on average, not precise</td><td>spread out around truth</td><td>8.0, 10.1, 11.9</td></tr>
+<tr><td>neither</td><td>spread out and away from truth</td><td>6.1, 7.7, 8.4</td></tr></table>
+</div></details>
+<details open><summary>Worked percent-error example</summary><div class="detailbody">
+<p>A student measures the density of aluminum as 2.62 g/cm³. Accepted density = 2.70 g/cm³.</p>
+<div class="formula">% error = |2.62 − 2.70| / 2.70 × 100 = 2.96%</div>
+<p>Report <b>2.96%</b> if the given values justify three significant figures.</p>
+<div class="trap"><b>Trap:</b> the accepted value goes in the denominator, not the experimental value.</div>
+</div></details>
+<details><summary>AP-style reasoning: systematic vs random error</summary><div class="detailbody">
+<p><b>Systematic error</b> pushes measurements consistently in one direction (for example, a balance that always reads +0.25 g). It often harms <b>accuracy</b> while leaving precision high.</p>
+<p><b>Random error</b> makes measurements scatter unpredictably and often harms <b>precision</b>.</p>
+<div class="why"><b>AP move:</b> When a prompt describes an instrument problem, ask: does it shift every value the same way, or does it make values fluctuate?</div>
+</div></details>
+<details><summary>Mini drill</summary><div class="detailbody">
+<ol>
+<li>Accepted mass = 25.00 g; measured mass = 24.20 g. Find percent error.</li>
+<li>Three trials are 12.51, 12.50, 12.52 mL, but accepted value is 13.20 mL. Accurate, precise, both, or neither?</li>
+<li>A thermometer always reads 1.5 °C too high. Which is primarily affected: accuracy or precision?</li>
+</ol>
+<div class="answer anscontent"><b>Answers:</b> (1) 3.20% (2) precise but inaccurate (3) accuracy; this is systematic error.</div>
+</div></details>
+<label class="mastery"><input type="checkbox"> I can distinguish accuracy from precision, calculate percent error, and explain how systematic/random error changes data.</label>
+</section>
+
+<section class="card" id="sigfigs">
+<div class="lesson-title"><div><div class="eyebrow">Topic 2</div><h2>Significant Figures</h2></div><span class="tag">Calculation rule</span></div>
+<p class="lead">Significant figures communicate how precisely a quantity was measured. They are not decorative zeros.</p>
+<table>
+<tr><th>Rule</th><th>Example</th><th>Sig figs</th><th>Why</th></tr>
+<tr><td>All nonzero digits count</td><td>347</td><td>3</td><td>every digit carries information</td></tr>
+<tr><td>Leading zeros do not count</td><td>0.00450</td><td>3</td><td>zeros only locate decimal; 4,5,0 are significant</td></tr>
+<tr><td>Zeros between nonzero digits count</td><td>1007</td><td>4</td><td>they are “captive”</td></tr>
+<tr><td>Trailing zeros after a decimal count</td><td>2.300</td><td>4</td><td>they show measured precision</td></tr>
+<tr><td>Whole-number trailing zeros can be ambiguous</td><td>1500</td><td>ambiguous</td><td>use scientific notation to clarify</td></tr>
+</table>
+<details open><summary>Multiplication and division</summary><div class="detailbody">
+<p>Round the final answer to the <b>fewest significant figures</b> among measured inputs.</p>
+<div class="formula">6.24 × 2.1 = 13.104 → 13 (2 sig figs)</div>
+<div class="trap"><b>Trap:</b> This is NOT about decimal places.</div>
+</div></details>
+<details open><summary>Addition and subtraction</summary><div class="detailbody">
+<p>Round the final answer to the <b>least precise decimal place</b>.</p>
+<div class="formula">12.11 + 0.3 + 1.004 = 13.414 → 13.4</div>
+<p>0.3 only reaches the tenths place, so the result must stop at tenths.</p>
+<div class="trap"><b>Trap:</b> Do not count total sig figs for +/−.</div>
+</div></details>
+<details><summary>Exact numbers and conversion factors</summary><div class="detailbody">
+<p>Counted quantities and defined conversion factors do not limit significant figures. For example, exactly 3 students or the definition 1 in = 2.54 cm are treated as exact.</p>
+<div class="why">The uncertainty comes from measurements, not exact definitions.</div>
+</div></details>
+<details><summary>Scientific notation as a sig-fig tool</summary><div class="detailbody">
+<p>Scientific notation makes intended precision obvious:</p>
+<div class="formula">1.5 × 10³ = 2 sig figs; 1.50 × 10³ = 3 sig figs; 1.500 × 10³ = 4 sig figs.</div>
+</div></details>
+<details><summary>Mini drill</summary><div class="detailbody">
+<ol>
+<li>How many sig figs: 0.003040?</li><li>Round 7.8421 × 0.22 correctly.</li><li>Round 19.876 + 2.4 correctly.</li><li>Write 4500 with exactly 3 sig figs.</li>
+</ol>
+<div class="answer anscontent"><b>Answers:</b> (1) 4 (3,0,4,0) (2) 1.7 (3) 22.3 (4) 4.50 × 10³.</div>
+</div></details>
+
+<details open>
+<summary>Exact numbers vs. measured numbers — why some numbers do NOT limit significant figures</summary>
+<div class="detailbody">
+<p><b>Significant figures only track uncertainty in measured quantities.</b> If a number is exact, it does not add uncertainty and therefore does not limit the final number of significant figures.</p>
+
+<div class="callout">
+<b>Fast test:</b> Ask, “Was this number measured, or is it known exactly by counting/definition?”<br>
+Measured → can limit sig figs.<br>
+Exact → does <b>not</b> limit sig figs.
+</div>
+
+<h3>Example 1: “Exactly 3 times as long”</h3>
+<p>A measured length is 2.375 cm. Another object is <b>exactly 3 times</b> as long.</p>
+<div class="formula">2.375 cm × 3 = 7.125 cm</div>
+<p>The number 3 is exact. It does not mean “1 significant figure.” The measured value 2.375 has 4 significant figures, so the final answer keeps 4 significant figures:</p>
+<div class="answer"><b>7.125 cm</b></div>
+
+<h3>Example 2: 4 wheels per car</h3>
+<p>There are exactly 4 wheels on each car. If 12 cars are counted:</p>
+<div class="formula">12 cars × (4 wheels / 1 car) = 48 wheels</div>
+<p>The 4 is exact because it comes from counting/definition. It does not force the answer to 1 significant figure.</p>
+
+<h3>Example 3: 2 hydrogen atoms per H₂ molecule</h3>
+<p>If there are exactly 7 H₂ molecules:</p>
+<div class="formula">7 molecules × (2 H atoms / 1 molecule) = 14 H atoms</div>
+<p>Both 7 and 2 are counted quantities, so they are exact.</p>
+
+<h3>Example 4: 1 meter = 100 centimeters</h3>
+<p>This metric relationship is defined exactly:</p>
+<div class="formula">1 m = 100 cm</div>
+<p>The 100 does <b>not</b> mean “1 significant figure.” Defined conversion factors do not limit sig figs.</p>
+
+<h3>Example 5: 60 seconds = 1 minute</h3>
+<p>When converting 3.42 min to seconds:</p>
+<div class="formula">3.42 min × (60 s / 1 min) = 205.2 s</div>
+<p>The 60 is exact, so the limiting value is 3.42, which has 3 significant figures.</p>
+<div class="answer"><b>205 s</b> (3 sig figs)</div>
+
+<h3>Example 6: measured 3.0 vs exact 3</h3>
+<p>This distinction matters:</p>
+<table>
+<tr><th>Expression</th><th>What the “3” means</th><th>Sig-fig effect</th></tr>
+<tr><td>2.375 × <b>3</b> where the problem says “exactly 3 times”</td><td>exact relationship</td><td>does not limit</td></tr>
+<tr><td>2.375 × <b>3.0</b> where 3.0 is a measured quantity</td><td>measurement with 2 sig figs</td><td>limits answer to 2 sig figs</td></tr>
+</table>
+<div class="formula">2.375 × 3.0 = 7.125 → 7.1</div>
+
+<h3>Example 7: 24 students split equally into 6 groups</h3>
+<div class="formula">24 students ÷ 6 groups = 4 students/group</div>
+<p>If 24 and 6 are exact counts, they do not trigger ordinary measurement-style sig-fig rounding.</p>
+
+<h3>Example 8: a dozen</h3>
+<p>One dozen means exactly 12.</p>
+<div class="formula">3 dozen eggs × 12 eggs/dozen = 36 eggs</div>
+<p>The 12 is exact by definition.</p>
+
+<h3>Example 9: conversion using 1 kg = 1000 g</h3>
+<div class="formula">2.50 kg × (1000 g / 1 kg) = 2500 g</div>
+<p>The 1000 is exact. The measured value 2.50 has 3 significant figures, so write the answer clearly as:</p>
+<div class="answer"><b>2.50 × 10³ g</b></div>
+
+<h3>Example 10: density calculation where every value is measured</h3>
+<p>Suppose mass = 12.4 g and volume = 3.1 mL.</p>
+<div class="formula">density = 12.4 g ÷ 3.1 mL = 4.0 g/mL</div>
+<p>Here both numbers are measured. 3.1 has only 2 significant figures, so the answer is limited to 2 significant figures.</p>
+
+<div class="trap">
+<b>Common mistake:</b> Looking only at how many digits are written. A plain “3” can either be exact or measured depending on context. The wording of the problem tells you which.
+</div>
+
+<h3>Quick practice</h3>
+<ol>
+<li>A ribbon is measured as 4.286 m. Another ribbon is exactly 2 times as long. What is the correctly reported length?</li>
+<li>A measured mass of 8.45 g is multiplied by a measured factor of 2.0. How many significant figures should the final answer have?</li>
+<li>Convert 6.30 min to seconds. Does the number 60 limit the answer?</li>
+<li>There are exactly 5 test tubes in each rack and exactly 8 racks. How many test tubes are there?</li>
+<li>Convert 0.450 m to cm using 100 cm = 1 m. How many significant figures should the final answer have?</li>
+</ol>
+
+<div class="answer anscontent">
+<b>Answers:</b><br>
+1. 8.572 m — 2 is exact; 4.286 controls the precision.<br>
+2. 2 significant figures — 2.0 is measured.<br>
+3. 378 s — 60 is exact; 6.30 has 3 sig figs.<br>
+4. 40 test tubes — both are exact counts.<br>
+5. 45.0 cm — 100 is exact; 0.450 has 3 sig figs.
+</div>
+</div>
+</details>
+
+<label class="mastery"><input type="checkbox"> I can count sig figs and choose the correct rounding rule based on the operation.</label>
+</section>
+
+<section class="card" id="metric">
+<div class="lesson-title"><div><div class="eyebrow">Topic 3</div><h2>Metric Conversions + Dimensional Analysis</h2></div><span class="tag">Core skill</span></div>
+<p class="lead">Dimensional analysis is “unit algebra.” The conversion factor must be oriented so the unwanted unit cancels.</p>
+<table><tr><th>Prefix</th><th>Symbol</th><th>Factor</th></tr>
+<tr><td>kilo</td><td>k</td><td>10³</td></tr><tr><td>centi</td><td>c</td><td>10⁻²</td></tr><tr><td>milli</td><td>m</td><td>10⁻³</td></tr><tr><td>micro</td><td>µ</td><td>10⁻⁶</td></tr><tr><td>nano</td><td>n</td><td>10⁻⁹</td></tr></table>
+<div class="teacher"><b>Important rule:</b> Never teach “move the decimal” as the primary method. Teach factor-label first; moving the decimal becomes a shortcut only after she understands why.</div>
+<details open><summary>One-step conversion</summary><div class="detailbody">
+<p>Convert 3.75 km to m.</p>
+<div class="formula">3.75 km × (1000 m / 1 km) = 3.75 × 10³ m</div>
+<p>The km units cancel. The surviving unit is m.</p>
+</div></details>
+<details><summary>Multi-step conversion</summary><div class="detailbody">
+<p>Convert 325 days to seconds.</p>
+<div class="formula">325 d × (24 h/1 d) × (60 min/1 h) × (60 s/1 min) = 2.808 × 10⁷ s</div>
+<p>If 325 is taken as 3 significant figures, report <b>2.81 × 10⁷ s</b>.</p>
+</div></details>
+<details><summary>Squared and cubed units</summary><div class="detailbody">
+<p>When the unit is squared or cubed, the conversion factor must also be squared or cubed.</p>
+<div class="formula">2.00 cm² × (1 m / 100 cm)² = 2.00 × 10⁻⁴ m²</div>
+<div class="trap"><b>Classic trap:</b> 1 cm = 10⁻² m, but 1 cm² = 10⁻⁴ m².</div>
+</div></details>
+<details><summary>Volume relationships worth knowing</summary><div class="detailbody">
+<div class="formula">1.000 mL = 1.000 cm³</div>
+<div class="formula">1.000 L = 1000. mL = 1.000 dm³</div>
+<p>These are especially useful when density connects mass and volume.</p>
+</div></details>
+<details><summary>Density as dimensional analysis</summary><div class="detailbody">
+<div class="formula">D = m/V</div>
+<p>If D = 1.25 g/mL and V = 8.40 mL:</p>
+<div class="formula">m = D×V = (1.25 g/mL)(8.40 mL) = 10.5 g</div>
+<p>The mL cancels automatically.</p>
+</div></details>
+<details><summary>Mini drill</summary><div class="detailbody">
+<ol><li>515 m → km</li><li>2.50 L → mL</li><li>8.00 cm³ → mL</li><li>0.375 kg → mg</li><li>45.0 mi/h → m/s using 1 mi = 1609 m and 1 h = 3600 s</li></ol>
+<div class="answer anscontent"><b>Answers:</b> 0.515 km; 2.50×10³ mL; 8.00 mL; 3.75×10⁵ mg; 20.1 m/s.</div>
+</div></details>
+<label class="mastery"><input type="checkbox"> I can set up conversion factors so units cancel, including multi-step and squared/cubed conversions.</label>
+</section>
+
+
+<section class="card" id="unit-conversion-deep-dive">
+<div class="lesson-title">
+  <div>
+    <div class="eyebrow">Extra Practice</div>
+    <h2>Unit Conversions: From Tiny to Huge</h2>
+  </div>
+  <span class="tag">Step-by-step</span>
+</div>
+
+<p class="lead">
+Metric conversions get much easier when you stop treating them as a “move the decimal” trick.
+Instead, treat the units like algebra: multiply by conversion factors so the unit you do not want cancels
+and the unit you do want remains.
+</p>
+
+<div class="callout">
+<b>The one rule to follow every time:</b> put the unit you want to cancel on the opposite side of the fraction.
+If <b>cm</b> is in the starting value, put <b>cm</b> in the denominator of the conversion factor.
+</div>
+
+<h3>Metric prefixes to know</h3>
+<table>
+<tr><th>Prefix</th><th>Symbol</th><th>Meaning</th><th>Power of 10</th></tr>
+<tr><td>kilo</td><td>k</td><td>1,000 base units</td><td>10³</td></tr>
+<tr><td>hecto</td><td>h</td><td>100 base units</td><td>10²</td></tr>
+<tr><td>deka</td><td>da</td><td>10 base units</td><td>10¹</td></tr>
+<tr><td>base unit</td><td>m, g, L</td><td>meter, gram, liter</td><td>10⁰</td></tr>
+<tr><td>deci</td><td>d</td><td>0.1 base unit</td><td>10⁻¹</td></tr>
+<tr><td>centi</td><td>c</td><td>0.01 base unit</td><td>10⁻²</td></tr>
+<tr><td>milli</td><td>m</td><td>0.001 base unit</td><td>10⁻³</td></tr>
+<tr><td>micro</td><td>µ</td><td>0.000001 base unit</td><td>10⁻⁶</td></tr>
+<tr><td>nano</td><td>n</td><td>0.000000001 base unit</td><td>10⁻⁹</td></tr>
+<tr><td>pico</td><td>p</td><td>0.000000000001 base unit</td><td>10⁻¹²</td></tr>
+</table>
+
+<div class="memory">
+<b>Useful way to think about prefixes:</b><br>
+centi = 10⁻², milli = 10⁻³, micro = 10⁻⁶, nano = 10⁻⁹, pico = 10⁻¹².<br>
+As the unit gets <b>smaller</b>, you need <b>more</b> of those units to represent the same amount.
+</div>
+
+<h3>Example 1: 10 centimeters → kilometers</h3>
+<p>Start with the given value and convert in logical steps.</p>
+
+<div class="step"><div class="stepnum">1</div><div>
+<b>Convert centimeters to meters.</b>
+<div class="formula">10 cm × (1 m / 100 cm) = 0.10 m</div>
+The cm units cancel.
+</div></div>
+
+<div class="step"><div class="stepnum">2</div><div>
+<b>Convert meters to kilometers.</b>
+<div class="formula">0.10 m × (1 km / 1000 m) = 0.00010 km</div>
+The m units cancel.
+</div></div>
+
+<div class="answer">
+<b>Answer:</b> 10 cm = 0.00010 km = 1.0 × 10⁻⁴ km
+</div>
+
+<div class="why">
+<b>Why the number got smaller:</b> a kilometer is a much larger unit than a centimeter.
+It takes only a tiny fraction of a kilometer to represent 10 cm.
+</div>
+
+<h3>Example 2: 10 centimeters → micrometers</h3>
+<p>This time the final unit is much smaller than a centimeter, so the numerical value becomes much larger.</p>
+
+<div class="formula">
+10 cm × (1 m / 100 cm) × (10⁶ µm / 1 m)
+</div>
+
+<p>Cancel cm, then cancel m:</p>
+
+<div class="formula">
+10 × (1/100) × 10⁶ = 1.0 × 10⁵ µm
+</div>
+
+<div class="answer">
+<b>Answer:</b> 10 cm = 100,000 µm = 1.0 × 10⁵ µm
+</div>
+
+<h3>Example 3: 10 centimeters → nanometers</h3>
+
+<div class="formula">
+10 cm × (1 m / 100 cm) × (10⁹ nm / 1 m)
+= 1.0 × 10⁸ nm
+</div>
+
+<div class="answer">
+<b>Answer:</b> 10 cm = 100,000,000 nm
+</div>
+
+<div class="trap">
+<b>Important:</b> centimeters measure <b>length</b>. Picograms measure <b>mass</b>.
+You cannot convert centimeters directly into picograms because they describe different physical quantities.
+You can only convert length → length, mass → mass, volume → volume, and so on unless another relationship
+such as density is provided.
+</div>
+
+<h3>Example 4: 10 grams → picograms</h3>
+<p>This is the kind of conversion where picograms make sense because both units measure mass.</p>
+
+<div class="step"><div class="stepnum">1</div><div>
+Know what pico means:
+<div class="formula">1 pg = 10⁻¹² g</div>
+That also means:
+<div class="formula">1 g = 10¹² pg</div>
+</div></div>
+
+<div class="step"><div class="stepnum">2</div><div>
+Set up the factor so grams cancel:
+<div class="formula">10 g × (10¹² pg / 1 g)</div>
+</div></div>
+
+<div class="step"><div class="stepnum">3</div><div>
+Multiply:
+<div class="formula">10 × 10¹² = 1.0 × 10¹³ pg</div>
+</div></div>
+
+<div class="answer">
+<b>Answer:</b> 10 g = 10,000,000,000,000 pg = 1.0 × 10¹³ pg
+</div>
+
+<h3>Example 5: 3500 picograms → grams</h3>
+
+<div class="formula">
+3500 pg × (1 g / 10¹² pg)
+= 3.5 × 10⁻⁹ g
+</div>
+
+<div class="answer">
+<b>Answer:</b> 3500 pg = 3.5 × 10⁻⁹ g
+</div>
+
+<h3>Example 6: 2.4 milligrams → picograms</h3>
+<p>There are two clean ways to do this. The safest way is to go through grams.</p>
+
+<div class="formula">
+2.4 mg × (1 g / 10³ mg) × (10¹² pg / 1 g)
+</div>
+
+<p>Cancel mg, then cancel g:</p>
+
+<div class="formula">
+2.4 × 10⁻³ × 10¹² = 2.4 × 10⁹ pg
+</div>
+
+<div class="answer">
+<b>Answer:</b> 2.4 mg = 2.4 × 10⁹ pg
+</div>
+
+<h3>Example 7: 0.0065 kilometers → centimeters</h3>
+
+<div class="formula">
+0.0065 km × (1000 m / 1 km) × (100 cm / 1 m)
+</div>
+
+<div class="formula">
+0.0065 × 1000 × 100 = 650 cm
+</div>
+
+<div class="answer">
+<b>Answer:</b> 0.0065 km = 650 cm
+</div>
+
+<h3>Example 8: 4.2 nanograms → milligrams</h3>
+
+<div class="formula">
+4.2 ng × (1 g / 10⁹ ng) × (10³ mg / 1 g)
+</div>
+
+<div class="formula">
+4.2 × 10⁻⁹ × 10³ = 4.2 × 10⁻⁶ mg
+</div>
+
+<div class="answer">
+<b>Answer:</b> 4.2 ng = 4.2 × 10⁻⁶ mg
+</div>
+
+<h3>Shortcut using powers of ten</h3>
+<p>
+Once the full dimensional-analysis method makes sense, prefix exponents can be used as a shortcut.
+Compare the exponent of the starting prefix with the exponent of the ending prefix.
+</p>
+
+<div class="mini">
+<b>Example: cm → km</b><br>
+centi = 10⁻²<br>
+kilo = 10³<br><br>
+The units are 5 powers of ten apart:
+<div class="formula">10⁻² / 10³ = 10⁻⁵</div>
+So:
+<div class="formula">10 cm × 10⁻⁵ = 1.0 × 10⁻⁴ km</div>
+</div>
+
+<div class="mini">
+<b>Example: mg → pg</b><br>
+milli = 10⁻³<br>
+pico = 10⁻¹²<br><br>
+The smaller picogram unit means the numerical value becomes larger:
+<div class="formula">10⁻³ / 10⁻¹² = 10⁹</div>
+So:
+<div class="formula">2.4 mg × 10⁹ = 2.4 × 10⁹ pg</div>
+</div>
+
+<h3>How to know whether your answer should be bigger or smaller</h3>
+<table>
+<tr><th>You are converting to...</th><th>What should happen to the number?</th><th>Example</th></tr>
+<tr><td>a <b>smaller</b> unit</td><td>number gets <b>bigger</b></td><td>1 g = 1000 mg</td></tr>
+<tr><td>a <b>larger</b> unit</td><td>number gets <b>smaller</b></td><td>1000 m = 1 km</td></tr>
+</table>
+
+<div class="why">
+This is a powerful reasonableness check. If you convert 2 meters to centimeters and get 0.02 cm,
+the setup is backwards because centimeters are smaller units, so you should have more of them.
+</div>
+
+<h3>One-step vs. multi-step conversions</h3>
+<div class="grid2">
+<div class="mini">
+<b>One-step</b>
+<div class="formula">5.2 kg × (1000 g / 1 kg) = 5200 g</div>
+</div>
+<div class="mini">
+<b>Multi-step</b>
+<div class="formula">
+5.2 kg × (1000 g / 1 kg) × (10¹² pg / 1 g)
+= 5.2 × 10¹⁵ pg
+</div>
+</div>
+</div>
+
+<h3>Practice: set these up before using a calculator</h3>
+<ol>
+<li>25.0 cm → km</li>
+<li>0.00450 km → mm</li>
+<li>7.2 g → pg</li>
+<li>8.40 × 10⁵ pg → g</li>
+<li>3.65 mg → ng</li>
+<li>6.20 × 10⁻⁸ g → pg</li>
+<li>4.5 µm → m</li>
+<li>2.15 × 10⁷ nm → cm</li>
+</ol>
+
+<div class="answer anscontent">
+<b>Answers:</b><br>
+1. 2.50 × 10⁻⁴ km<br>
+2. 4.50 × 10³ mm<br>
+3. 7.2 × 10¹² pg<br>
+4. 8.40 × 10⁻⁷ g<br>
+5. 3.65 × 10⁶ ng<br>
+6. 6.20 × 10⁴ pg<br>
+7. 4.5 × 10⁻⁶ m<br>
+8. 2.15 cm
+</div>
+
+<h3>Common mistakes</h3>
+<div class="trap"><b>1. Mixing dimensions.</b> cm cannot become g or pg unless a separate physical relationship is given.</div>
+<div class="trap"><b>2. Flipping the conversion factor.</b> Check whether the unwanted unit actually cancels.</div>
+<div class="trap"><b>3. Forgetting exponent signs.</b> milli is 10⁻³; micro is 10⁻⁶; nano is 10⁻⁹; pico is 10⁻¹².</div>
+<div class="trap"><b>4. Guessing based on decimal movement.</b> Write the units first. Let cancellation decide the setup.</div>
+<div class="trap"><b>5. Ignoring significant figures.</b> After converting, round according to the precision of the measured starting value.</div>
+
+<label class="mastery"><input type="checkbox">
+I can convert between metric units across very large power-of-ten differences, explain why the number becomes larger or smaller,
+and recognize when two units cannot be directly converted.
+</label>
+</section>
+<section class="card" id="atomic">
+<div class="lesson-title"><div><div class="eyebrow">Topic 4</div><h2>Proton / Neutron / Electron Calculations</h2></div><span class="tag">Atomic basics</span></div>
+<p class="lead">This is a bookkeeping problem once four definitions are secure.</p>
+<div class="grid2">
+<div class="mini"><b>Atomic number Z</b><p>= number of protons. It identifies the element.</p></div>
+<div class="mini"><b>Mass number A</b><p>= protons + neutrons for one isotope.</p></div>
+<div class="mini"><b>Neutral atom</b><p>protons = electrons.</p></div>
+<div class="mini"><b>Ion charge</b><p>charge = protons − electrons.</p></div>
+</div>
+<div class="formula">neutrons = A − Z</div>
+<div class="formula">electrons = protons − charge &nbsp; (use the algebraic sign)</div>
+<details open><summary>Example: neutral isotope</summary><div class="detailbody">
+<p>For ³⁴₁₆S:</p><div class="formula">p = 16; n = 34−16 = 18; e = 16</div>
+</div></details>
+<details><summary>Example: cation</summary><div class="detailbody">
+<p>For ⁵⁶₂₆Fe³⁺:</p><div class="formula">p = 26; n = 30; e = 26−(+3) = 23</div>
+<div class="memory"><b>Cation = positive = lost electrons.</b></div>
+</div></details>
+<details><summary>Example: anion</summary><div class="detailbody">
+<p>For ³⁵₁₇Cl⁻:</p><div class="formula">p = 17; n = 18; e = 17−(−1) = 18</div>
+<div class="memory"><b>Anion = negative = gained electrons.</b></div>
+</div></details>
+<details><summary>Mass number vs average atomic mass</summary><div class="detailbody">
+<p><b>Mass number</b> is a whole-number count of protons + neutrons in a particular isotope. The decimal number on a periodic table is generally an <b>average atomic mass</b> across naturally occurring isotopes.</p>
+<div class="trap"><b>Do not subtract the decimal periodic-table mass from atomic number unless the problem explicitly tells you to approximate a mass number.</b></div>
+</div></details>
+<details><summary>Mini drill</summary><div class="detailbody">
+<ol><li>²¹⁰₈₂Pb: p, n, e?</li><li>²⁷₁₃Al³⁺: p, n, e?</li><li>³²₁₆S²⁻: p, n, e?</li><li>An ion has 20 p and 18 e. What is its charge?</li></ol>
+<div class="answer anscontent"><b>Answers:</b> (1) 82, 128, 82 (2) 13, 14, 10 (3) 16, 16, 18 (4) 2+.</div>
+</div></details>
+<label class="mastery"><input type="checkbox"> I can calculate p/n/e for neutral atoms and ions without confusing mass number with average atomic mass.</label>
+</section>
+
+<section class="card" id="naming">
+<div class="lesson-title"><div><div class="eyebrow">Topic 5</div><h2>Naming: Binary + “Ternary” / Polyatomic Compounds</h2></div><span class="tag">Largest memory load</span></div>
+<p class="lead"><b>The first step is classification.</b> Do not start naming until you know what kind of compound you are looking at.</p>
+<div class="grid3">
+<div class="mini"><b>Ionic</b><p>metal + nonmetal, or compound containing a polyatomic ion.</p></div>
+<div class="mini"><b>Molecular / covalent</b><p>two nonmetals; use prefixes.</p></div>
+<div class="mini"><b>Acid</b><p>often begins with H and is aqueous; special naming rules.</p></div>
+</div>
+<details open><summary>Binary ionic: fixed-charge metals</summary><div class="detailbody">
+<p>Name cation first, then change monatomic anion ending to <b>-ide</b>.</p>
+<div class="formula">NaCl → sodium chloride</div><div class="formula">Mg₃N₂ → magnesium nitride</div>
+<p>No prefixes. The formula already encodes the charge balance.</p>
+</div></details>
+<details open><summary>Variable-charge metals and Roman numerals</summary><div class="detailbody">
+<p>For many transition/post-transition metals, determine the metal charge from the anion charge and subscripts.</p>
+<div class="formula">CuO: O is 2− → Cu must be 2+ → copper(II) oxide</div>
+<div class="formula">Cu₂O: O is 2− total; two Cu share +2 → each Cu is +1 → copper(I) oxide</div>
+<div class="trap"><b>Roman numeral = metal oxidation state/charge, NOT number of atoms.</b></div>
+</div></details>
+<details><summary>Writing ionic formulas: charge balance</summary><div class="detailbody">
+<p>Total positive charge + total negative charge must equal zero.</p>
+<div class="formula">Al³⁺ + O²⁻ → Al₂O₃</div>
+<p>Two Al³⁺ give +6; three O²⁻ give −6.</p>
+<div class="formula">Ca²⁺ + NO₃⁻ → Ca(NO₃)₂</div>
+<p>Use parentheses when more than one copy of a polyatomic ion is needed.</p>
+</div></details>
+<details><summary>Polyatomic ions: must-recognize set for this class</summary><div class="detailbody">
+<table><tr><th>Ion</th><th>Name</th><th>Ion</th><th>Name</th></tr>
+<tr><td>NH₄⁺</td><td>ammonium</td><td>OH⁻</td><td>hydroxide</td></tr>
+<tr><td>NO₃⁻</td><td>nitrate</td><td>NO₂⁻</td><td>nitrite</td></tr>
+<tr><td>SO₄²⁻</td><td>sulfate</td><td>SO₃²⁻</td><td>sulfite</td></tr>
+<tr><td>CO₃²⁻</td><td>carbonate</td><td>PO₄³⁻</td><td>phosphate</td></tr>
+<tr><td>ClO₄⁻</td><td>perchlorate</td><td>ClO₃⁻</td><td>chlorate</td></tr>
+<tr><td>ClO₂⁻</td><td>chlorite</td><td>ClO⁻</td><td>hypochlorite</td></tr>
+<tr><td>C₂H₃O₂⁻</td><td>acetate</td><td>MnO₄⁻</td><td>permanganate</td></tr>
+<tr><td>CrO₄²⁻</td><td>chromate</td><td>Cr₂O₇²⁻</td><td>dichromate</td></tr>
+<tr><td>C₂O₄²⁻</td><td>oxalate</td><td>HCO₃⁻</td><td>bicarbonate / hydrogen carbonate</td></tr>
+<tr><td>HSO₄⁻</td><td>hydrogen sulfate</td><td>H₂PO₄⁻</td><td>dihydrogen phosphate</td></tr>
+</table>
+<div class="memory"><b>Pattern:</b> -ate has more oxygen than the corresponding -ite. Per-…-ate is one more O than -ate; hypo-…-ite is one fewer O than -ite.</div>
+</div></details>
+<details><summary>Binary molecular compounds</summary><div class="detailbody">
+<p>Two nonmetals → prefixes tell atom counts.</p>
+<table><tr><td>1 mono</td><td>2 di</td><td>3 tri</td><td>4 tetra</td><td>5 penta</td></tr><tr><td>6 hexa</td><td>7 hepta</td><td>8 octa</td><td>9 nona</td><td>10 deca</td></tr></table>
+<div class="formula">N₂O₄ → dinitrogen tetroxide</div><div class="formula">P₄O₁₀ → tetraphosphorus decoxide / commonly tetraphosphorus decaoxide</div>
+<p><b>mono-</b> is normally omitted on the first element.</p>
+</div></details>
+<details><summary>Acids: useful overlap with the summer packet</summary><div class="detailbody">
+<p><b>Binary acid:</b> hydro- + root + -ic acid. Example HCl(aq) = hydrochloric acid.</p>
+<p><b>Oxyacid:</b> anion -ate → acid -ic; anion -ite → acid -ous.</p>
+<div class="formula">NO₃⁻ nitrate → HNO₃ nitric acid</div>
+<div class="formula">NO₂⁻ nitrite → HNO₂ nitrous acid</div>
+<div class="trap">Do not use “hydro-” for oxyacids.</div>
+</div></details>
+<details><summary>Mini drill</summary><div class="detailbody">
+<ol>
+<li>FeCl₃</li><li>Ca(NO₃)₂</li><li>(NH₄)₂SO₄</li><li>N₂O₅</li><li>copper(I) oxide → formula</li><li>aluminum sulfate → formula</li><li>potassium perchlorate → formula</li><li>H₂S(aq) → name</li>
+</ol>
+<div class="answer anscontent"><b>Answers:</b> iron(III) chloride; calcium nitrate; ammonium sulfate; dinitrogen pentoxide; Cu₂O; Al₂(SO₄)₃; KClO₄; hydrosulfuric acid.</div>
+</div></details>
+<label class="mastery"><input type="checkbox"> I can classify the compound first, then correctly name/write binary ionic, variable-charge ionic, polyatomic ionic, molecular, and basic acid formulas.</label>
+</section>
+
+<section class="card" id="changes">
+<div class="lesson-title"><div><div class="eyebrow">Topic 6</div><h2>Physical vs. Chemical Changes</h2></div><span class="tag">Conceptual</span></div>
+<p class="lead">The key question is not “did it look dramatic?” The key question is <b>did the chemical identity/composition change?</b></p>
+<div class="grid2">
+<div class="mini"><h3>Physical change</h3><p>Same substance before and after; state, size, shape, or physical arrangement changes.</p><p>Examples: melting, boiling, freezing, crushing, dissolving sugar in water.</p></div>
+<div class="mini"><h3>Chemical change</h3><p>Atoms are rearranged into different substances with different compositions.</p><p>Examples: burning, rusting, acid reacting with metal, decomposition.</p></div>
+</div>
+<details><summary>Physical vs chemical PROPERTIES</summary><div class="detailbody">
+<p>A <b>physical property</b> can be observed without changing identity: color, density, melting point, conductivity.</p>
+<p>A <b>chemical property</b> describes the ability to undergo chemical change: flammability, reactivity with acid, tendency to oxidize.</p>
+</div></details>
+<details open><summary>Evidence of a chemical reaction — evidence, not proof by itself</summary><div class="detailbody">
+<p>Possible clues include gas formation, precipitate formation, sustained color change, temperature/light change, or new odor. But the real criterion is formation of new substances.</p>
+<div class="trap"><b>Boiling creates bubbles but is still physical.</b> Bubble formation alone does not guarantee a chemical reaction.</div>
+</div></details>
+<details><summary>Particle-level reasoning</summary><div class="detailbody">
+<p>On an AP-style particle diagram, a physical change preserves the same particle identities but changes spacing/arrangement. A chemical change shows old bonds broken and/or new combinations of atoms.</p>
+</div></details>
+<details><summary>Mini drill</summary><div class="detailbody">
+<ol><li>Ice melts.</li><li>Iron rusts.</li><li>Water boils.</li><li>A white solid forms when two clear solutions are mixed.</li><li>A copper wire is bent.</li><li>Hydrogen and oxygen react to form water.</li></ol>
+<div class="answer anscontent"><b>Answers:</b> physical, chemical, physical, chemical (new precipitate), physical, chemical.</div>
+</div></details>
+<label class="mastery"><input type="checkbox"> I can justify physical vs chemical using whetthe particle identity/composition changed.</label>
+</section>
+
+<section class="card"><div class="eyebrow">Tutorials</div><h2>Best outside resources for this exact scope</h2>
+<div class="grid2">
+<div class="resource"><b>OpenStax Chemistry 2e — Measurement</b><p>Excellent zero-background reading on uncertainty, accuracy/precision, sig figs, and dimensional analysis.</p><a href="https://openstax.org/books/chemistry-2e/pages/1-5-measurement-uncertainty-accuracy-and-precision" target="_blank">Accuracy & precision</a> · <a href="https://openstax.org/books/chemistry-2e/pages/1-6-mathematical-treatment-of-measurement-results" target="_blank">Dimensional analysis</a></div>
+<div class="resource"><b>Tyler DeWitt — Unit Conversion / Sig Figs</b><p>Very beginner-friendly video explanations; this is also one of the tutorial sources recommended in the summer packet.</p><a href="https://www.youtube.com/@tdewitt451" target="_blank">Tyler DeWitt channel</a></div>
+<div class="resource"><b>Khan Academy — Significant Figures</b><p>Short explanation plus practice for recognizing significant digits.</p><a href="https://www.khanacademy.org/v/significant-figures" target="_blank">Intro to significant figures</a></div>
+<div class="resource"><b>Khan Academy — Ionic Nomenclature</b><p>Practice naming ionic compounds after the classification/charge-balance lesson.</p><a href="https://www.khanacademy.org/science/hs-chemistry/x2613d8165d88df5e%3Achemical-bonding/x2613d8165d88df5e%3Aionic-nomenclature/e/naming-main-group-ionic-compounds" target="_blank">Ionic naming practice</a></div>
+<div class="resource"><b>College Board AP Chemistry</b><p>Use this only to understand AP question style and scientific-practice expectations; this school-specific “Unit 0” scope is narrower than the full AP framework.</p><a href="https://apcentral.collegeboard.org/courses/ap-chemistry" target="_blank">AP Chemistry course page</a></div>
+<div class="resource"><b>AP Chemistry Exam Format</b><p>Official reference for the mix of multiple-choice and free-response reasoning used in the practice test below.</p><a href="https://apcentral.collegeboard.org/courses/ap-chemistry/exam" target="_blank">Exam format</a></div>
+</div>
+</section>
+</div>
+<div id="test" class="tabpage">
+<section class="hero">
+<div class="eyebrow">Student mode</div><h1>Unit 0 Practice Test</h1>
+<p class="lead">AP-style reasoning, but constrained to the actual Unit 0 test topics. The real AP Chemistry exam uses both multiple-choice and free-response sections, so this test includes both styles.</p>
+<div class="chips"><span class="chip">30 MCQ</span><span class="chip">4 FRQ</span><span class="chip">recommended: 50 min MCQ + 35 min FRQ</span></div>
+</section>
+<section class="card">
+<h2>Directions</h2><p>For the first attempt: no notes, show dimensional-analysis units, and do not check the key until the end. On every nomenclature question, classify the compound before naming it.</p>
+<div class="practice-controls">
+<button class="action primary" onclick="gradeTest()">Grade My MCQ</button>
+<button class="action" onclick="resetTest()">Reset MCQ</button>
+<button class="action" onclick="window.print()">Print Test</button>
+</div>
+<div id="gradeResult"></div>
+</section>
+<section class="card"><h2>Part A — Multiple Choice</h2><div class="q interactive-q" data-q="1">
+<div class="qnum">1.</div>
+<div class="qstem">A student obtains 24.91 g, 24.92 g, and 24.90 g for a standard known to have a mass of 25.70 g. The measurements are best described as:</div>
+<div class="mcq-options"><label class="mcq-option" id="q1A">
+<input type="radio" name="q1" value="A">
+<span class="choice-letter">A</span>
+<span>accurate and precise</span>
+</label><label class="mcq-option" id="q1B">
+<input type="radio" name="q1" value="B">
+<span class="choice-letter">B</span>
+<span>accurate but not precise</span>
+</label><label class="mcq-option" id="q1C">
+<input type="radio" name="q1" value="C">
+<span class="choice-letter">C</span>
+<span>precise but not accurate</span>
+</label><label class="mcq-option" id="q1D">
+<input type="radio" name="q1" value="D">
+<span class="choice-letter">D</span>
+<span>neither accurate nor precise</span>
+</label></div>
+<div class="question-feedback" id="feedback1"></div>
+</div><div class="q interactive-q" data-q="2">
+<div class="qnum">2.</div>
+<div class="qstem">A balance reads 0.18 g too high for every measurement. This error most directly causes:</div>
+<div class="mcq-options"><label class="mcq-option" id="q2A">
+<input type="radio" name="q2" value="A">
+<span class="choice-letter">A</span>
+<span>poor accuracy but potentially good precision</span>
+</label><label class="mcq-option" id="q2B">
+<input type="radio" name="q2" value="B">
+<span class="choice-letter">B</span>
+<span>poor precision but potentially good accuracy</span>
+</label><label class="mcq-option" id="q2C">
+<input type="radio" name="q2" value="C">
+<span class="choice-letter">C</span>
+<span>both accuracy and precision to improve</span>
+</label><label class="mcq-option" id="q2D">
+<input type="radio" name="q2" value="D">
+<span class="choice-letter">D</span>
+<span>no effect on measurement quality</span>
+</label></div>
+<div class="question-feedback" id="feedback2"></div>
+</div><div class="q interactive-q" data-q="3">
+<div class="qnum">3.</div>
+<div class="qstem">The accepted density is 7.87 g/cm³. A student measures 7.52 g/cm³. The percent error is closest to:</div>
+<div class="mcq-options"><label class="mcq-option" id="q3A">
+<input type="radio" name="q3" value="A">
+<span class="choice-letter">A</span>
+<span>0.0445%</span>
+</label><label class="mcq-option" id="q3B">
+<input type="radio" name="q3" value="B">
+<span class="choice-letter">B</span>
+<span>4.45%</span>
+</label><label class="mcq-option" id="q3C">
+<input type="radio" name="q3" value="C">
+<span class="choice-letter">C</span>
+<span>4.65%</span>
+</label><label class="mcq-option" id="q3D">
+<input type="radio" name="q3" value="D">
+<span class="choice-letter">D</span>
+<span>95.6%</span>
+</label></div>
+<div class="question-feedback" id="feedback3"></div>
+</div><div class="q interactive-q" data-q="4">
+<div class="qnum">4.</div>
+<div class="qstem">How many significant figures are in 0.02040?</div>
+<div class="mcq-options"><label class="mcq-option" id="q4A">
+<input type="radio" name="q4" value="A">
+<span class="choice-letter">A</span>
+<span>2</span>
+</label><label class="mcq-option" id="q4B">
+<input type="radio" name="q4" value="B">
+<span class="choice-letter">B</span>
+<span>3</span>
+</label><label class="mcq-option" id="q4C">
+<input type="radio" name="q4" value="C">
+<span class="choice-letter">C</span>
+<span>4</span>
+</label><label class="mcq-option" id="q4D">
+<input type="radio" name="q4" value="D">
+<span class="choice-letter">D</span>
+<span>5</span>
+</label></div>
+<div class="question-feedback" id="feedback4"></div>
+</div><div class="q interactive-q" data-q="5">
+<div class="qnum">5.</div>
+<div class="qstem">The correctly rounded value of (4.56)(0.20) is:</div>
+<div class="mcq-options"><label class="mcq-option" id="q5A">
+<input type="radio" name="q5" value="A">
+<span class="choice-letter">A</span>
+<span>0.912</span>
+</label><label class="mcq-option" id="q5B">
+<input type="radio" name="q5" value="B">
+<span class="choice-letter">B</span>
+<span>0.91</span>
+</label><label class="mcq-option" id="q5C">
+<input type="radio" name="q5" value="C">
+<span class="choice-letter">C</span>
+<span>0.9</span>
+</label><label class="mcq-option" id="q5D">
+<input type="radio" name="q5" value="D">
+<span class="choice-letter">D</span>
+<span>1</span>
+</label></div>
+<div class="question-feedback" id="feedback5"></div>
+</div><div class="q interactive-q" data-q="6">
+<div class="qnum">6.</div>
+<div class="qstem">The correctly rounded value of 18.436 + 2.7 + 0.052 is:</div>
+<div class="mcq-options"><label class="mcq-option" id="q6A">
+<input type="radio" name="q6" value="A">
+<span class="choice-letter">A</span>
+<span>21.188</span>
+</label><label class="mcq-option" id="q6B">
+<input type="radio" name="q6" value="B">
+<span class="choice-letter">B</span>
+<span>21.19</span>
+</label><label class="mcq-option" id="q6C">
+<input type="radio" name="q6" value="C">
+<span class="choice-letter">C</span>
+<span>21.2</span>
+</label><label class="mcq-option" id="q6D">
+<input type="radio" name="q6" value="D">
+<span class="choice-letter">D</span>
+<span>21</span>
+</label></div>
+<div class="question-feedback" id="feedback6"></div>
+</div><div class="q interactive-q" data-q="7">
+<div class="qnum">7.</div>
+<div class="qstem">Which value unambiguously contains three significant figures?</div>
+<div class="mcq-options"><label class="mcq-option" id="q7A">
+<input type="radio" name="q7" value="A">
+<span class="choice-letter">A</span>
+<span>1500</span>
+</label><label class="mcq-option" id="q7B">
+<input type="radio" name="q7" value="B">
+<span class="choice-letter">B</span>
+<span>1.50×10³</span>
+</label><label class="mcq-option" id="q7C">
+<input type="radio" name="q7" value="C">
+<span class="choice-letter">C</span>
+<span>0.0015</span>
+</label><label class="mcq-option" id="q7D">
+<input type="radio" name="q7" value="D">
+<span class="choice-letter">D</span>
+<span>15</span>
+</label></div>
+<div class="question-feedback" id="feedback7"></div>
+</div><div class="q interactive-q" data-q="8">
+<div class="qnum">8.</div>
+<div class="qstem">A sample length is exactly 3 times anotthe measured length. The exact integer 3:</div>
+<div class="mcq-options"><label class="mcq-option" id="q8A">
+<input type="radio" name="q8" value="A">
+<span class="choice-letter">A</span>
+<span>limits the answer to 1 sig fig</span>
+</label><label class="mcq-option" id="q8B">
+<input type="radio" name="q8" value="B">
+<span class="choice-letter">B</span>
+<span>limits the answer to 3 sig figs</span>
+</label><label class="mcq-option" id="q8C">
+<input type="radio" name="q8" value="C">
+<span class="choice-letter">C</span>
+<span>does not limit sig figs</span>
+</label><label class="mcq-option" id="q8D">
+<input type="radio" name="q8" value="D">
+<span class="choice-letter">D</span>
+<span>must be converted to 3.0</span>
+</label></div>
+<div class="question-feedback" id="feedback8"></div>
+</div><div class="q interactive-q" data-q="9">
+<div class="qnum">9.</div>
+<div class="qstem">Which setup correctly converts 2.75 km to meters?</div>
+<div class="mcq-options"><label class="mcq-option" id="q9A">
+<input type="radio" name="q9" value="A">
+<span class="choice-letter">A</span>
+<span>2.75 km×(1 km/1000 m)</span>
+</label><label class="mcq-option" id="q9B">
+<input type="radio" name="q9" value="B">
+<span class="choice-letter">B</span>
+<span>2.75 km×(1000 m/1 km)</span>
+</label><label class="mcq-option" id="q9C">
+<input type="radio" name="q9" value="C">
+<span class="choice-letter">C</span>
+<span>2.75 km×(100 cm/1 m)</span>
+</label><label class="mcq-option" id="q9D">
+<input type="radio" name="q9" value="D">
+<span class="choice-letter">D</span>
+<span>2.75 km×(1 m/1000 km)</span>
+</label></div>
+<div class="question-feedback" id="feedback9"></div>
+</div><div class="q interactive-q" data-q="10">
+<div class="qnum">10.</div>
+<div class="qstem">Which equals 3.20 cm² in m²?</div>
+<div class="mcq-options"><label class="mcq-option" id="q10A">
+<input type="radio" name="q10" value="A">
+<span class="choice-letter">A</span>
+<span>3.20×10⁻²</span>
+</label><label class="mcq-option" id="q10B">
+<input type="radio" name="q10" value="B">
+<span class="choice-letter">B</span>
+<span>3.20×10⁻⁴</span>
+</label><label class="mcq-option" id="q10C">
+<input type="radio" name="q10" value="C">
+<span class="choice-letter">C</span>
+<span>3.20×10²</span>
+</label><label class="mcq-option" id="q10D">
+<input type="radio" name="q10" value="D">
+<span class="choice-letter">D</span>
+<span>3.20×10⁴</span>
+</label></div>
+<div class="question-feedback" id="feedback10"></div>
+</div><div class="q interactive-q" data-q="11">
+<div class="qnum">11.</div>
+<div class="qstem">A liquid has density 1.25 g/mL. What mass is contained in 16.0 mL?</div>
+<div class="mcq-options"><label class="mcq-option" id="q11A">
+<input type="radio" name="q11" value="A">
+<span class="choice-letter">A</span>
+<span>12.8 g</span>
+</label><label class="mcq-option" id="q11B">
+<input type="radio" name="q11" value="B">
+<span class="choice-letter">B</span>
+<span>17.3 g</span>
+</label><label class="mcq-option" id="q11C">
+<input type="radio" name="q11" value="C">
+<span class="choice-letter">C</span>
+<span>20.0 g</span>
+</label><label class="mcq-option" id="q11D">
+<input type="radio" name="q11" value="D">
+<span class="choice-letter">D</span>
+<span>200 g</span>
+</label></div>
+<div class="question-feedback" id="feedback11"></div>
+</div><div class="q interactive-q" data-q="12">
+<div class="qnum">12.</div>
+<div class="qstem">Which conversion is exact and commonly useful in introductory chemistry?</div>
+<div class="mcq-options"><label class="mcq-option" id="q12A">
+<input type="radio" name="q12" value="A">
+<span class="choice-letter">A</span>
+<span>1 mL = 1 cm³</span>
+</label><label class="mcq-option" id="q12B">
+<input type="radio" name="q12" value="B">
+<span class="choice-letter">B</span>
+<span>1 kg = 100 cm³</span>
+</label><label class="mcq-option" id="q12C">
+<input type="radio" name="q12" value="C">
+<span class="choice-letter">C</span>
+<span>1 L = 1 m³</span>
+</label><label class="mcq-option" id="q12D">
+<input type="radio" name="q12" value="D">
+<span class="choice-letter">D</span>
+<span>1 cm = 100 m</span>
+</label></div>
+<div class="question-feedback" id="feedback12"></div>
+</div><div class="q interactive-q" data-q="13">
+<div class="qnum">13.</div>
+<div class="qstem">For ⁴⁰₂₀Ca²⁺, the numbers of protons, neutrons, and electrons are:</div>
+<div class="mcq-options"><label class="mcq-option" id="q13A">
+<input type="radio" name="q13" value="A">
+<span class="choice-letter">A</span>
+<span>20,20,22</span>
+</label><label class="mcq-option" id="q13B">
+<input type="radio" name="q13" value="B">
+<span class="choice-letter">B</span>
+<span>20,20,18</span>
+</label><label class="mcq-option" id="q13C">
+<input type="radio" name="q13" value="C">
+<span class="choice-letter">C</span>
+<span>18,20,20</span>
+</label><label class="mcq-option" id="q13D">
+<input type="radio" name="q13" value="D">
+<span class="choice-letter">D</span>
+<span>20,18,20</span>
+</label></div>
+<div class="question-feedback" id="feedback13"></div>
+</div><div class="q interactive-q" data-q="14">
+<div class="qnum">14.</div>
+<div class="qstem">An ion has 17 protons and 18 electrons. Its charge is:</div>
+<div class="mcq-options"><label class="mcq-option" id="q14A">
+<input type="radio" name="q14" value="A">
+<span class="choice-letter">A</span>
+<span>1+</span>
+</label><label class="mcq-option" id="q14B">
+<input type="radio" name="q14" value="B">
+<span class="choice-letter">B</span>
+<span>1−</span>
+</label><label class="mcq-option" id="q14C">
+<input type="radio" name="q14" value="C">
+<span class="choice-letter">C</span>
+<span>17+</span>
+</label><label class="mcq-option" id="q14D">
+<input type="radio" name="q14" value="D">
+<span class="choice-letter">D</span>
+<span>18−</span>
+</label></div>
+<div class="question-feedback" id="feedback14"></div>
+</div><div class="q interactive-q" data-q="15">
+<div class="qnum">15.</div>
+<div class="qstem">Which statement about mass number is correct?</div>
+<div class="mcq-options"><label class="mcq-option" id="q15A">
+<input type="radio" name="q15" value="A">
+<span class="choice-letter">A</span>
+<span>It is the decimal value on the periodic table</span>
+</label><label class="mcq-option" id="q15B">
+<input type="radio" name="q15" value="B">
+<span class="choice-letter">B</span>
+<span>It equals protons + neutrons for one isotope</span>
+</label><label class="mcq-option" id="q15C">
+<input type="radio" name="q15" value="C">
+<span class="choice-letter">C</span>
+<span>It equals protons + electrons</span>
+</label><label class="mcq-option" id="q15D">
+<input type="radio" name="q15" value="D">
+<span class="choice-letter">D</span>
+<span>It changes when an atom forms an ion</span>
+</label></div>
+<div class="question-feedback" id="feedback15"></div>
+</div><div class="q interactive-q" data-q="16">
+<div class="qnum">16.</div>
+<div class="qstem">Which formula represents aluminum oxide?</div>
+<div class="mcq-options"><label class="mcq-option" id="q16A">
+<input type="radio" name="q16" value="A">
+<span class="choice-letter">A</span>
+<span>AlO</span>
+</label><label class="mcq-option" id="q16B">
+<input type="radio" name="q16" value="B">
+<span class="choice-letter">B</span>
+<span>Al₂O</span>
+</label><label class="mcq-option" id="q16C">
+<input type="radio" name="q16" value="C">
+<span class="choice-letter">C</span>
+<span>AlO₃</span>
+</label><label class="mcq-option" id="q16D">
+<input type="radio" name="q16" value="D">
+<span class="choice-letter">D</span>
+<span>Al₂O₃</span>
+</label></div>
+<div class="question-feedback" id="feedback16"></div>
+</div><div class="q interactive-q" data-q="17">
+<div class="qnum">17.</div>
+<div class="qstem">The correct name for Cu₂O is:</div>
+<div class="mcq-options"><label class="mcq-option" id="q17A">
+<input type="radio" name="q17" value="A">
+<span class="choice-letter">A</span>
+<span>copper oxide</span>
+</label><label class="mcq-option" id="q17B">
+<input type="radio" name="q17" value="B">
+<span class="choice-letter">B</span>
+<span>copper(II) oxide</span>
+</label><label class="mcq-option" id="q17C">
+<input type="radio" name="q17" value="C">
+<span class="choice-letter">C</span>
+<span>copper(I) oxide</span>
+</label><label class="mcq-option" id="q17D">
+<input type="radio" name="q17" value="D">
+<span class="choice-letter">D</span>
+<span>dicopper monoxide</span>
+</label></div>
+<div class="question-feedback" id="feedback17"></div>
+</div><div class="q interactive-q" data-q="18">
+<div class="qnum">18.</div>
+<div class="qstem">The correct formula for calcium nitrate is:</div>
+<div class="mcq-options"><label class="mcq-option" id="q18A">
+<input type="radio" name="q18" value="A">
+<span class="choice-letter">A</span>
+<span>CaNO₃</span>
+</label><label class="mcq-option" id="q18B">
+<input type="radio" name="q18" value="B">
+<span class="choice-letter">B</span>
+<span>Ca₂NO₃</span>
+</label><label class="mcq-option" id="q18C">
+<input type="radio" name="q18" value="C">
+<span class="choice-letter">C</span>
+<span>Ca(NO₃)₂</span>
+</label><label class="mcq-option" id="q18D">
+<input type="radio" name="q18" value="D">
+<span class="choice-letter">D</span>
+<span>Ca₂(NO₃)₃</span>
+</label></div>
+<div class="question-feedback" id="feedback18"></div>
+</div><div class="q interactive-q" data-q="19">
+<div class="qnum">19.</div>
+<div class="qstem">Which compound is molecular and therefore uses prefixes in its name?</div>
+<div class="mcq-options"><label class="mcq-option" id="q19A">
+<input type="radio" name="q19" value="A">
+<span class="choice-letter">A</span>
+<span>NaCl</span>
+</label><label class="mcq-option" id="q19B">
+<input type="radio" name="q19" value="B">
+<span class="choice-letter">B</span>
+<span>CaO</span>
+</label><label class="mcq-option" id="q19C">
+<input type="radio" name="q19" value="C">
+<span class="choice-letter">C</span>
+<span>N₂O₄</span>
+</label><label class="mcq-option" id="q19D">
+<input type="radio" name="q19" value="D">
+<span class="choice-letter">D</span>
+<span>FeCl₃</span>
+</label></div>
+<div class="question-feedback" id="feedback19"></div>
+</div><div class="q interactive-q" data-q="20">
+<div class="qnum">20.</div>
+<div class="qstem">The correct name for N₂O₅ is:</div>
+<div class="mcq-options"><label class="mcq-option" id="q20A">
+<input type="radio" name="q20" value="A">
+<span class="choice-letter">A</span>
+<span>nitrogen oxide</span>
+</label><label class="mcq-option" id="q20B">
+<input type="radio" name="q20" value="B">
+<span class="choice-letter">B</span>
+<span>nitrogen(V) oxide</span>
+</label><label class="mcq-option" id="q20C">
+<input type="radio" name="q20" value="C">
+<span class="choice-letter">C</span>
+<span>dinitrogen pentoxide</span>
+</label><label class="mcq-option" id="q20D">
+<input type="radio" name="q20" value="D">
+<span class="choice-letter">D</span>
+<span>dinitrogen oxide</span>
+</label></div>
+<div class="question-feedback" id="feedback20"></div>
+</div><div class="q interactive-q" data-q="21">
+<div class="qnum">21.</div>
+<div class="qstem">Which ion is sulfate?</div>
+<div class="mcq-options"><label class="mcq-option" id="q21A">
+<input type="radio" name="q21" value="A">
+<span class="choice-letter">A</span>
+<span>SO₃²⁻</span>
+</label><label class="mcq-option" id="q21B">
+<input type="radio" name="q21" value="B">
+<span class="choice-letter">B</span>
+<span>SO₄²⁻</span>
+</label><label class="mcq-option" id="q21C">
+<input type="radio" name="q21" value="C">
+<span class="choice-letter">C</span>
+<span>S²⁻</span>
+</label><label class="mcq-option" id="q21D">
+<input type="radio" name="q21" value="D">
+<span class="choice-letter">D</span>
+<span>HSO₄⁻</span>
+</label></div>
+<div class="question-feedback" id="feedback21"></div>
+</div><div class="q interactive-q" data-q="22">
+<div class="qnum">22.</div>
+<div class="qstem">The correct formula for ammonium sulfate is:</div>
+<div class="mcq-options"><label class="mcq-option" id="q22A">
+<input type="radio" name="q22" value="A">
+<span class="choice-letter">A</span>
+<span>NH₄SO₄</span>
+</label><label class="mcq-option" id="q22B">
+<input type="radio" name="q22" value="B">
+<span class="choice-letter">B</span>
+<span>(NH₄)₂SO₄</span>
+</label><label class="mcq-option" id="q22C">
+<input type="radio" name="q22" value="C">
+<span class="choice-letter">C</span>
+<span>NH₄(SO₄)₂</span>
+</label><label class="mcq-option" id="q22D">
+<input type="radio" name="q22" value="D">
+<span class="choice-letter">D</span>
+<span>(NH₄)₃SO₄</span>
+</label></div>
+<div class="question-feedback" id="feedback22"></div>
+</div><div class="q interactive-q" data-q="23">
+<div class="qnum">23.</div>
+<div class="qstem">Which name is correct for HNO₂(aq)?</div>
+<div class="mcq-options"><label class="mcq-option" id="q23A">
+<input type="radio" name="q23" value="A">
+<span class="choice-letter">A</span>
+<span>nitric acid</span>
+</label><label class="mcq-option" id="q23B">
+<input type="radio" name="q23" value="B">
+<span class="choice-letter">B</span>
+<span>nitrous acid</span>
+</label><label class="mcq-option" id="q23C">
+<input type="radio" name="q23" value="C">
+<span class="choice-letter">C</span>
+<span>hydronitric acid</span>
+</label><label class="mcq-option" id="q23D">
+<input type="radio" name="q23" value="D">
+<span class="choice-letter">D</span>
+<span>nitrite acid</span>
+</label></div>
+<div class="question-feedback" id="feedback23"></div>
+</div><div class="q interactive-q" data-q="24">
+<div class="qnum">24.</div>
+<div class="qstem">Which is a physical change?</div>
+<div class="mcq-options"><label class="mcq-option" id="q24A">
+<input type="radio" name="q24" value="A">
+<span class="choice-letter">A</span>
+<span>magnesium burning</span>
+</label><label class="mcq-option" id="q24B">
+<input type="radio" name="q24" value="B">
+<span class="choice-letter">B</span>
+<span>iron rusting</span>
+</label><label class="mcq-option" id="q24C">
+<input type="radio" name="q24" value="C">
+<span class="choice-letter">C</span>
+<span>ethanol evaporating</span>
+</label><label class="mcq-option" id="q24D">
+<input type="radio" name="q24" value="D">
+<span class="choice-letter">D</span>
+<span>silver tarnishing</span>
+</label></div>
+<div class="question-feedback" id="feedback24"></div>
+</div><div class="q interactive-q" data-q="25">
+<div class="qnum">25.</div>
+<div class="qstem">Which observation most strongly supports that a chemical change occurred?</div>
+<div class="mcq-options"><label class="mcq-option" id="q25A">
+<input type="radio" name="q25" value="A">
+<span class="choice-letter">A</span>
+<span>a solid is crushed into powder</span>
+</label><label class="mcq-option" id="q25B">
+<input type="radio" name="q25" value="B">
+<span class="choice-letter">B</span>
+<span>a liquid boils</span>
+</label><label class="mcq-option" id="q25C">
+<input type="radio" name="q25" value="C">
+<span class="choice-letter">C</span>
+<span>two solutions produce a new insoluble solid</span>
+</label><label class="mcq-option" id="q25D">
+<input type="radio" name="q25" value="D">
+<span class="choice-letter">D</span>
+<span>ice becomes liquid water</span>
+</label></div>
+<div class="question-feedback" id="feedback25"></div>
+</div><div class="q interactive-q" data-q="26">
+<div class="qnum">26.</div>
+<div class="qstem">A particle diagram before and after a process shows the same molecules, but the molecules are fartthe apart after the process. The change is most likely:</div>
+<div class="mcq-options"><label class="mcq-option" id="q26A">
+<input type="radio" name="q26" value="A">
+<span class="choice-letter">A</span>
+<span>chemical, because spacing changed</span>
+</label><label class="mcq-option" id="q26B">
+<input type="radio" name="q26" value="B">
+<span class="choice-letter">B</span>
+<span>physical, because particle identity stayed the same</span>
+</label><label class="mcq-option" id="q26C">
+<input type="radio" name="q26" value="C">
+<span class="choice-letter">C</span>
+<span>chemical, because energy was absorbed</span>
+</label><label class="mcq-option" id="q26D">
+<input type="radio" name="q26" value="D">
+<span class="choice-letter">D</span>
+<span>impossible to classify</span>
+</label></div>
+<div class="question-feedback" id="feedback26"></div>
+</div><div class="q interactive-q" data-q="27">
+<div class="qnum">27.</div>
+<div class="qstem">A student converts 45.0 mi/h to m/s using 1 mi = 1609 m and 1 h = 3600 s. Which unit should appear in the numerator of the first conversion factor?</div>
+<div class="mcq-options"><label class="mcq-option" id="q27A">
+<input type="radio" name="q27" value="A">
+<span class="choice-letter">A</span>
+<span>mi</span>
+</label><label class="mcq-option" id="q27B">
+<input type="radio" name="q27" value="B">
+<span class="choice-letter">B</span>
+<span>h</span>
+</label><label class="mcq-option" id="q27C">
+<input type="radio" name="q27" value="C">
+<span class="choice-letter">C</span>
+<span>m</span>
+</label><label class="mcq-option" id="q27D">
+<input type="radio" name="q27" value="D">
+<span class="choice-letter">D</span>
+<span>s</span>
+</label></div>
+<div class="question-feedback" id="feedback27"></div>
+</div><div class="q interactive-q" data-q="28">
+<div class="qnum">28.</div>
+<div class="qstem">Which experimental change would most likely improve precision?</div>
+<div class="mcq-options"><label class="mcq-option" id="q28A">
+<input type="radio" name="q28" value="A">
+<span class="choice-letter">A</span>
+<span>recalibrating a balance with a constant +0.30 g offset</span>
+</label><label class="mcq-option" id="q28B">
+<input type="radio" name="q28" value="B">
+<span class="choice-letter">B</span>
+<span>using an instrument with finer scale divisions and repeating trials</span>
+</label><label class="mcq-option" id="q28C">
+<input type="radio" name="q28" value="C">
+<span class="choice-letter">C</span>
+<span>changing the accepted value</span>
+</label><label class="mcq-option" id="q28D">
+<input type="radio" name="q28" value="D">
+<span class="choice-letter">D</span>
+<span>rounding every intermediate result sooner</span>
+</label></div>
+<div class="question-feedback" id="feedback28"></div>
+</div><div class="q interactive-q" data-q="29">
+<div class="qnum">29.</div>
+<div class="qstem">A student reports 1.2300×10³ m. This notation communicates:</div>
+<div class="mcq-options"><label class="mcq-option" id="q29A">
+<input type="radio" name="q29" value="A">
+<span class="choice-letter">A</span>
+<span>2 sig figs</span>
+</label><label class="mcq-option" id="q29B">
+<input type="radio" name="q29" value="B">
+<span class="choice-letter">B</span>
+<span>3 sig figs</span>
+</label><label class="mcq-option" id="q29C">
+<input type="radio" name="q29" value="C">
+<span class="choice-letter">C</span>
+<span>4 sig figs</span>
+</label><label class="mcq-option" id="q29D">
+<input type="radio" name="q29" value="D">
+<span class="choice-letter">D</span>
+<span>5 sig figs</span>
+</label></div>
+<div class="question-feedback" id="feedback29"></div>
+</div><div class="q interactive-q" data-q="30">
+<div class="qnum">30.</div>
+<div class="qstem">Which statement best explains why units should be written on every line of a dimensional-analysis calculation?</div>
+<div class="mcq-options"><label class="mcq-option" id="q30A">
+<input type="radio" name="q30" value="A">
+<span class="choice-letter">A</span>
+<span>Units determine the number of sig figs</span>
+</label><label class="mcq-option" id="q30B">
+<input type="radio" name="q30" value="B">
+<span class="choice-letter">B</span>
+<span>Units can be canceled algebraically and reveal an inverted or missing conversion factor</span>
+</label><label class="mcq-option" id="q30C">
+<input type="radio" name="q30" value="C">
+<span class="choice-letter">C</span>
+<span>Units replace the need for numerical calculation</span>
+</label><label class="mcq-option" id="q30D">
+<input type="radio" name="q30" value="D">
+<span class="choice-letter">D</span>
+<span>Units are optional but make work look organized</span>
+</label></div>
+<div class="question-feedback" id="feedback30"></div>
+</div></section>
+
+<section class="card"><h2>Part B — Free Response</h2><div class="q"><h3>FRQ 1 — Measurement quality</h3><p>A student determines the density of a metal with an accepted density of 8.96 g/cm³. Three trials give 8.51, 8.50, and 8.52 g/cm³.<br>(a) Describe the precision of the measurements and justify your answer.<br>(b) Describe the accuracy and justify your answer.<br>(c) Calculate the percent error using the mean experimental density.<br>(d) The balance used was later found to read 0.20 g too low at every mass. Identify this as primarily systematic or random error and explain one likely effect on accuracy/precision.</p></div><div class="q"><h3>FRQ 2 — Dimensional analysis + sig figs</h3><p>A runner travels 7.50 km in 32.4 min.<br>(a) Convert 7.50 km to meters using a conversion factor.<br>(b) Convert 32.4 min to seconds.<br>(c) Calculate the runner&#x27;s average speed in m/s with correct significant figures.<br>(d) Explain why defined conversion factors do not reduce the number of significant figures in the final answer.</p></div><div class="q"><h3>FRQ 3 — Atomic bookkeeping + nomenclature</h3><p>Consider the ion ⁵⁶₂₆Fe³⁺ and the compound Fe₂(SO₄)₃.<br>(a) Determine the numbers of protons, neutrons, and electrons in ⁵⁶Fe³⁺.<br>(b) Name Fe₂(SO₄)₃.<br>(c) Show how the charge of the Fe ion can be determined from the formula Fe₂(SO₄)₃.<br>(d) Explain why the Roman numeral in the name does not represent the number of Fe atoms.</p></div><div class="q"><h3>FRQ 4 — Physical vs chemical at the particle level</h3><p>A sealed container initially contains molecules of a pure substance AB. After heating, a particle diagram shows separate A₂ and B₂ molecules.<br>(a) Is the process physical or chemical? Justify using particle identity.<br>(b) Would total mass of the sealed container be expected to change? Explain.<br>(c) In a different trial, heating only causes the same AB molecules to spread fartthe apart. Classify that process and justify.<br>(d) Give one macroscopic observation that may suggest a chemical reaction but is not by itself sufficient proof.</p></div></section>
+</div>
+<div id="answers" class="tabpage">
+<section class="hero"><div class="eyebrow">Review mode</div><h1>Practice Test Answer Key</h1><p class="lead">Do not just mark right/wrong. For every miss, identify the rule you should have recognized before doing arithmetic.</p></section>
+<section class="card"><h2>MCQ key + explanation</h2><div class="keyrow"><div><b>1</b></div><div class="correct">C</div><div>The values are tightly clustered (precise) but centered far from the accepted 25.70 g (not accurate).</div></div><div class="keyrow"><div><b>2</b></div><div class="correct">A</div><div>A constant offset is systematic error: it shifts the center away from truth but can leave repeated values tightly clustered.</div></div><div class="keyrow"><div><b>3</b></div><div class="correct">B</div><div>|7.52−7.87|/7.87×100 = 4.45%.</div></div><div class="keyrow"><div><b>4</b></div><div class="correct">C</div><div>Leading zeros do not count; 2,0,4,0 count = 4.</div></div><div class="keyrow"><div><b>5</b></div><div class="correct">B</div><div>0.20 has 2 significant figures, so 0.912 → 0.91.</div></div><div class="keyrow"><div><b>6</b></div><div class="correct">C</div><div>Addition is limited by decimal place. 2.7 is only to tenths, so 21.188 → 21.2.</div></div><div class="keyrow"><div><b>7</b></div><div class="correct">B</div><div>Scientific notation clearly shows 1,5,0 are significant.</div></div><div class="keyrow"><div><b>8</b></div><div class="correct">C</div><div>Counted/defined exact numbers are treated as having unlimited significant figures.</div></div><div class="keyrow"><div><b>9</b></div><div class="correct">B</div><div>km must cancel, leaving m.</div></div><div class="keyrow"><div><b>10</b></div><div class="correct">B</div><div>(10⁻² m/cm)² = 10⁻⁴.</div></div><div class="keyrow"><div><b>11</b></div><div class="correct">C</div><div>m = DV = 1.25×16.0 = 20.0 g.</div></div><div class="keyrow"><div><b>12</b></div><div class="correct">A</div><div>1 mL and 1 cm³ represent the same volume.</div></div><div class="keyrow"><div><b>13</b></div><div class="correct">B</div><div>p=20, n=40−20=20, and a 2+ ion has lost 2 e⁻ → 18.</div></div><div class="keyrow"><div><b>14</b></div><div class="correct">B</div><div>charge = p−e = 17−18 = −1.</div></div><div class="keyrow"><div><b>15</b></div><div class="correct">B</div><div>Mass number A is p+n and does not change when only electrons are gained/lost.</div></div><div class="keyrow"><div><b>16</b></div><div class="correct">D</div><div>Al³⁺ and O²⁻ balance at +6 and −6 → Al₂O₃.</div></div><div class="keyrow"><div><b>17</b></div><div class="correct">C</div><div>O is 2− total, so the two Cu atoms total +2; each is +1.</div></div><div class="keyrow"><div><b>18</b></div><div class="correct">C</div><div>Ca²⁺ requires two NO₃⁻ ions.</div></div><div class="keyrow"><div><b>19</b></div><div class="correct">C</div><div>N and O are both nonmetals.</div></div><div class="keyrow"><div><b>20</b></div><div class="correct">C</div><div>Binary molecular compounds use prefixes: di- and penta- (pentoxide).</div></div><div class="keyrow"><div><b>21</b></div><div class="correct">B</div><div>SO₄²⁻ is sulfate; SO₃²⁻ is sulfite.</div></div><div class="keyrow"><div><b>22</b></div><div class="correct">B</div><div>Two NH₄⁺ are needed to balance SO₄²⁻.</div></div><div class="keyrow"><div><b>23</b></div><div class="correct">B</div><div>NO₂⁻ is nitrite; -ite → -ous acid.</div></div><div class="keyrow"><div><b>24</b></div><div class="correct">C</div><div>Evaporation changes phase but not molecular identity.</div></div><div class="keyrow"><div><b>25</b></div><div class="correct">C</div><div>Formation of a precipitate indicates a new substance formed.</div></div><div class="keyrow"><div><b>26</b></div><div class="correct">B</div><div>Same molecular identity means no new substance formed.</div></div><div class="keyrow"><div><b>27</b></div><div class="correct">C</div><div>To cancel miles, use m/mi; meters belongs in the numerator.</div></div><div class="keyrow"><div><b>28</b></div><div class="correct">B</div><div>Finer resolution and repeated measurements reduce scatter/uncertainty; recalibration addresses systematic accuracy.</div></div><div class="keyrow"><div><b>29</b></div><div class="correct">D</div><div>1,2,3,0,0 are all significant in scientific notation.</div></div><div class="keyrow"><div><b>30</b></div><div class="correct">B</div><div>The main power of factor-label analysis is that unit cancellation checks the setup.</div></div></section>
+<section class="card"><h2>FRQ scoring guides</h2><details><summary>FRQ 1 — Measurement quality — scoring guide</summary><div class="detailbody"><p>(a) High precision: the trials differ by only 0.02 g/cm³ overall.<br>(b) Poor accuracy: values are clustered around ≈8.51, noticeably below 8.96.<br>(c) Mean = 8.51 g/cm³. % error = |8.51−8.96|/8.96×100 = 5.02%.<br>(d) Systematic error. A consistent bias shifts measurements in the same direction and therefore harms accuracy; repeated values can still remain precise.</p></div></details><details><summary>FRQ 2 — Dimensional analysis + sig figs — scoring guide</summary><div class="detailbody"><p>(a) 7.50 km×1000 m/1 km = 7.50×10³ m.<br>(b) 32.4 min×60 s/1 min = 1.944×10³ s.<br>(c) 7500/1944 = 3.858... → 3.86 m/s (3 sig figs).<br>(d) Defined conversions such as 1000 m = 1 km and 60 s = 1 min are exact, so uncertainty comes from measured quantities (7.50 and 32.4), not the conversion definitions.</p></div></details><details><summary>FRQ 3 — Atomic bookkeeping + nomenclature — scoring guide</summary><div class="detailbody"><p>(a) p=26; n=56−26=30; e=26−3=23.<br>(b) iron(III) sulfate.<br>(c) Each sulfate is 2−; three sulfates total −6. Two Fe must total +6, so each Fe is +3.<br>(d) Roman numerals state the metal&#x27;s charge/oxidation state in the compound. Atom count is represented by the formula&#x27;s subscripts, not the name&#x27;s Roman numeral.</p></div></details><details><summary>FRQ 4 — Physical vs chemical at the particle level — scoring guide</summary><div class="detailbody"><p>(a) Chemical. AB molecules were converted into different molecular species, A₂ and B₂; bonds/particle identities changed.<br>(b) No. In a sealed system, mass is conserved even though atoms are rearranged.<br>(c) Physical. The same AB particles remain; only spacing/state changes.<br>(d) Examples include bubbles, color change, temperature change, or odor. These are clues; classification ultimately depends on formation of new substances.</p></div></details></section>
+<section class="card">
+<h2>Score interpretation</h2>
+<div class="grid3">
+<div class="mini"><b>27–30 MCQ</b><p>Strong on scope. Shift to speed + FRQ explanation quality.</p></div>
+<div class="mini"><b>22–26 MCQ</b><p>Close, but identify the one weak cluster and drill it.</p></div>
+<div class="mini"><b>≤21 MCQ</b><p>Do not keep taking full tests. Return to the relevant lesson, then retest that skill with 5 new problems.</p></div>
+</div>
+</section>
+</div>
+
+<div id="test2" class="tabpage">
+<section class="hero">
+<div class="eyebrow">Student mode</div><h1>Unit 0 Practice Test 2</h1>
+<p class="lead">A second full-length practice set covering the same skills and difficulty as Practice Test 1, with completely different values and examples.</p>
+<div class="chips"><span class="chip">30 MCQ</span><span class="chip">4 FRQ</span><span class="chip">recommended: 50 min MCQ + 35 min FRQ</span></div>
+</section>
+<section class="card">
+<h2>Directions</h2>
+<p>Take this one without looking back at Practice Test 1. Show unit cancellation for conversion problems and classify compounds before naming them.</p>
+<div class="practice-controls">
+<button class="action primary" onclick="gradeTest2()">Grade My MCQ</button>
+<button class="action" onclick="resetTest2()">Reset MCQ</button>
+<button class="action" onclick="window.print()">Print Test</button>
+</div>
+<div id="gradeResult2"></div>
+</section>
+<section class="card"><h2>Part A — Multiple Choice</h2><div class="q interactive-q2" data-q="1">
+<div class="qnum">1.</div>
+<div class="qstem">A student measures a standard mass three times and obtains 18.44 g, 18.45 g, and 18.43 g. The accepted mass is 19.10 g. The measurements are best described as:</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q1A">
+<input type="radio" name="t2q1" value="A">
+<span class="choice-letter">A</span><span>accurate and precise</span></label><label class="mcq-option" id="t2q1B">
+<input type="radio" name="t2q1" value="B">
+<span class="choice-letter">B</span><span>accurate but not precise</span></label><label class="mcq-option" id="t2q1C">
+<input type="radio" name="t2q1" value="C">
+<span class="choice-letter">C</span><span>precise but not accurate</span></label><label class="mcq-option" id="t2q1D">
+<input type="radio" name="t2q1" value="D">
+<span class="choice-letter">D</span><span>neither accurate nor precise</span></label></div>
+<div class="question-feedback" id="t2feedback1"></div>
+</div><div class="q interactive-q2" data-q="2">
+<div class="qnum">2.</div>
+<div class="qstem">A thermometer fluctuates unpredictably by about ±1.5 °C each time the same sample is measured. This problem most directly reduces:</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q2A">
+<input type="radio" name="t2q2" value="A">
+<span class="choice-letter">A</span><span>accuracy only</span></label><label class="mcq-option" id="t2q2B">
+<input type="radio" name="t2q2" value="B">
+<span class="choice-letter">B</span><span>precision</span></label><label class="mcq-option" id="t2q2C">
+<input type="radio" name="t2q2" value="C">
+<span class="choice-letter">C</span><span>the accepted value</span></label><label class="mcq-option" id="t2q2D">
+<input type="radio" name="t2q2" value="D">
+<span class="choice-letter">D</span><span>the number of exact conversion factors</span></label></div>
+<div class="question-feedback" id="t2feedback2"></div>
+</div><div class="q interactive-q2" data-q="3">
+<div class="qnum">3.</div>
+<div class="qstem">The accepted value for a sample&#x27;s density is 2.70 g/cm³. A student obtains 2.61 g/cm³. The percent error is closest to:</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q3A">
+<input type="radio" name="t2q3" value="A">
+<span class="choice-letter">A</span><span>0.033%</span></label><label class="mcq-option" id="t2q3B">
+<input type="radio" name="t2q3" value="B">
+<span class="choice-letter">B</span><span>3.33%</span></label><label class="mcq-option" id="t2q3C">
+<input type="radio" name="t2q3" value="C">
+<span class="choice-letter">C</span><span>3.45%</span></label><label class="mcq-option" id="t2q3D">
+<input type="radio" name="t2q3" value="D">
+<span class="choice-letter">D</span><span>96.7%</span></label></div>
+<div class="question-feedback" id="t2feedback3"></div>
+</div><div class="q interactive-q2" data-q="4">
+<div class="qnum">4.</div>
+<div class="qstem">How many significant figures are in 0.0050600?</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q4A">
+<input type="radio" name="t2q4" value="A">
+<span class="choice-letter">A</span><span>3</span></label><label class="mcq-option" id="t2q4B">
+<input type="radio" name="t2q4" value="B">
+<span class="choice-letter">B</span><span>4</span></label><label class="mcq-option" id="t2q4C">
+<input type="radio" name="t2q4" value="C">
+<span class="choice-letter">C</span><span>5</span></label><label class="mcq-option" id="t2q4D">
+<input type="radio" name="t2q4" value="D">
+<span class="choice-letter">D</span><span>6</span></label></div>
+<div class="question-feedback" id="t2feedback4"></div>
+</div><div class="q interactive-q2" data-q="5">
+<div class="qnum">5.</div>
+<div class="qstem">The correctly rounded result of (7.31)(0.40) is:</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q5A">
+<input type="radio" name="t2q5" value="A">
+<span class="choice-letter">A</span><span>2.924</span></label><label class="mcq-option" id="t2q5B">
+<input type="radio" name="t2q5" value="B">
+<span class="choice-letter">B</span><span>2.92</span></label><label class="mcq-option" id="t2q5C">
+<input type="radio" name="t2q5" value="C">
+<span class="choice-letter">C</span><span>2.9</span></label><label class="mcq-option" id="t2q5D">
+<input type="radio" name="t2q5" value="D">
+<span class="choice-letter">D</span><span>3</span></label></div>
+<div class="question-feedback" id="t2feedback5"></div>
+</div><div class="q interactive-q2" data-q="6">
+<div class="qnum">6.</div>
+<div class="qstem">The correctly rounded result of 14.382 + 0.65 + 3.1 is:</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q6A">
+<input type="radio" name="t2q6" value="A">
+<span class="choice-letter">A</span><span>18.132</span></label><label class="mcq-option" id="t2q6B">
+<input type="radio" name="t2q6" value="B">
+<span class="choice-letter">B</span><span>18.13</span></label><label class="mcq-option" id="t2q6C">
+<input type="radio" name="t2q6" value="C">
+<span class="choice-letter">C</span><span>18.1</span></label><label class="mcq-option" id="t2q6D">
+<input type="radio" name="t2q6" value="D">
+<span class="choice-letter">D</span><span>18</span></label></div>
+<div class="question-feedback" id="t2feedback6"></div>
+</div><div class="q interactive-q2" data-q="7">
+<div class="qnum">7.</div>
+<div class="qstem">Which value clearly contains four significant figures?</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q7A">
+<input type="radio" name="t2q7" value="A">
+<span class="choice-letter">A</span><span>8200</span></label><label class="mcq-option" id="t2q7B">
+<input type="radio" name="t2q7" value="B">
+<span class="choice-letter">B</span><span>8.200 × 10³</span></label><label class="mcq-option" id="t2q7C">
+<input type="radio" name="t2q7" value="C">
+<span class="choice-letter">C</span><span>0.0082</span></label><label class="mcq-option" id="t2q7D">
+<input type="radio" name="t2q7" value="D">
+<span class="choice-letter">D</span><span>82</span></label></div>
+<div class="question-feedback" id="t2feedback7"></div>
+</div><div class="q interactive-q2" data-q="8">
+<div class="qnum">8.</div>
+<div class="qstem">A measured length is 4.286 cm, and another length is exactly 2 times as long. The exact number 2:</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q8A">
+<input type="radio" name="t2q8" value="A">
+<span class="choice-letter">A</span><span>limits the result to 1 significant figure</span></label><label class="mcq-option" id="t2q8B">
+<input type="radio" name="t2q8" value="B">
+<span class="choice-letter">B</span><span>limits the result to 2 significant figures</span></label><label class="mcq-option" id="t2q8C">
+<input type="radio" name="t2q8" value="C">
+<span class="choice-letter">C</span><span>does not limit significant figures</span></label><label class="mcq-option" id="t2q8D">
+<input type="radio" name="t2q8" value="D">
+<span class="choice-letter">D</span><span>must be written as 2.0</span></label></div>
+<div class="question-feedback" id="t2feedback8"></div>
+</div><div class="q interactive-q2" data-q="9">
+<div class="qnum">9.</div>
+<div class="qstem">Which setup correctly converts 6.25 cm to kilometers?</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q9A">
+<input type="radio" name="t2q9" value="A">
+<span class="choice-letter">A</span><span>6.25 cm × (100 cm/1 m) × (1000 m/1 km)</span></label><label class="mcq-option" id="t2q9B">
+<input type="radio" name="t2q9" value="B">
+<span class="choice-letter">B</span><span>6.25 cm × (1 m/100 cm) × (1 km/1000 m)</span></label><label class="mcq-option" id="t2q9C">
+<input type="radio" name="t2q9" value="C">
+<span class="choice-letter">C</span><span>6.25 cm × (1 cm/100 m) × (1 m/1000 km)</span></label><label class="mcq-option" id="t2q9D">
+<input type="radio" name="t2q9" value="D">
+<span class="choice-letter">D</span><span>6.25 cm × (1000 km/1 m) × (100 cm/1 m)</span></label></div>
+<div class="question-feedback" id="t2feedback9"></div>
+</div><div class="q interactive-q2" data-q="10">
+<div class="qnum">10.</div>
+<div class="qstem">4.50 cm² is equal to how many m²?</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q10A">
+<input type="radio" name="t2q10" value="A">
+<span class="choice-letter">A</span><span>4.50 × 10⁻²</span></label><label class="mcq-option" id="t2q10B">
+<input type="radio" name="t2q10" value="B">
+<span class="choice-letter">B</span><span>4.50 × 10⁻⁴</span></label><label class="mcq-option" id="t2q10C">
+<input type="radio" name="t2q10" value="C">
+<span class="choice-letter">C</span><span>4.50 × 10²</span></label><label class="mcq-option" id="t2q10D">
+<input type="radio" name="t2q10" value="D">
+<span class="choice-letter">D</span><span>4.50 × 10⁴</span></label></div>
+<div class="question-feedback" id="t2feedback10"></div>
+</div><div class="q interactive-q2" data-q="11">
+<div class="qnum">11.</div>
+<div class="qstem">A liquid has a density of 0.875 g/mL. What is the mass of 12.0 mL of the liquid?</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q11A">
+<input type="radio" name="t2q11" value="A">
+<span class="choice-letter">A</span><span>10.5 g</span></label><label class="mcq-option" id="t2q11B">
+<input type="radio" name="t2q11" value="B">
+<span class="choice-letter">B</span><span>13.7 g</span></label><label class="mcq-option" id="t2q11C">
+<input type="radio" name="t2q11" value="C">
+<span class="choice-letter">C</span><span>0.0729 g</span></label><label class="mcq-option" id="t2q11D">
+<input type="radio" name="t2q11" value="D">
+<span class="choice-letter">D</span><span>105 g</span></label></div>
+<div class="question-feedback" id="t2feedback11"></div>
+</div><div class="q interactive-q2" data-q="12">
+<div class="qnum">12.</div>
+<div class="qstem">Which statement is correct?</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q12A">
+<input type="radio" name="t2q12" value="A">
+<span class="choice-letter">A</span><span>1 cm³ = 1 mL</span></label><label class="mcq-option" id="t2q12B">
+<input type="radio" name="t2q12" value="B">
+<span class="choice-letter">B</span><span>1 m³ = 1 mL</span></label><label class="mcq-option" id="t2q12C">
+<input type="radio" name="t2q12" value="C">
+<span class="choice-letter">C</span><span>1 L = 1 cm³</span></label><label class="mcq-option" id="t2q12D">
+<input type="radio" name="t2q12" value="D">
+<span class="choice-letter">D</span><span>1 kg = 1 L</span></label></div>
+<div class="question-feedback" id="t2feedback12"></div>
+</div><div class="q interactive-q2" data-q="13">
+<div class="qnum">13.</div>
+<div class="qstem">For ³¹₁₅P³⁻, the numbers of protons, neutrons, and electrons are:</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q13A">
+<input type="radio" name="t2q13" value="A">
+<span class="choice-letter">A</span><span>15,16,12</span></label><label class="mcq-option" id="t2q13B">
+<input type="radio" name="t2q13" value="B">
+<span class="choice-letter">B</span><span>15,16,18</span></label><label class="mcq-option" id="t2q13C">
+<input type="radio" name="t2q13" value="C">
+<span class="choice-letter">C</span><span>16,15,18</span></label><label class="mcq-option" id="t2q13D">
+<input type="radio" name="t2q13" value="D">
+<span class="choice-letter">D</span><span>15,18,16</span></label></div>
+<div class="question-feedback" id="t2feedback13"></div>
+</div><div class="q interactive-q2" data-q="14">
+<div class="qnum">14.</div>
+<div class="qstem">An ion contains 12 protons and 10 electrons. Its charge is:</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q14A">
+<input type="radio" name="t2q14" value="A">
+<span class="choice-letter">A</span><span>2−</span></label><label class="mcq-option" id="t2q14B">
+<input type="radio" name="t2q14" value="B">
+<span class="choice-letter">B</span><span>1−</span></label><label class="mcq-option" id="t2q14C">
+<input type="radio" name="t2q14" value="C">
+<span class="choice-letter">C</span><span>1+</span></label><label class="mcq-option" id="t2q14D">
+<input type="radio" name="t2q14" value="D">
+<span class="choice-letter">D</span><span>2+</span></label></div>
+<div class="question-feedback" id="t2feedback14"></div>
+</div><div class="q interactive-q2" data-q="15">
+<div class="qnum">15.</div>
+<div class="qstem">Which statement about isotopes of the same element is correct?</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q15A">
+<input type="radio" name="t2q15" value="A">
+<span class="choice-letter">A</span><span>They have different numbers of protons</span></label><label class="mcq-option" id="t2q15B">
+<input type="radio" name="t2q15" value="B">
+<span class="choice-letter">B</span><span>They have the same number of protons but different numbers of neutrons</span></label><label class="mcq-option" id="t2q15C">
+<input type="radio" name="t2q15" value="C">
+<span class="choice-letter">C</span><span>They always have different charges</span></label><label class="mcq-option" id="t2q15D">
+<input type="radio" name="t2q15" value="D">
+<span class="choice-letter">D</span><span>They must have the same mass number</span></label></div>
+<div class="question-feedback" id="t2feedback15"></div>
+</div><div class="q interactive-q2" data-q="16">
+<div class="qnum">16.</div>
+<div class="qstem">Which formula represents magnesium nitride?</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q16A">
+<input type="radio" name="t2q16" value="A">
+<span class="choice-letter">A</span><span>MgN</span></label><label class="mcq-option" id="t2q16B">
+<input type="radio" name="t2q16" value="B">
+<span class="choice-letter">B</span><span>Mg₂N₃</span></label><label class="mcq-option" id="t2q16C">
+<input type="radio" name="t2q16" value="C">
+<span class="choice-letter">C</span><span>Mg₃N₂</span></label><label class="mcq-option" id="t2q16D">
+<input type="radio" name="t2q16" value="D">
+<span class="choice-letter">D</span><span>MgN₂</span></label></div>
+<div class="question-feedback" id="t2feedback16"></div>
+</div><div class="q interactive-q2" data-q="17">
+<div class="qnum">17.</div>
+<div class="qstem">The correct name for FeO is:</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q17A">
+<input type="radio" name="t2q17" value="A">
+<span class="choice-letter">A</span><span>iron oxide</span></label><label class="mcq-option" id="t2q17B">
+<input type="radio" name="t2q17" value="B">
+<span class="choice-letter">B</span><span>iron(I) oxide</span></label><label class="mcq-option" id="t2q17C">
+<input type="radio" name="t2q17" value="C">
+<span class="choice-letter">C</span><span>iron(II) oxide</span></label><label class="mcq-option" id="t2q17D">
+<input type="radio" name="t2q17" value="D">
+<span class="choice-letter">D</span><span>iron(III) oxide</span></label></div>
+<div class="question-feedback" id="t2feedback17"></div>
+</div><div class="q interactive-q2" data-q="18">
+<div class="qnum">18.</div>
+<div class="qstem">The correct formula for aluminum nitrate is:</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q18A">
+<input type="radio" name="t2q18" value="A">
+<span class="choice-letter">A</span><span>AlNO₃</span></label><label class="mcq-option" id="t2q18B">
+<input type="radio" name="t2q18" value="B">
+<span class="choice-letter">B</span><span>Al(NO₃)₂</span></label><label class="mcq-option" id="t2q18C">
+<input type="radio" name="t2q18" value="C">
+<span class="choice-letter">C</span><span>Al(NO₃)₃</span></label><label class="mcq-option" id="t2q18D">
+<input type="radio" name="t2q18" value="D">
+<span class="choice-letter">D</span><span>Al₃NO₃</span></label></div>
+<div class="question-feedback" id="t2feedback18"></div>
+</div><div class="q interactive-q2" data-q="19">
+<div class="qnum">19.</div>
+<div class="qstem">Which compound should be named using molecular prefixes?</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q19A">
+<input type="radio" name="t2q19" value="A">
+<span class="choice-letter">A</span><span>K₂S</span></label><label class="mcq-option" id="t2q19B">
+<input type="radio" name="t2q19" value="B">
+<span class="choice-letter">B</span><span>SO₃</span></label><label class="mcq-option" id="t2q19C">
+<input type="radio" name="t2q19" value="C">
+<span class="choice-letter">C</span><span>CaCl₂</span></label><label class="mcq-option" id="t2q19D">
+<input type="radio" name="t2q19" value="D">
+<span class="choice-letter">D</span><span>CuBr₂</span></label></div>
+<div class="question-feedback" id="t2feedback19"></div>
+</div><div class="q interactive-q2" data-q="20">
+<div class="qnum">20.</div>
+<div class="qstem">The correct name for PCl₅ is:</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q20A">
+<input type="radio" name="t2q20" value="A">
+<span class="choice-letter">A</span><span>phosphorus chloride</span></label><label class="mcq-option" id="t2q20B">
+<input type="radio" name="t2q20" value="B">
+<span class="choice-letter">B</span><span>phosphorus(V) chloride</span></label><label class="mcq-option" id="t2q20C">
+<input type="radio" name="t2q20" value="C">
+<span class="choice-letter">C</span><span>phosphorus pentachloride</span></label><label class="mcq-option" id="t2q20D">
+<input type="radio" name="t2q20" value="D">
+<span class="choice-letter">D</span><span>monophosphorus pentachloride</span></label></div>
+<div class="question-feedback" id="t2feedback20"></div>
+</div><div class="q interactive-q2" data-q="21">
+<div class="qnum">21.</div>
+<div class="qstem">Which ion is nitrite?</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q21A">
+<input type="radio" name="t2q21" value="A">
+<span class="choice-letter">A</span><span>NO₃⁻</span></label><label class="mcq-option" id="t2q21B">
+<input type="radio" name="t2q21" value="B">
+<span class="choice-letter">B</span><span>NO₂⁻</span></label><label class="mcq-option" id="t2q21C">
+<input type="radio" name="t2q21" value="C">
+<span class="choice-letter">C</span><span>N³⁻</span></label><label class="mcq-option" id="t2q21D">
+<input type="radio" name="t2q21" value="D">
+<span class="choice-letter">D</span><span>NH₄⁺</span></label></div>
+<div class="question-feedback" id="t2feedback21"></div>
+</div><div class="q interactive-q2" data-q="22">
+<div class="qnum">22.</div>
+<div class="qstem">The correct formula for calcium phosphate is:</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q22A">
+<input type="radio" name="t2q22" value="A">
+<span class="choice-letter">A</span><span>CaPO₄</span></label><label class="mcq-option" id="t2q22B">
+<input type="radio" name="t2q22" value="B">
+<span class="choice-letter">B</span><span>Ca₂PO₄</span></label><label class="mcq-option" id="t2q22C">
+<input type="radio" name="t2q22" value="C">
+<span class="choice-letter">C</span><span>Ca₃(PO₄)₂</span></label><label class="mcq-option" id="t2q22D">
+<input type="radio" name="t2q22" value="D">
+<span class="choice-letter">D</span><span>Ca(PO₄)₃</span></label></div>
+<div class="question-feedback" id="t2feedback22"></div>
+</div><div class="q interactive-q2" data-q="23">
+<div class="qnum">23.</div>
+<div class="qstem">The correct name for H₂SO₃(aq) is:</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q23A">
+<input type="radio" name="t2q23" value="A">
+<span class="choice-letter">A</span><span>sulfuric acid</span></label><label class="mcq-option" id="t2q23B">
+<input type="radio" name="t2q23" value="B">
+<span class="choice-letter">B</span><span>sulfurous acid</span></label><label class="mcq-option" id="t2q23C">
+<input type="radio" name="t2q23" value="C">
+<span class="choice-letter">C</span><span>hydrosulfuric acid</span></label><label class="mcq-option" id="t2q23D">
+<input type="radio" name="t2q23" value="D">
+<span class="choice-letter">D</span><span>sulfite acid</span></label></div>
+<div class="question-feedback" id="t2feedback23"></div>
+</div><div class="q interactive-q2" data-q="24">
+<div class="qnum">24.</div>
+<div class="qstem">Which is a chemical change?</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q24A">
+<input type="radio" name="t2q24" value="A">
+<span class="choice-letter">A</span><span>dry ice subliming</span></label><label class="mcq-option" id="t2q24B">
+<input type="radio" name="t2q24" value="B">
+<span class="choice-letter">B</span><span>glass breaking</span></label><label class="mcq-option" id="t2q24C">
+<input type="radio" name="t2q24" value="C">
+<span class="choice-letter">C</span><span>sugar dissolving in water</span></label><label class="mcq-option" id="t2q24D">
+<input type="radio" name="t2q24" value="D">
+<span class="choice-letter">D</span><span>methane burning</span></label></div>
+<div class="question-feedback" id="t2feedback24"></div>
+</div><div class="q interactive-q2" data-q="25">
+<div class="qnum">25.</div>
+<div class="qstem">Which observation by itself is least reliable as evidence that a chemical change occurred?</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q25A">
+<input type="radio" name="t2q25" value="A">
+<span class="choice-letter">A</span><span>formation of a precipitate</span></label><label class="mcq-option" id="t2q25B">
+<input type="radio" name="t2q25" value="B">
+<span class="choice-letter">B</span><span>formation of a new gas in a reaction</span></label><label class="mcq-option" id="t2q25C">
+<input type="radio" name="t2q25" value="C">
+<span class="choice-letter">C</span><span>a substance changing from liquid to gas during boiling</span></label><label class="mcq-option" id="t2q25D">
+<input type="radio" name="t2q25" value="D">
+<span class="choice-letter">D</span><span>persistent color change during a reaction</span></label></div>
+<div class="question-feedback" id="t2feedback25"></div>
+</div><div class="q interactive-q2" data-q="26">
+<div class="qnum">26.</div>
+<div class="qstem">A particle diagram shows identical molecules before and after a process, but after the process they are arranged in a rigid, ordered pattern. The process is best classified as:</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q26A">
+<input type="radio" name="t2q26" value="A">
+<span class="choice-letter">A</span><span>chemical because ordering changed</span></label><label class="mcq-option" id="t2q26B">
+<input type="radio" name="t2q26" value="B">
+<span class="choice-letter">B</span><span>physical because particle identity stayed the same</span></label><label class="mcq-option" id="t2q26C">
+<input type="radio" name="t2q26" value="C">
+<span class="choice-letter">C</span><span>chemical because a solid formed</span></label><label class="mcq-option" id="t2q26D">
+<input type="radio" name="t2q26" value="D">
+<span class="choice-letter">D</span><span>impossible to determine</span></label></div>
+<div class="question-feedback" id="t2feedback26"></div>
+</div><div class="q interactive-q2" data-q="27">
+<div class="qnum">27.</div>
+<div class="qstem">To convert 72.0 km/h to m/s, which conversion factor should be used so that kilometers cancel?</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q27A">
+<input type="radio" name="t2q27" value="A">
+<span class="choice-letter">A</span><span>1 km/1000 m</span></label><label class="mcq-option" id="t2q27B">
+<input type="radio" name="t2q27" value="B">
+<span class="choice-letter">B</span><span>1000 m/1 km</span></label><label class="mcq-option" id="t2q27C">
+<input type="radio" name="t2q27" value="C">
+<span class="choice-letter">C</span><span>1 h/3600 s</span></label><label class="mcq-option" id="t2q27D">
+<input type="radio" name="t2q27" value="D">
+<span class="choice-letter">D</span><span>3600 s/1 h</span></label></div>
+<div class="question-feedback" id="t2feedback27"></div>
+</div><div class="q interactive-q2" data-q="28">
+<div class="qnum">28.</div>
+<div class="qstem">Which change would most directly improve the accuracy of measurements from a balance that always reads 0.50 g too high?</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q28A">
+<input type="radio" name="t2q28" value="A">
+<span class="choice-letter">A</span><span>repeat each measurement more times</span></label><label class="mcq-option" id="t2q28B">
+<input type="radio" name="t2q28" value="B">
+<span class="choice-letter">B</span><span>recalibrate the balance</span></label><label class="mcq-option" id="t2q28C">
+<input type="radio" name="t2q28" value="C">
+<span class="choice-letter">C</span><span>use more decimal places without recalibration</span></label><label class="mcq-option" id="t2q28D">
+<input type="radio" name="t2q28" value="D">
+<span class="choice-letter">D</span><span>average the same biased measurements</span></label></div>
+<div class="question-feedback" id="t2feedback28"></div>
+</div><div class="q interactive-q2" data-q="29">
+<div class="qnum">29.</div>
+<div class="qstem">The value 6.020 × 10⁻⁴ has how many significant figures?</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q29A">
+<input type="radio" name="t2q29" value="A">
+<span class="choice-letter">A</span><span>2</span></label><label class="mcq-option" id="t2q29B">
+<input type="radio" name="t2q29" value="B">
+<span class="choice-letter">B</span><span>3</span></label><label class="mcq-option" id="t2q29C">
+<input type="radio" name="t2q29" value="C">
+<span class="choice-letter">C</span><span>4</span></label><label class="mcq-option" id="t2q29D">
+<input type="radio" name="t2q29" value="D">
+<span class="choice-letter">D</span><span>5</span></label></div>
+<div class="question-feedback" id="t2feedback29"></div>
+</div><div class="q interactive-q2" data-q="30">
+<div class="qnum">30.</div>
+<div class="qstem">Why is dimensional analysis useful beyond simply getting the numerical answer?</div>
+<div class="mcq-options"><label class="mcq-option" id="t2q30A">
+<input type="radio" name="t2q30" value="A">
+<span class="choice-letter">A</span><span>It removes the need to know conversion factors</span></label><label class="mcq-option" id="t2q30B">
+<input type="radio" name="t2q30" value="B">
+<span class="choice-letter">B</span><span>Unit cancellation helps reveal whether conversion factors were arranged correctly</span></label><label class="mcq-option" id="t2q30C">
+<input type="radio" name="t2q30" value="C">
+<span class="choice-letter">C</span><span>It automatically determines the accepted value</span></label><label class="mcq-option" id="t2q30D">
+<input type="radio" name="t2q30" value="D">
+<span class="choice-letter">D</span><span>It makes significant figures unnecessary</span></label></div>
+<div class="question-feedback" id="t2feedback30"></div>
+</div></section>
+<section class="card"><h2>Part B — Free Response</h2><div class="q"><h3>FRQ 1 — Accuracy, precision, and percent error</h3><p>A student measures the density of a solid whose accepted density is 5.32 g/cm³. Three trials give 5.08, 5.09, and 5.07 g/cm³.<br>(a) Comment on the precision of the measurements and justify.<br>(b) Comment on the accuracy and justify.<br>(c) Calculate the percent error using the mean experimental density.<br>(d) The instrument is later found to produce a constant low reading. Classify this as systematic or random error and explain its likely effect.</p></div><div class="q"><h3>FRQ 2 — Dimensional analysis + significant figures</h3><p>A cyclist travels 12.5 km in 41.2 min.<br>(a) Convert the distance to meters using dimensional analysis.<br>(b) Convert the time to seconds.<br>(c) Calculate average speed in m/s using correct significant figures.<br>(d) Explain why the conversion factors used in parts (a) and (b) do not limit the final significant figures.</p></div><div class="q"><h3>FRQ 3 — Atomic structure + nomenclature</h3><p>Consider the ion ⁶⁵₂₉Cu²⁺ and the compound Cu(NO₃)₂.<br>(a) Determine the numbers of protons, neutrons, and electrons in ⁶⁵Cu²⁺.<br>(b) Name Cu(NO₃)₂.<br>(c) Show how the copper charge can be determined from the formula.<br>(d) Explain why parentheses are needed around NO₃ in the formula.</p></div><div class="q"><h3>FRQ 4 — Physical vs. chemical change</h3><p>A sealed container initially contains only molecules XY₂. After a process occurs, the container contains X₂ molecules and Y₂ molecules.<br>(a) Classify the process as physical or chemical and justify.<br>(b) Would total mass in the sealed container change? Explain.<br>(c) In a separate experiment, the same XY₂ molecules simply become farther apart without changing identity. Classify this second process.<br>(d) Give one observation that might suggest a reaction occurred, and explain why that observation alone is not always conclusive.</p></div></section>
+</div>
+
+
+<div id="answers2" class="tabpage">
+<section class="hero"><div class="eyebrow">Review mode</div><h1>Practice Test 2 Answer Key</h1>
+<p class="lead">Use this after completing Practice Test 2. For each missed question, identify the rule or classification step that should have come first.</p></section>
+<section class="card"><h2>MCQ key + explanation</h2>
+<div class="keyrow"><div><b>1</b></div><div class="correct">C</div><div>The measurements are tightly grouped, so they are precise, but they are not close to the accepted value of 19.10 g.</div></div><div class="keyrow"><div><b>2</b></div><div class="correct">B</div><div>Unpredictable trial-to-trial variation is random error, which primarily reduces precision.</div></div><div class="keyrow"><div><b>3</b></div><div class="correct">B</div><div>% error = |2.61−2.70|/2.70×100 = 3.33%.</div></div><div class="keyrow"><div><b>4</b></div><div class="correct">C</div><div>The leading zeros do not count. The digits 5, 0, 6, 0, 0 are significant, for 5 significant figures.</div></div><div class="keyrow"><div><b>5</b></div><div class="correct">C</div><div>0.40 has 2 significant figures, so 2.924 rounds to 2.9.</div></div><div class="keyrow"><div><b>6</b></div><div class="correct">C</div><div>For addition, round to the least precise decimal place. 3.1 is only precise to the tenths place.</div></div><div class="keyrow"><div><b>7</b></div><div class="correct">B</div><div>Scientific notation makes the four significant digits 8, 2, 0, 0 explicit.</div></div><div class="keyrow"><div><b>8</b></div><div class="correct">C</div><div>The 2 is an exact relationship, not a measurement, so it does not contribute uncertainty.</div></div><div class="keyrow"><div><b>9</b></div><div class="correct">B</div><div>Each unwanted unit cancels: cm cancels first, then m, leaving km.</div></div><div class="keyrow"><div><b>10</b></div><div class="correct">B</div><div>Because the unit is squared, the conversion factor is squared: (10⁻² m/cm)² = 10⁻⁴.</div></div><div class="keyrow"><div><b>11</b></div><div class="correct">A</div><div>m = DV = (0.875 g/mL)(12.0 mL) = 10.5 g, to 3 significant figures.</div></div><div class="keyrow"><div><b>12</b></div><div class="correct">A</div><div>One cubic centimeter and one milliliter are equivalent volumes.</div></div><div class="keyrow"><div><b>13</b></div><div class="correct">B</div><div>p=15, n=31−15=16, and a 3− ion has gained 3 electrons, giving 18 electrons.</div></div><div class="keyrow"><div><b>14</b></div><div class="correct">D</div><div>charge = protons − electrons = 12−10 = +2.</div></div><div class="keyrow"><div><b>15</b></div><div class="correct">B</div><div>The element is defined by proton number. Isotopes differ in neutron number and therefore mass number.</div></div><div class="keyrow"><div><b>16</b></div><div class="correct">C</div><div>Mg²⁺ and N³⁻ balance at +6 and −6, giving Mg₃N₂.</div></div><div class="keyrow"><div><b>17</b></div><div class="correct">C</div><div>O is 2−, so Fe must be 2+ in FeO: iron(II) oxide.</div></div><div class="keyrow"><div><b>18</b></div><div class="correct">C</div><div>Al³⁺ requires three nitrate ions, each NO₃⁻, giving Al(NO₃)₃.</div></div><div class="keyrow"><div><b>19</b></div><div class="correct">B</div><div>S and O are both nonmetals, so SO₃ is a molecular compound.</div></div><div class="keyrow"><div><b>20</b></div><div class="correct">C</div><div>Binary molecular compounds use prefixes; mono- is omitted on the first element.</div></div><div class="keyrow"><div><b>21</b></div><div class="correct">B</div><div>NO₂⁻ is nitrite; NO₃⁻ is nitrate.</div></div><div class="keyrow"><div><b>22</b></div><div class="correct">C</div><div>Three Ca²⁺ ions give +6 and two PO₄³⁻ ions give −6.</div></div><div class="keyrow"><div><b>23</b></div><div class="correct">B</div><div>SO₃²⁻ is sulfite, and -ite becomes -ous acid.</div></div><div class="keyrow"><div><b>24</b></div><div class="correct">D</div><div>Burning methane forms new substances, so chemical identity changes.</div></div><div class="keyrow"><div><b>25</b></div><div class="correct">C</div><div>Boiling forms gas bubbles but is only a physical phase change; H₂O remains H₂O.</div></div><div class="keyrow"><div><b>26</b></div><div class="correct">B</div><div>A change in arrangement or phase without a change in particle identity is physical.</div></div><div class="keyrow"><div><b>27</b></div><div class="correct">B</div><div>Kilometers are in the numerator initially, so km must be in the denominator of the next factor: 1000 m/1 km.</div></div><div class="keyrow"><div><b>28</b></div><div class="correct">B</div><div>A consistent +0.50 g error is systematic; recalibration addresses that bias.</div></div><div class="keyrow"><div><b>29</b></div><div class="correct">C</div><div>6, 0, 2, and the trailing 0 are all significant in scientific notation.</div></div><div class="keyrow"><div><b>30</b></div><div class="correct">B</div><div>Units act like algebraic quantities; if they do not cancel to the desired final unit, the setup is probably wrong.</div></div>
+</section>
+<section class="card"><h2>FRQ scoring guides</h2><details><summary>FRQ 1 — Accuracy, precision, and percent error — scoring guide</summary>
+<div class="detailbody"><p>(a) High precision because the values are very close together.<br>(b) Poorer accuracy because the measurements cluster around 5.08 g/cm³ rather than 5.32 g/cm³.<br>(c) Mean = 5.08 g/cm³. % error = |5.08−5.32|/5.32 ×100 = 4.51%.<br>(d) Systematic error. A constant bias shifts results in one direction, decreasing accuracy while precision can remain high.</p></div></details><details><summary>FRQ 2 — Dimensional analysis + significant figures — scoring guide</summary>
+<div class="detailbody"><p>(a) 12.5 km × 1000 m/1 km = 1.25×10⁴ m.<br>(b) 41.2 min × 60 s/1 min = 2472 s.<br>(c) 12500/2472 = 5.0566... → 5.06 m/s (3 sig figs).<br>(d) Defined metric/time conversion factors are exact, so uncertainty comes from the measured values 12.5 and 41.2.</p></div></details><details><summary>FRQ 3 — Atomic structure + nomenclature — scoring guide</summary>
+<div class="detailbody"><p>(a) p=29; n=65−29=36; e=29−2=27.<br>(b) copper(II) nitrate.<br>(c) Each nitrate is 1−. Two nitrates total −2, so Cu must be +2.<br>(d) NO₃⁻ is a polyatomic ion that stays together. Two copies are required, so parentheses enclose the ion before applying the subscript 2.</p></div></details><details><summary>FRQ 4 — Physical vs. chemical change — scoring guide</summary>
+<div class="detailbody"><p>(a) Chemical because the original XY₂ particles became different molecular species, meaning bonds/particle identities changed.<br>(b) No. In a sealed system, atoms are rearranged but total mass is conserved.<br>(c) Physical because particle identity is unchanged; only spacing/phase changed.<br>(d) Examples: bubbles, temperature change, color change, odor. These can be clues, but some can also occur during physical changes, so formation of new substances is the deciding criterion.</p></div></details></section>
+</div>
+
+<footer style="text-align:center;color:#6b7881;margin-top:35px">AP Chemistry Unit 0 Test Hub · first-time chemistry learning</footer>
+</main>
+<script>
+function showTab(id){
+  document.querySelectorAll('.tabpage').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.tabbtn').forEach(x=>x.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const b=document.querySelector('.tabbtn[data-tab="'+id+'"]'); if(b)b.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  localStorage.setItem('u0tab',id);
+}
+
+const mcqKey = {"1": {"answer": "C", "why": "The values are tightly clustered (precise) but centered far from the accepted 25.70 g (not accurate)."}, "2": {"answer": "A", "why": "A constant offset is systematic error: it shifts the center away from truth but can leave repeated values tightly clustered."}, "3": {"answer": "B", "why": "|7.52\u22127.87|/7.87\u00d7100 = 4.45%."}, "4": {"answer": "C", "why": "Leading zeros do not count; 2,0,4,0 count = 4."}, "5": {"answer": "B", "why": "0.20 has 2 significant figures, so 0.912 \u2192 0.91."}, "6": {"answer": "C", "why": "Addition is limited by decimal place. 2.7 is only to tenths, so 21.188 \u2192 21.2."}, "7": {"answer": "B", "why": "Scientific notation clearly shows 1,5,0 are significant."}, "8": {"answer": "C", "why": "Counted/defined exact numbers are treated as having unlimited significant figures."}, "9": {"answer": "B", "why": "km must cancel, leaving m."}, "10": {"answer": "B", "why": "(10\u207b\u00b2 m/cm)\u00b2 = 10\u207b\u2074."}, "11": {"answer": "C", "why": "m = DV = 1.25\u00d716.0 = 20.0 g."}, "12": {"answer": "A", "why": "1 mL and 1 cm\u00b3 represent the same volume."}, "13": {"answer": "B", "why": "p=20, n=40\u221220=20, and a 2+ ion has lost 2 e\u207b \u2192 18."}, "14": {"answer": "B", "why": "charge = p\u2212e = 17\u221218 = \u22121."}, "15": {"answer": "B", "why": "Mass number A is p+n and does not change when only electrons are gained/lost."}, "16": {"answer": "D", "why": "Al\u00b3\u207a and O\u00b2\u207b balance at +6 and \u22126 \u2192 Al\u2082O\u2083."}, "17": {"answer": "C", "why": "O is 2\u2212 total, so the two Cu atoms total +2; each is +1."}, "18": {"answer": "C", "why": "Ca\u00b2\u207a requires two NO\u2083\u207b ions."}, "19": {"answer": "C", "why": "N and O are both nonmetals."}, "20": {"answer": "C", "why": "Binary molecular compounds use prefixes: di- and penta- (pentoxide)."}, "21": {"answer": "B", "why": "SO\u2084\u00b2\u207b is sulfate; SO\u2083\u00b2\u207b is sulfite."}, "22": {"answer": "B", "why": "Two NH\u2084\u207a are needed to balance SO\u2084\u00b2\u207b."}, "23": {"answer": "B", "why": "NO\u2082\u207b is nitrite; -ite \u2192 -ous acid."}, "24": {"answer": "C", "why": "Evaporation changes phase but not molecular identity."}, "25": {"answer": "C", "why": "Formation of a precipitate indicates a new substance formed."}, "26": {"answer": "B", "why": "Same molecular identity means no new substance formed."}, "27": {"answer": "C", "why": "To cancel miles, use m/mi; meters belongs in the numerator."}, "28": {"answer": "B", "why": "Finer resolution and repeated measurements reduce scatter/uncertainty; recalibration addresses systematic accuracy."}, "29": {"answer": "D", "why": "1,2,3,0,0 are all significant in scientific notation."}, "30": {"answer": "B", "why": "The main power of factor-label analysis is that unit cancellation checks the setup."}};
+
+function gradeTest() {
+  let correct = 0;
+  let answered = 0;
+  const total = Object.keys(mcqKey).length;
+
+  Object.keys(mcqKey).forEach(qn => {
+    const picked = document.querySelector('input[name="q'+qn+'"]:checked');
+    const fb = document.getElementById('feedback'+qn);
+    const correctLetter = mcqKey[qn].answer;
+
+    document.querySelectorAll('input[name="q'+qn+'"]').forEach(inp => {
+      inp.closest('.mcq-option').classList.remove('correct-choice','wrong-choice');
+    });
+
+    const correctLabel = document.getElementById('q'+qn+correctLetter);
+    if (correctLabel) correctLabel.classList.add('correct-choice');
+
+    if (picked) {
+      answered++;
+      if (picked.value === correctLetter) {
+        correct++;
+        fb.innerHTML = '<b>Correct.</b> ' + mcqKey[qn].why;
+      } else {
+        const pickedLabel = document.getElementById('q'+qn+picked.value);
+        if (pickedLabel) pickedLabel.classList.add('wrong-choice');
+        fb.innerHTML = '<b>Not quite.</b> The correct answer is <b>' + correctLetter + '</b>. ' + mcqKey[qn].why;
+      }
+    } else {
+      fb.innerHTML = '<b>Unanswered.</b> The correct answer is <b>' + correctLetter + '</b>. ' + mcqKey[qn].why;
+    }
+    fb.classList.add('show');
+  });
+
+  const pct = Math.round((correct / total) * 100);
+  document.getElementById('gradeResult').innerHTML =
+    '<div class="grade-summary"><strong>' + correct + ' / ' + total + ' correct (' + pct + '%)</strong><br>' +
+    answered + ' of ' + total + ' questions answered. Review the explanation under each missed question, then retry.</div>';
+}
+
+function resetTest() {
+  document.querySelectorAll('.interactive-q input[type="radio"]').forEach(x => x.checked = false);
+  document.querySelectorAll('.mcq-option').forEach(x => x.classList.remove('correct-choice','wrong-choice'));
+  document.querySelectorAll('.question-feedback').forEach(x => {
+    x.classList.remove('show');
+    x.innerHTML = '';
+  });
+  const box = document.getElementById('gradeResult');
+  if (box) box.innerHTML = '';
+}
+
+
+const mcqKey2 = {"1": {"answer": "C", "why": "The measurements are tightly grouped, so they are precise, but they are not close to the accepted value of 19.10 g."}, "2": {"answer": "B", "why": "Unpredictable trial-to-trial variation is random error, which primarily reduces precision."}, "3": {"answer": "B", "why": "% error = |2.61\u22122.70|/2.70\u00d7100 = 3.33%."}, "4": {"answer": "C", "why": "The leading zeros do not count. The digits 5, 0, 6, 0, 0 are significant, for 5 significant figures."}, "5": {"answer": "C", "why": "0.40 has 2 significant figures, so 2.924 rounds to 2.9."}, "6": {"answer": "C", "why": "For addition, round to the least precise decimal place. 3.1 is only precise to the tenths place."}, "7": {"answer": "B", "why": "Scientific notation makes the four significant digits 8, 2, 0, 0 explicit."}, "8": {"answer": "C", "why": "The 2 is an exact relationship, not a measurement, so it does not contribute uncertainty."}, "9": {"answer": "B", "why": "Each unwanted unit cancels: cm cancels first, then m, leaving km."}, "10": {"answer": "B", "why": "Because the unit is squared, the conversion factor is squared: (10\u207b\u00b2 m/cm)\u00b2 = 10\u207b\u2074."}, "11": {"answer": "A", "why": "m = DV = (0.875 g/mL)(12.0 mL) = 10.5 g, to 3 significant figures."}, "12": {"answer": "A", "why": "One cubic centimeter and one milliliter are equivalent volumes."}, "13": {"answer": "B", "why": "p=15, n=31\u221215=16, and a 3\u2212 ion has gained 3 electrons, giving 18 electrons."}, "14": {"answer": "D", "why": "charge = protons \u2212 electrons = 12\u221210 = +2."}, "15": {"answer": "B", "why": "The element is defined by proton number. Isotopes differ in neutron number and therefore mass number."}, "16": {"answer": "C", "why": "Mg\u00b2\u207a and N\u00b3\u207b balance at +6 and \u22126, giving Mg\u2083N\u2082."}, "17": {"answer": "C", "why": "O is 2\u2212, so Fe must be 2+ in FeO: iron(II) oxide."}, "18": {"answer": "C", "why": "Al\u00b3\u207a requires three nitrate ions, each NO\u2083\u207b, giving Al(NO\u2083)\u2083."}, "19": {"answer": "B", "why": "S and O are both nonmetals, so SO\u2083 is a molecular compound."}, "20": {"answer": "C", "why": "Binary molecular compounds use prefixes; mono- is omitted on the first element."}, "21": {"answer": "B", "why": "NO\u2082\u207b is nitrite; NO\u2083\u207b is nitrate."}, "22": {"answer": "C", "why": "Three Ca\u00b2\u207a ions give +6 and two PO\u2084\u00b3\u207b ions give \u22126."}, "23": {"answer": "B", "why": "SO\u2083\u00b2\u207b is sulfite, and -ite becomes -ous acid."}, "24": {"answer": "D", "why": "Burning methane forms new substances, so chemical identity changes."}, "25": {"answer": "C", "why": "Boiling forms gas bubbles but is only a physical phase change; H\u2082O remains H\u2082O."}, "26": {"answer": "B", "why": "A change in arrangement or phase without a change in particle identity is physical."}, "27": {"answer": "B", "why": "Kilometers are in the numerator initially, so km must be in the denominator of the next factor: 1000 m/1 km."}, "28": {"answer": "B", "why": "A consistent +0.50 g error is systematic; recalibration addresses that bias."}, "29": {"answer": "C", "why": "6, 0, 2, and the trailing 0 are all significant in scientific notation."}, "30": {"answer": "B", "why": "Units act like algebraic quantities; if they do not cancel to the desired final unit, the setup is probably wrong."}};
+
+function gradeTest2() {
+  let correct = 0, answered = 0;
+  const total = Object.keys(mcqKey2).length;
+  Object.keys(mcqKey2).forEach(qn => {
+    const picked = document.querySelector('input[name="t2q'+qn+'"]:checked');
+    const fb = document.getElementById('t2feedback'+qn);
+    const correctLetter = mcqKey2[qn].answer;
+
+    document.querySelectorAll('input[name="t2q'+qn+'"]').forEach(inp => {
+      inp.closest('.mcq-option').classList.remove('correct-choice','wrong-choice');
+    });
+
+    const correctLabel = document.getElementById('t2q'+qn+correctLetter);
+    if (correctLabel) correctLabel.classList.add('correct-choice');
+
+    if (picked) {
+      answered++;
+      if (picked.value === correctLetter) {
+        correct++;
+        fb.innerHTML = '<b>Correct.</b> ' + mcqKey2[qn].why;
+      } else {
+        const pickedLabel = document.getElementById('t2q'+qn+picked.value);
+        if (pickedLabel) pickedLabel.classList.add('wrong-choice');
+        fb.innerHTML = '<b>Not quite.</b> The correct answer is <b>' + correctLetter + '</b>. ' + mcqKey2[qn].why;
+      }
+    } else {
+      fb.innerHTML = '<b>Unanswered.</b> The correct answer is <b>' + correctLetter + '</b>. ' + mcqKey2[qn].why;
+    }
+    fb.classList.add('show');
+  });
+  const pct = Math.round(correct/total*100);
+  document.getElementById('gradeResult2').innerHTML =
+    '<div class="grade-summary"><strong>'+correct+' / '+total+' correct ('+pct+'%)</strong><br>'+
+    answered+' of '+total+' questions answered. Review the explanations below the missed questions, then retry.</div>';
+}
+
+function resetTest2() {
+  document.querySelectorAll('.interactive-q2 input[type="radio"]').forEach(x => x.checked = false);
+  document.querySelectorAll('.interactive-q2 .mcq-option').forEach(x => x.classList.remove('correct-choice','wrong-choice'));
+  document.querySelectorAll('.interactive-q2 .question-feedback').forEach(x => {x.classList.remove('show'); x.innerHTML='';});
+  const box = document.getElementById('gradeResult2'); if (box) box.innerHTML = '';
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+ const saved=localStorage.getItem('u0tab'); if(saved && document.getElementById(saved)) showTab(saved);
+ const boxes=[...document.querySelectorAll('.mastery input')];
+ boxes.forEach((b,i)=>{const k='u0mastery'+i;b.checked=localStorage.getItem(k)==='1';b.addEventListener('change',()=>localStorage.setItem(k,b.checked?'1':'0'));});
+});
+</script>
+</body></html>
