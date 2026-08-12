@@ -1,0 +1,61 @@
+name: Finalize Unit 0 Study Hub
+
+on:
+  push:
+    branches:
+      - add-unit0-study-hub
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: add-unit0-study-hub
+          fetch-depth: 0
+
+      - name: Build full Unit 0 page and add one link
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64, gzip
+
+          # Reconstruct the complete Unit 0 Study Hub exactly as created.
+          a = Path('.u0a')
+          b = Path('.u0b')
+          if a.exists() and b.exists():
+              payload = (a.read_text() + b.read_text()).strip()
+              html = gzip.decompress(base64.b64decode(payload))
+              Path('unit0-test.html').write_bytes(html)
+              a.unlink()
+              b.unlink()
+
+          # Make exactly one visible change to the original comprehensive site:
+          # add a link in its existing sidebar navigation.
+          p = Path('index.html')
+          s = p.read_text()
+          href = 'unit0-test.html'
+          link = '<a href="unit0-test.html">Unit 0 Test Study Hub</a>'
+          if href not in s:
+              if '</nav>' in s:
+                  s = s.replace('</nav>', link + '</nav>', 1)
+              elif '</aside>' in s:
+                  s = s.replace('</aside>', '<nav>' + link + '</nav></aside>', 1)
+              else:
+                  raise SystemExit('Could not find sidebar navigation insertion point')
+              p.write_text(s)
+          PY
+
+      - name: Commit finalized files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html unit0-test.html
+          git add -u .u0a .u0b || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Link Unit 0 study hub"
+            git push origin add-unit0-study-hub
+          fi
