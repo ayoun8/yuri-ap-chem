@@ -35,8 +35,8 @@ p{max-width:900px}
 .jump a{color:var(--ink);text-decoration:none;background:#fff;border:1px solid var(--line);padding:8px 11px;border-radius:9px;font-weight:700}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .mini{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fbfcfc}
-.callout,.trap,.answer,.why,.memory,.teacher{border-radius:11px;padding:12px 14px;margin:11px 0;border:1px solid var(--line)}
-.callout{background:var(--blue)}.trap{background:var(--gold);border-color:#e4ca83}.answer{background:var(--green);border-color:#a8cdae}.why{background:#f7fafb}.memory{background:var(--purple)}.teacher{background:#f5f8f7;border-color:#c9d9d4}
+.callout,.trap,.answer,.why,.memory,.study-note{border-radius:11px;padding:12px 14px;margin:11px 0;border:1px solid var(--line)}
+.callout{background:var(--blue)}.trap{background:var(--gold);border-color:#e4ca83}.answer{background:var(--green);border-color:#a8cdae}.why{background:#f7fafb}.memory{background:var(--purple)}.study-note{background:#f5f8f7;border-color:#c9d9d4}
 .formula{font-family:"Cambria Math","STIX Two Math",Georgia,serif;background:#f7f9fa;border-left:3px solid #b8cac4;padding:8px 12px;margin:9px 0}
 details{border:1px solid var(--line);border-radius:12px;background:white;margin:9px 0;overflow:hidden}
 summary{cursor:pointer;font-weight:790;padding:12px 14px;background:#f8fafb;list-style:none}
@@ -110,10 +110,10 @@ th,td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:left;vertic
 </div>
 </section>
 <section class="card">
-<h2>Fast diagnostic</h2>
-<p>Before teaching, start with these seven questions without notes. This tells you where to spend time.</p>
+<h2>Quick Check</h2>
+<p>Try these seven questions without notes before starting the review. Use the results to decide which topics need the most attention.</p>
 <ol><li>Difference between accuracy and precision?</li><li>How many sig figs in 0.004050?</li><li>Convert 2.5 km to m with units cancelling.</li><li>What are p/n/e in ²³Na⁺?</li><li>Name CuCl₂.</li><li>Write calcium nitrate.</li><li>Is boiling water physical or chemical, and why?</li></ol>
-<div class="answer anscontent"><b>Diagnostic answers:</b> accuracy = closeness to true value, precision = repeatability; 4 sig figs; 2.5×10³ m; for ²³₁₁Na⁺: 11 p, 12 n, 10 e; copper(II) chloride; Ca(NO₃)₂; physical because H₂O remains H₂O.</div>
+<div class="answer anscontent"><b>Quick Check answers:</b> accuracy = closeness to true value, precision = repeatability; 4 sig figs; 2.5×10³ m; for ²³₁₁Na⁺: 11 p, 12 n, 10 e; copper(II) chloride; Ca(NO₃)₂; physical because H₂O remains H₂O.</div>
 </section>
 </div>
 <div id="learn" class="tabpage">
@@ -298,7 +298,7 @@ Exact → does <b>not</b> limit sig figs.
 <p class="lead">Dimensional analysis is “unit algebra.” The conversion factor must be oriented so the unwanted unit cancels.</p>
 <table><tr><th>Prefix</th><th>Symbol</th><th>Factor</th></tr>
 <tr><td>kilo</td><td>k</td><td>10³</td></tr><tr><td>centi</td><td>c</td><td>10⁻²</td></tr><tr><td>milli</td><td>m</td><td>10⁻³</td></tr><tr><td>micro</td><td>µ</td><td>10⁻⁶</td></tr><tr><td>nano</td><td>n</td><td>10⁻⁹</td></tr></table>
-<div class="teacher"><b>Important rule:</b> Never teach “move the decimal” as the primary method. Teach factor-label first; moving the decimal becomes a shortcut only after she understands why.</div>
+<div class="study-note"><b>Important rule:</b> Use factor-label analysis first. “Moving the decimal” is only a shortcut after the conversion itself makes sense.</div>
 <details open><summary>One-step conversion</summary><div class="detailbody">
 <p>Convert 3.75 km to m.</p>
 <div class="formula">3.75 km × (1000 m / 1 km) = 3.75 × 10³ m</div>
@@ -736,7 +736,7 @@ and recognize when two units cannot be directly converted.
 </div>
 <div id="test" class="tabpage">
 <section class="hero">
-<div class="eyebrow">Student mode</div><h1>Unit 0 Practice Test</h1>
+<div class="eyebrow">Practice</div><h1>Unit 0 Practice Test</h1>
 <p class="lead">AP-style reasoning, but constrained to the actual Unit 0 test topics. The real AP Chemistry exam uses both multiple-choice and free-response sections, so this test includes both styles.</p>
 <div class="chips"><span class="chip">30 MCQ</span><span class="chip">4 FRQ</span><span class="chip">recommended: 50 min MCQ + 35 min FRQ</span></div>
 </section>
@@ -1399,7 +1399,7 @@ and recognize when two units cannot be directly converted.
 
 <div id="test2" class="tabpage">
 <section class="hero">
-<div class="eyebrow">Student mode</div><h1>Unit 0 Practice Test 2</h1>
+<div class="eyebrow">Practice</div><h1>Unit 0 Practice Test 2</h1>
 <p class="lead">A second full-length practice set covering the same skills and difficulty as Practice Test 1, with completely different values and examples.</p>
 <div class="chips"><span class="chip">30 MCQ</span><span class="chip">4 FRQ</span><span class="chip">recommended: 50 min MCQ + 35 min FRQ</span></div>
 </section>
