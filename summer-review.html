@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Summer Review · AP Chemistry Study Hub</title>
+<meta name="description" content="Complete guide to the AP Chemistry summer review packet: nomenclature, dimensional analysis, sig figs, reactions, electrons, moles, bonding, and stoichiometry.">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/notes.css">
+</head>
+<body data-root="" data-page="summer">
+<div class="mobilebar"><a href="index.html">AP Chemistry</a><button type="button" data-nav-toggle aria-controls="sidebar">Menu</button></div>
+<div class="layout">
+<aside class="sidebar" id="sidebar"><a class="brand" href="index.html">AP Chemistry</a>
+<noscript><p><a href="index.html" style="color:#cbd5db">← Home</a></p></noscript></aside>
+<main><div class="wrap">
+<section class="card searchable summer-deep" data-keywords="summer packet review nomenclature dimensional analysis significant figures scientific notation reactions electron structure mole concept Lewis bonding stoichiometry" id="summer-review">
+    <div class="unit-header">
+        <div>
+            <div class="eyebrow">Summer Packet • Test 1</div>
+            <h1 class="page-title">Summer Review — Complete Learning Guide</h1>
+            <p class="lead">The packet is not treated as a checklist here. Each section teaches the underlying chemistry first, then shows the problem-solving method, common traps, and worked examples.</p>
+        </div>
+        <span class="unit-num">Sections I–IX</span>
+    </div>
+    <div class="source-banner">
+        <b>Why this section matters:</b> Test 1 includes the summer review material. The lessons below expand the packet with the supporting class slides and introductory textbook explanations while keeping the packet's original organization.
+    </div>
+    <div class="summer-map">
+        <a href="#summer-naming"><span>I</span><b>Nomenclature</b><small>formulas ↔ names</small></a>
+        <a href="#summer-da"><span>II</span><b>Dimensional Analysis</b><small>units as algebra</small></a>
+        <a href="#summer-sig"><span>III</span><b>Significant Figures</b><small>measurement precision</small></a>
+        <a href="#summer-sci"><span>IV</span><b>Scientific Notation</b><small>powers of ten</small></a>
+        <a href="#summer-rxn"><span>V</span><b>Reactions</b><small>predict • classify • balance</small></a>
+        <a href="#summer-electron"><span>VI</span><b>Electron Structure</b><small>configuration • trends</small></a>
+        <a href="#summer-mole"><span>VII</span><b>Mole Concept</b><small>mass • particles • STP</small></a>
+        <a href="#summer-bond"><span>VIII</span><b>Bonding</b><small>Lewis • resonance • charge</small></a>
+        <a href="#summer-stoich"><span>IX</span><b>Stoichiometry</b><small>ratios • limiting • yield</small></a>
+    </div>
+    <details class="summer-module" id="summer-ref" data-toc="Core Reference">
+        <summary>Summer Packet Reference · What Must Be Memorized vs What Must Be Understood</summary>
+        <div class="summer-body">
+            <div class="compare">
+                <div>
+                    <h4>Memorize</h4>
+                    <ul>
+                        <li>common polyatomic ions and charges</li>
+                        <li>strong acids / strong bases used by the course</li>
+                        <li>solubility-rule patterns and exceptions</li>
+                        <li>seven diatomic elements</li>
+                        <li>SI prefixes and common conversions</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Understand / derive</h4>
+                    <ul>
+                        <li>how ionic charges create formulas</li>
+                        <li>why units cancel in dimensional analysis</li>
+                        <li>why sig-fig rules depend on the operation</li>
+                        <li>why equations must be balanced</li>
+                        <li>why stoichiometry must pass through moles</li>
+                    </ul>
+                </div>
+            </div>
+            <details class="sublesson">
+                <summary>Core polyatomic ions</summary>
+                <div class="content">
+                    <table>
+                        <tr><th>Charge</th><th>Important ions</th></tr>
+                        <tr><td>+1</td><td>NH₄⁺ ammonium</td></tr>
+                        <tr><td>−1</td><td>OH⁻ hydroxide; NO₃⁻ nitrate; NO₂⁻ nitrite; C₂H₃O₂⁻ acetate; CN⁻ cyanide; HCO₃⁻ hydrogen carbonate; HSO₄⁻ hydrogen sulfate; MnO₄⁻ permanganate; ClO⁻ hypochlorite; ClO₂⁻ chlorite; ClO₃⁻ chlorate; ClO₄⁻ perchlorate; H₂PO₄⁻ dihydrogen phosphate</td></tr>
+                        <tr><td>−2</td><td>SO₄²⁻ sulfate; SO₃²⁻ sulfite; CO₃²⁻ carbonate; CrO₄²⁻ chromate; Cr₂O₇²⁻ dichromate; C₂O₄²⁻ oxalate; O₂²⁻ peroxide; HPO₄²⁻ hydrogen phosphate</td></tr>
+                        <tr><td>−3</td><td>PO₄³⁻ phosphate; AsO₄³⁻ arsenate; AsO₃³⁻ arsenite</td></tr>
+                    </table>
+                    <div class="why-box"><b>Pattern help:</b> for related oxyanions, <b>-ite</b> usually has fewer oxygens than <b>-ate</b>; hypo- is fewer still and per- is more.</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Strong acids, bases, and solubility rules</summary>
+                <div class="content">
+                    <div class="formula">Strong acids used in the packet: HCl, HBr, HI, HNO₃, H₂SO₄, HClO₃, HClO₄</div>
+                    <p>For the course's introductory convention, strong bases include Group 1 hydroxides and the more soluble Group 2 hydroxides identified by the teacher.</p>
+                    <table>
+                        <tr><th>Usually soluble</th><th>Important exceptions / comments</th></tr>
+                        <tr><td>Group 1 and NH₄⁺ salts</td><td>treated as soluble</td></tr>
+                        <tr><td>NO₃⁻ and ClO₄⁻ salts</td><td>soluble</td></tr>
+                        <tr><td>Cl⁻ / Br⁻ / I⁻</td><td>exceptions include Ag⁺, Pb²⁺, Hg₂²⁺</td></tr>
+                        <tr><td>SO₄²⁻</td><td>exceptions include Ba²⁺, Sr²⁺, Pb²⁺, and course-listed exceptions</td></tr>
+                        <tr><td>CO₃²⁻ / PO₄³⁻</td><td>usually insoluble except Group 1 / NH₄⁺</td></tr>
+                        <tr><td>OH⁻</td><td>usually insoluble except Group 1 and course-listed alkaline-earth exceptions</td></tr>
+                        <tr><td>S²⁻</td><td>usually insoluble except Group 1, Group 2, NH₄⁺</td></tr>
+                    </table>
+                </div>
+            </details>
+        </div>
+    </details>
+    <!-- I -->
+    <details class="summer-module" id="summer-naming" data-toc="I · Nomenclature">
+        <summary>I · Nomenclature — Turn Names Into Formulas and Formulas Into Names</summary>
+        <div class="summer-body">
+            <p class="lesson-intro">Naming becomes much easier when the first step is always <strong>classify the compound</strong>. Ionic compounds, molecular compounds, acids, and hydrates use different rules.</p>
+            <details class="sublesson" open="">
+                <summary>Step 1 · Identify the compound type</summary>
+                <div class="content">
+                    <div class="decision">
+                        <div><b>metal + nonmetal / polyatomic</b><span>ionic</span></div>
+                        <div><b>NH₄⁺ present</b><span>ionic</span></div>
+                        <div><b>two nonmetals</b><span>molecular</span></div>
+                        <div><b>H first + aqueous acid context</b><span>acid</span></div>
+                        <div><b>salt · nH₂O</b><span>hydrate</span></div>
+                    </div>
+                    <div class="trap"><b>Wrong classification = wrong naming system.</b> Do not use prefixes for ordinary ionic compounds, and do not use Roman numerals for molecular compounds.</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Binary ionic compounds</summary>
+                <div class="content">
+                    <p>Write the cation first and the anion second. A monatomic anion changes its ending to <b>-ide</b>.</p>
+                    <div class="formula">NaCl → sodium chloride</div>
+                    <div class="formula">Mg₃N₂ → magnesium nitride</div>
+                    <h4>Name → formula</h4>
+                    <div class="algorithm">
+                        <div><span>1</span><b>write ion charges</b><p>Mg²⁺ and N³⁻</p></div>
+                        <div><span>2</span><b>balance charge</b><p>total + = total −</p></div>
+                        <div><span>3</span><b>use lowest ratio</b><p>Mg₃N₂</p></div>
+                    </div>
+                    <div class="why-box"><b>Why must the charges balance?</b> The written compound is electrically neutral overall.</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Roman numerals for variable-charge metals</summary>
+                <div class="content">
+                    <p>The Roman numeral tells the <b>charge on one metal ion</b>, not the number of atoms.</p>
+                    <details class="example"><summary>CuO</summary><div class="content">
+                        <p>Oxide is O²⁻. One Cu balances one O²⁻, so Cu must be +2.</p>
+                        <div class="answer">copper(II) oxide</div>
+                    </div></details>
+                    <details class="example"><summary>Cu₂O</summary><div class="content">
+                        <p>O contributes −2 total. Two Cu atoms must contribute +2 total, so each is +1.</p>
+                        <div class="answer">copper(I) oxide</div>
+                    </div></details>
+                    <details class="example"><summary>Ni₃(PO₄)₂</summary><div class="content">
+                        <p>Two PO₄³⁻ ions contribute −6. Three Ni must total +6, so each Ni is +2.</p>
+                        <div class="answer">nickel(II) phosphate</div>
+                    </div></details>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Polyatomic-ion compounds and parentheses</summary>
+                <div class="content">
+                    <p>Treat a polyatomic ion as a single charged unit. If more than one copy is required, use parentheses.</p>
+                    <div class="formula">Al³⁺ + SO₄²⁻ → Al₂(SO₄)₃</div>
+                    <div class="formula">Zn²⁺ + HSO₄⁻ → Zn(HSO₄)₂</div>
+                    <div class="trap"><b>Do not alter the inside of a polyatomic ion.</b> Sulfate stays SO₄²⁻; balancing charge changes the number of sulfate ions, not sulfate's internal formula.</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Molecular compounds: prefixes</summary>
+                <div class="content">
+                    <table>
+                        <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr>
+                        <tr><td>mono</td><td>di</td><td>tri</td><td>tetra</td><td>penta</td><td>hexa</td><td>hepta</td><td>octa</td><td>nona</td><td>deca</td></tr>
+                    </table>
+                    <ul>
+                        <li>Use prefixes to state atom counts.</li>
+                        <li>Do not normally use mono- on the first element.</li>
+                        <li>The second element ends in -ide.</li>
+                        <li>Vowels can contract: monoxide, pentoxide.</li>
+                    </ul>
+                    <div class="formula">N₂O₅ → dinitrogen pentoxide</div>
+                    <div class="formula">PCl₅ → phosphorus pentachloride</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Acid naming</summary>
+                <div class="content">
+                    <h4>Binary acids</h4>
+                    <div class="formula">hydro + root + ic acid</div>
+                    <div class="formula">HCl(aq) → hydrochloric acid</div>
+                    <h4>Oxoacids</h4>
+                    <table>
+                        <tr><th>Anion ending</th><th>Acid ending</th><th>Example</th></tr>
+                        <tr><td>-ate</td><td>-ic acid</td><td>NO₃⁻ nitrate → HNO₃ nitric acid</td></tr>
+                        <tr><td>-ite</td><td>-ous acid</td><td>NO₂⁻ nitrite → HNO₂ nitrous acid</td></tr>
+                    </table>
+                    <p>Keep hypo- and per- prefixes: hypochlorite → hypochlorous acid; perchlorate → perchloric acid.</p>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Hydrates</summary>
+                <div class="content">
+                    <p>A hydrate is an ionic compound whose crystal contains a definite number of water molecules. The dehydrated salt is called <b>anhydrous</b>.</p>
+                    <div class="formula">CuSO₄·5H₂O → copper(II) sulfate pentahydrate</div>
+                    <p>Name the ionic compound normally, then add the appropriate prefix + hydrate.</p>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Packet-style practice</summary>
+                <div class="content practice-set">
+                    <ol>
+                        <li>Name Fe(IO₂)₃.</li>
+                        <li>Write the formula for copper(II) dihydrogen phosphate.</li>
+                        <li>Name Cl₂O.</li>
+                        <li>Write the formula for hydrotelluric acid.</li>
+                    </ol>
+                    <details><summary>Answers</summary><div class="content">
+                        <ol><li>iron(III) iodite</li><li>Cu(H₂PO₄)₂</li><li>dichlorine monoxide</li><li>H₂Te(aq)</li></ol>
+                    </div></details>
+                </div>
+            </details>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can classify a compound first and then apply the correct ionic, molecular, acid, or hydrate naming system.</label>
+        </div>
+    </details>
+    <!-- II -->
+    <details class="summer-module" id="summer-da" data-toc="II · Dimensional Analysis">
+        <summary>II · Dimensional Analysis — Let the Units Tell You What to Do</summary>
+        <div class="summer-body">
+            <p class="lesson-intro">Dimensional analysis is not a separate chemistry trick. It is a general method for multiplying by forms of “1” until the unwanted units disappear.</p>
+            <details class="sublesson" open="">
+                <summary>What a conversion factor actually is</summary>
+                <div class="content">
+                    <p>If two quantities are equivalent, their ratio equals 1.</p>
+                    <div class="formula">1 in = 2.54 cm</div>
+                    <div class="formula">2.54 cm / 1 in = 1    and    1 in / 2.54 cm = 1</div>
+                    <p>Multiplying by either ratio does not change the physical quantity; it only changes how the quantity is expressed.</p>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>The unit-cancellation method</summary>
+                <div class="content">
+                    <div class="algorithm">
+                        <div><span>1</span><b>write given</b><p>include its unit</p></div>
+                        <div><span>2</span><b>choose target</b><p>what unit must remain?</p></div>
+                        <div><span>3</span><b>build factors</b><p>unwanted units cancel diagonally</p></div>
+                        <div><span>4</span><b>calculate</b><p>only after units are correct</p></div>
+                    </div>
+                    <details class="example"><summary>26 in → cm</summary><div class="content">
+                        <div class="formula">26 in × (2.54 cm / 1 in) = 66 cm</div>
+                    </div></details>
+                    <div class="trap"><b>If the unwanted unit does not cancel, the factor is upside down.</b></div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Multi-step conversions</summary>
+                <div class="content">
+                    <details class="example" open=""><summary>30.0 m → miles using yards</summary><div class="content">
+                        <div class="formula">30.0 m × (1.094 yd/1 m) × (1 mi/1760 yd)</div>
+                        <p>Meters cancel, then yards cancel, leaving miles.</p>
+                    </div></details>
+                    <p>The power of this method is that you do not need one direct conversion. You can build a path.</p>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Squared and cubed units</summary>
+                <div class="content">
+                    <p>A conversion factor must be raised to the same power as the unit.</p>
+                    <div class="formula">1 m = 100 cm</div>
+                    <div class="formula">1 m² = (100 cm)² = 10,000 cm²</div>
+                    <div class="formula">1 m³ = (100 cm)³ = 1,000,000 cm³</div>
+                    <div class="trap"><b>Classic mistake:</b> converting 1 m² as 100 cm². Length was squared, so the factor must be squared too.</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Density as a conversion factor</summary>
+                <div class="content">
+                    <div class="formula">D = m/V</div>
+                    <p>A density of 2.33 g/cm³ means:</p>
+                    <div class="formula">2.33 g / 1 cm³</div>
+                    <p>It can convert mass ↔ volume exactly like any other factor.</p>
+                    <details class="example"><summary>2170 g Si with density 2.33 g/cm³</summary><div class="content">
+                        <div class="formula">V = 2170 g × (1 cm³/2.33 g) ≈ 931 cm³</div>
+                    </div></details>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Temperature is the major exception</summary>
+                <div class="content">
+                    <p>Temperature scales use an offset, so Celsius/Kelvin conversion is not done by a simple factor.</p>
+                    <div class="formula">K = °C + 273.15</div>
+                    <div class="why-box"><b>Why dimensional analysis does not work here:</b> 0°C is not 0 K, so the scales are not related by a simple multiplicative ratio.</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Answer-quality checks</summary>
+                <div class="content">
+                    <ul>
+                        <li>Write units at every step.</li>
+                        <li>Check whether the numerical size should increase or decrease.</li>
+                        <li>Do not round early in a multi-step problem.</li>
+                        <li>Apply significant figures after the conversion path is correct.</li>
+                    </ul>
+                </div>
+            </details>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can construct conversion factors and use unit cancellation for one-step, multi-step, density, area, and volume conversions.</label>
+        </div>
+    </details>
+    <!-- III -->
+    <details class="summer-module" id="summer-sig" data-toc="III · Significant Figures">
+        <summary>III · Significant Figures — What the Digits Say About Measurement</summary>
+        <div class="summer-body">
+            <p class="lesson-intro">Significant figures communicate measurement precision. They are not arbitrary formatting rules: the last reported digit is the estimated/uncertain digit.</p>
+            <details class="sublesson" open="">
+                <summary>Measured vs exact numbers</summary>
+                <div class="content">
+                    <p>A measured quantity is limited by the measuring instrument. A counted or defined quantity can be exact.</p>
+                    <div class="compare">
+                        <div><h4>Measured</h4><p>12.4 mL from glassware → finite precision</p></div>
+                        <div><h4>Exact</h4><p>3 molecules or 1 in = 2.54 cm by definition → unlimited sig figs</p></div>
+                    </div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Counting significant figures</summary>
+                <div class="content">
+                    <table>
+                        <tr><th>Rule</th><th>Example</th><th>Sig figs</th></tr>
+                        <tr><td>nonzero digits count</td><td>357</td><td>3</td></tr>
+                        <tr><td>leading zeros do not count</td><td>0.0042</td><td>2</td></tr>
+                        <tr><td>captive zeros count</td><td>10023</td><td>5</td></tr>
+                        <tr><td>trailing decimal zeros count</td><td>4.700</td><td>4</td></tr>
+                        <tr><td>trailing zeros without a decimal can be ambiguous</td><td>1000</td><td>notation-dependent</td></tr>
+                    </table>
+                    <div class="why-box"><b>Scientific notation removes ambiguity:</b> 1.00×10³ clearly has 3 significant figures.</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Multiplication and division</summary>
+                <div class="content">
+                    <p>The answer is limited by the input with the fewest <b>significant figures</b>.</p>
+                    <details class="example"><summary>1.827 m × 0.762 m</summary><div class="content">
+                        <div class="formula">calculator: 1.392174 m²</div>
+                        <p>0.762 has 3 sig figs → report <b>1.39 m²</b>.</p>
+                    </div></details>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Addition and subtraction</summary>
+                <div class="content">
+                    <p>The answer is limited by the least precise <b>decimal place</b>, not total sig-fig count.</p>
+                    <details class="example"><summary>49.146 m + 72.13 m</summary><div class="content">
+                        <div class="formula">121.276 m → 121.28 m</div>
+                        <p>The least precise measurement is to the hundredths place.</p>
+                    </div></details>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Mixed calculations and guard digits</summary>
+                <div class="content">
+                    <p>Keep extra calculator digits during intermediate steps and round once at the end, unless the problem specifically requires otherwise.</p>
+                    <div class="why-box"><b>Why?</b> Rounding intermediate values can push the final answer away from the value obtained from the original data.</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Accuracy vs precision</summary>
+                <div class="content">
+                    <table>
+                        <tr><th>Accuracy</th><th>Precision</th></tr>
+                        <tr><td>closeness to accepted/true value</td><td>closeness of repeated measurements to one another</td></tr>
+                    </table>
+                    <div class="formula">% error = |experimental − accepted| / accepted ×100</div>
+                    <p>A set can be precise but inaccurate if repeated values cluster tightly around the wrong value.</p>
+                </div>
+            </details>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can justify which digits are significant and apply the correct precision rule for each type of calculation.</label>
+        </div>
+    </details>
+    <!-- IV -->
+    <details class="summer-module" id="summer-sci" data-toc="IV · Scientific Notation">
+        <summary>IV · Scientific Notation — Control Very Large and Very Small Numbers</summary>
+        <div class="summer-body">
+            <details class="sublesson" open="">
+                <summary>Structure and decimal movement</summary>
+                <div class="content">
+                    <div class="formula">a × 10ⁿ where 1 ≤ |a| &lt; 10</div>
+                    <div class="formula">350,000,000 = 3.5 × 10⁸</div>
+                    <div class="formula">0.0000721 = 7.21 × 10⁻⁵</div>
+                    <div class="why-box"><b>Exponent sign check:</b> large ordinary numbers need positive powers; tiny positive numbers need negative powers.</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Multiplication and division with powers of ten</summary>
+                <div class="content">
+                    <div class="formula">(a×10ᵐ)(b×10ⁿ) = ab×10ᵐ⁺ⁿ</div>
+                    <div class="formula">(a×10ᵐ)/(b×10ⁿ) = (a/b)×10ᵐ⁻ⁿ</div>
+                    <p>After calculating, renormalize the coefficient so it lies between 1 and 10.</p>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Addition and subtraction</summary>
+                <div class="content">
+                    <p>Exponents must match before coefficients can be added or subtracted.</p>
+                    <div class="formula">3.2×10⁵ + 4.7×10⁴ = 3.2×10⁵ + 0.47×10⁵ = 3.67×10⁵</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Calculator entry</summary>
+                <div class="content">
+                    <p>Use the calculator's EE/EXP key for “×10^”. Entering <code>6.022 EXP 23</code> avoids extra parentheses and common order-of-operations mistakes.</p>
+                    <div class="trap"><b>Do not type ×10^ twice.</b> On many calculators, EXP already means “times ten to the power.”</div>
+                </div>
+            </details>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can convert, calculate, and report answers correctly in scientific notation.</label>
+        </div>
+    </details>
+    <!-- V -->
+    <details class="summer-module" id="summer-rxn" data-toc="V · Reactions">
+        <summary>V · Chemical Reactions — Predict, Classify, Balance, and Explain</summary>
+        <div class="summer-body">
+            <p class="lesson-intro">A chemical equation is a particle-accounting statement. The formulas tell what substances are present; coefficients tell how many particles or moles react.</p>
+            <details class="sublesson" open="">
+                <summary>What a chemical equation communicates</summary>
+                <div class="content">
+                    <div class="formula">reactants → products</div>
+                    <p>State symbols: (s) solid, (l) liquid, (g) gas, (aq) dissolved in water.</p>
+                    <div class="why-box"><b>Balanced equations conserve atoms.</b> The law of conservation of mass requires the same number of each kind of atom before and after a reaction.</div>
+                    <div class="trap"><b>Never change subscripts to balance.</b> A subscript changes substance identity. Change coefficients only.</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>How to balance systematically</summary>
+                <div class="content">
+                    <ol>
+                        <li>Write correct formulas first.</li>
+                        <li>Count each element on both sides.</li>
+                        <li>Adjust coefficients one substance at a time.</li>
+                        <li>Leave H and O until later when convenient.</li>
+                        <li>Reduce coefficients to the lowest whole-number ratio.</li>
+                    </ol>
+                    <details class="example"><summary>Propane combustion</summary><div class="content">
+                        <div class="formula">C₃H₈ + O₂ → CO₂ + H₂O</div>
+                        <p>Balance C: 3CO₂. Balance H: 4H₂O. Product side now has 10 O atoms → 5O₂.</p>
+                        <div class="answer">C₃H₈ + 5O₂ → 3CO₂ + 4H₂O</div>
+                    </div></details>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Reaction-pattern recognition</summary>
+                <div class="content">
+                    <table>
+                        <tr><th>Pattern</th><th>Type</th><th>What happens</th></tr>
+                        <tr><td>A+B→AB</td><td>synthesis</td><td>simpler substances combine</td></tr>
+                        <tr><td>AB→A+B</td><td>decomposition</td><td>one substance breaks apart</td></tr>
+                        <tr><td>A+BC→AC+B</td><td>single replacement</td><td>one element displaces another</td></tr>
+                        <tr><td>AB+CD→AD+CB</td><td>double replacement</td><td>ions exchange partners</td></tr>
+                        <tr><td>hydrocarbon+O₂→CO₂+H₂O</td><td>combustion</td><td>complete hydrocarbon combustion</td></tr>
+                    </table>
+                    <p>Reaction categories can overlap. Combustion is also a redox process, for example.</p>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Diatomic elemental forms</summary>
+                <div class="content">
+                    <div class="formula">H₂ N₂ O₂ F₂ Cl₂ Br₂ I₂</div>
+                    <p>When these elements appear in their free elemental state, use the diatomic formula. This matters when predicting products.</p>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Single replacement and activity</summary>
+                <div class="content">
+                    <p>A single-replacement reaction occurs only if the free element can displace the corresponding element/ion in the compound. An activity series or supplied chemical knowledge determines whether the reaction occurs.</p>
+                    <div class="formula">Zn + CuSO₄ → ZnSO₄ + Cu</div>
+                    <div class="trap"><b>Pattern alone is not enough.</b> Some apparent single-replacement setups are “no reaction.”</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Double replacement, solubility, and precipitates</summary>
+                <div class="content">
+                    <p>Swap ions, balance charge in each new formula, then apply solubility rules. An insoluble product is a precipitate.</p>
+                    <details class="example"><summary>AgNO₃ + KCl</summary><div class="content">
+                        <div class="formula">AgNO₃(aq)+KCl(aq)→AgCl(s)+KNO₃(aq)</div>
+                        <p>AgCl is insoluble, so precipitation drives the reaction.</p>
+                    </div></details>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Gas-forming special cases from the reaction worksheet</summary>
+                <div class="content">
+                    <table>
+                        <tr><th>Unstable product</th><th>What it becomes</th></tr>
+                        <tr><td>H₂CO₃</td><td>CO₂ + H₂O</td></tr>
+                        <tr><td>H₂SO₃</td><td>SO₂ + H₂O</td></tr>
+                        <tr><td>NH₄OH (course formal product)</td><td>NH₃ + H₂O</td></tr>
+                    </table>
+                    <p>This is why some double-replacement reactions appear to produce gas bubbles.</p>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Complete ionic and net ionic equations</summary>
+                <div class="content">
+                    <div class="algorithm">
+                        <div><span>1</span><b>balance molecular</b><p>include states</p></div>
+                        <div><span>2</span><b>split strong aqueous electrolytes</b><p>into ions</p></div>
+                        <div><span>3</span><b>keep solids, liquids, gases, weak species intact</b></div>
+                        <div><span>4</span><b>cancel spectators</b><p>same unchanged ion both sides</p></div>
+                    </div>
+                    <details class="example"><summary>Pb(NO₃)₂ + KI</summary><div class="content">
+                        <div class="formula">Pb²⁺(aq)+2I⁻(aq)→PbI₂(s)</div>
+                    </div></details>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Acid-base neutralization</summary>
+                <div class="content">
+                    <p>A strong acid and strong base react to produce water and a salt.</p>
+                    <div class="formula">H⁺(aq)+OH⁻(aq)→H₂O(l)</div>
+                    <p>If a weak acid/base participates, it usually remains molecular in a net ionic equation.</p>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Redox basics</summary>
+                <div class="content">
+                    <div class="formula">oxidation = loss of electrons</div>
+                    <div class="formula">reduction = gain of electrons</div>
+                    <p>Oxidation and reduction always occur together because electrons lost by one species must be gained by another.</p>
+                </div>
+            </details>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can write formulas first, predict products, identify a driving force, balance the equation, and write ionic/net ionic equations when appropriate.</label>
+        </div>
+    </details>
+    <!-- VI -->
+    <details class="summer-module" id="summer-electron" data-toc="VI · Electron Structure">
+        <summary>VI · Electron Structure &amp; Periodicity — Summer-Packet Review</summary>
+        <div class="summer-body">
+            <p class="lesson-intro">This is the Chemistry I foundation behind Unit 1. The goal is not merely to write configurations but to connect electron arrangement to periodic behavior.</p>
+            <details class="sublesson" open="">
+                <summary>Subshell capacities and filling order</summary>
+                <div class="content">
+                    <table><tr><th>subshell</th><th>orbitals</th><th>max e⁻</th></tr><tr><td>s</td><td>1</td><td>2</td></tr><tr><td>p</td><td>3</td><td>6</td></tr><tr><td>d</td><td>5</td><td>10</td></tr><tr><td>f</td><td>7</td><td>14</td></tr></table>
+                    <div class="formula">1s→2s→2p→3s→3p→4s→3d→4p→5s→4d→5p→6s...</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Aufbau, Pauli, and Hund</summary>
+                <div class="content">
+                    <div class="decision">
+                        <div><b>Aufbau</b><span>lower-energy orbitals fill first</span></div>
+                        <div><b>Pauli</b><span>max 2 e⁻ per orbital with opposite spins</span></div>
+                        <div><b>Hund</b><span>equal-energy orbitals fill singly before pairing</span></div>
+                    </div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Noble-gas shorthand and examples</summary>
+                <div class="content">
+                    <div class="formula">As: [Ar]4s²3d¹⁰4p³</div>
+                    <div class="formula">Pb: [Xe]4f¹⁴5d¹⁰6s²6p²</div>
+                    <div class="formula">Cu: [Ar]3d¹⁰4s¹</div>
+                    <div class="formula">Pd: [Kr]4d¹⁰</div>
+                    <p>Exceptions such as Cu and Pd should be learned using the class convention.</p>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Unpaired electrons</summary>
+                <div class="content">
+                    <p>Use an orbital diagram and Hund's rule. As ends in 4p³, so each p orbital gets one electron before pairing → 3 unpaired electrons.</p>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Periodic trends</summary>
+                <div class="content">
+                    <table>
+                        <tr><th>Property</th><th>Across →</th><th>Down ↓</th></tr>
+                        <tr><td>atomic radius</td><td>decreases</td><td>increases</td></tr>
+                        <tr><td>ionization energy</td><td>generally increases</td><td>generally decreases</td></tr>
+                        <tr><td>electronegativity</td><td>generally increases</td><td>generally decreases</td></tr>
+                    </table>
+                    <div class="why-box"><b>Explain, don't just point:</b> across a period, nuclear charge rises while valence electrons occupy the same broad shell; down a group, new shells and shielding increase.</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Average atomic mass as a periodic-table skill</summary>
+                <div class="content">
+                    <div class="formula">average mass = Σ(isotope mass × fractional abundance)</div>
+                    <details class="example"><summary>Sb-style example</summary><div class="content">
+                        <p>Multiply each isotope mass by its decimal abundance and add. The answer must lie between the isotope masses and closer to the more abundant one.</p>
+                    </div></details>
+                </div>
+            </details>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can write configurations, count unpaired electrons, handle common exceptions, and explain basic periodic trends.</label>
+        </div>
+    </details>
+    <!-- VII -->
+    <details class="summer-module" id="summer-mole" data-toc="VII · Mole Concept">
+        <summary>VII · Mole Concept — Chemistry's Central Conversion Hub</summary>
+        <div class="summer-body">
+            <p class="lesson-intro">Almost every quantitative chemistry problem eventually passes through moles because balanced equations and chemical formulas represent particle ratios.</p>
+            <details class="sublesson" open="">
+                <summary>Avogadro's number and particle language</summary>
+                <div class="content">
+                    <div class="formula">1 mol = 6.022×10²³ particles</div>
+                    <table><tr><th>substance</th><th>particle word</th></tr><tr><td>Au</td><td>atoms</td></tr><tr><td>H₂O</td><td>molecules</td></tr><tr><td>CaBr₂</td><td>formula units</td></tr></table>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Mass ↔ moles</summary>
+                <div class="content">
+                    <div class="formula">moles = grams / molar mass</div>
+                    <details class="example"><summary>12.64 g NaOH</summary><div class="content">
+                        <div class="formula">M≈40.00 g/mol</div>
+                        <div class="formula">12.64/40.00=0.3160 mol NaOH</div>
+                    </div></details>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Particles ↔ moles</summary>
+                <div class="content">
+                    <details class="example"><summary>3.00×10²⁴ Au atoms</summary><div class="content">
+                        <div class="formula">3.00×10²⁴ / 6.022×10²³ = 4.98 mol Au</div>
+                    </div></details>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Gas volume at STP — packet convention</summary>
+                <div class="content">
+                    <div class="formula">1 mol ideal gas ≈ 22.4 L at the STP convention used in the packet</div>
+                    <details class="example"><summary>40.0 L Ne at STP</summary><div class="content">
+                        <div class="formula">40.0 L × (1 mol/22.4 L)=1.79 mol Ne</div>
+                    </div></details>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Counting atoms inside particles</summary>
+                <div class="content">
+                    <p>Subscripts convert formula units/molecules into component atoms.</p>
+                    <details class="example"><summary>0.250 mol SO₃</summary><div class="content">
+                        <p>Each molecule has 4 total atoms and 3 oxygen atoms.</p>
+                        <div class="formula">total atoms =0.250×6.022×10²³×4</div>
+                        <div class="formula">O atoms =0.250×6.022×10²³×3</div>
+                    </div></details>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>The universal mole map</summary>
+                <div class="content">
+                    <div class="conversion-map multi">
+                        <div><b>grams</b><span>÷ molar mass</span></div>
+                        <div><b>particles</b><span>÷ Nₐ</span></div>
+                        <div><b>gas L at packet STP</b><span>÷22.4</span></div>
+                        <div><b>moles</b><span>the hub</span></div>
+                    </div>
+                    <div class="why-box"><b>Why moles are central:</b> molar masses, Avogadro's number, gas molar volume, formula ratios, and reaction coefficients all connect through amount in moles.</div>
+                </div>
+            </details>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can identify the particle being counted and move among grams, moles, particles, gas volume, and atom counts.</label>
+        </div>
+    </details>
+    <!-- VIII -->
+    <details class="summer-module" id="summer-bond" data-toc="VIII · Bonding">
+        <summary>VIII · Bonding &amp; Lewis Structures — Build Molecules Electron by Electron</summary>
+        <div class="summer-body">
+            <p class="lesson-intro">Lewis structures are bookkeeping models for valence electrons. They help predict connectivity, lone pairs, multiple bonds, formal charges, resonance, and eventually molecular shape.</p>
+            <details class="sublesson" open="">
+                <summary>Valence electrons and the octet idea</summary>
+                <div class="content">
+                    <p>Main-group atoms often form bonds that give them noble-gas-like valence arrangements. Hydrogen seeks a duet; many second-row elements are most stable with eight valence electrons.</p>
+                    <div class="why-box"><b>But “octet rule” is a useful model, not a universal law.</b> BF₃ can have an incomplete octet on B; third-period and heavier elements can appear with expanded valence counts in common Lewis representations.</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Count total valence electrons first</summary>
+                <div class="content">
+                    <ol>
+                        <li>Add valence electrons from every atom.</li>
+                        <li>Add one electron for each negative charge.</li>
+                        <li>Subtract one electron for each positive charge.</li>
+                    </ol>
+                    <details class="example"><summary>NO₃⁻</summary><div class="content">
+                        <div class="formula">N:5 + 3(O:6) +1 charge electron =24 valence e⁻</div>
+                    </div></details>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>The Lewis-structure algorithm</summary>
+                <div class="content">
+                    <div class="algorithm">
+                        <div><span>1</span><b>count e⁻</b><p>total valence electrons</p></div>
+                        <div><span>2</span><b>choose skeleton</b><p>least EN often central; H terminal</p></div>
+                        <div><span>3</span><b>single bonds</b><p>2 e⁻ per bond</p></div>
+                        <div><span>4</span><b>terminal octets</b><p>outer atoms first</p></div>
+                        <div><span>5</span><b>center</b><p>place remaining electrons</p></div>
+                        <div><span>6</span><b>multiple bonds</b><p>if center lacks needed electrons</p></div>
+                    </div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Worked structures from the packet</summary>
+                <div class="content">
+                    <table>
+                        <tr><th>Species</th><th>Important result</th></tr>
+                        <tr><td>SeCl₂</td><td>two Se–Cl single bonds; 2 lone pairs on Se</td></tr>
+                        <tr><td>OF₂</td><td>F–O–F; 2 lone pairs on O</td></tr>
+                        <tr><td>BF₃</td><td>three B–F bonds; B has 6 electrons in basic Lewis model</td></tr>
+                        <tr><td>NH₄⁺</td><td>four N–H bonds; no lone pair on N; bracket +</td></tr>
+                        <tr><td>CO₂</td><td>O=C=O</td></tr>
+                        <tr><td>HCN</td><td>H–C≡N, one lone pair on N</td></tr>
+                        <tr><td>HCOOH</td><td>H–C(=O)–O–H</td></tr>
+                    </table>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Formal charge</summary>
+                <div class="content">
+                    <div class="formula">formal charge = valence e⁻ − nonbonding e⁻ − number of bond lines</div>
+                    <p>Formal charge helps compare valid Lewis structures. Favor structures with smaller charge magnitudes when other rules are comparable, and place negative formal charge on more electronegative atoms when possible.</p>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Resonance</summary>
+                <div class="content">
+                    <p>Sometimes more than one valid Lewis structure differs only in electron placement. These are <b>resonance contributors</b>; the real electron distribution is not flipping between drawings but is delocalized.</p>
+                    <details class="example"><summary>Nitrate, NO₃⁻</summary><div class="content">
+                        <p>Three equivalent contributors can be drawn with the N=O double bond in three positions. The actual N–O bonds are equivalent in the resonance hybrid.</p>
+                    </div></details>
+                    <details class="example"><summary>Sulfate, SO₄²⁻</summary><div class="content">
+                        <p>Common AP Lewis representations use resonance and formal-charge reasoning; follow the class convention for expanded-octet sulfur representations.</p>
+                    </div></details>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Ionic vs covalent bonding connection</summary>
+                <div class="content">
+                    <p><b>Ionic:</b> attraction among oppositely charged ions in an extended lattice; formula gives simplest ion ratio.</p>
+                    <p><b>Covalent:</b> electron pairs are shared between atoms; discrete molecules are common.</p>
+                    <div class="formula">Na + Cl → Na⁺ + Cl⁻ → ionic lattice</div>
+                    <div class="formula">H + H → H—H → covalent molecule</div>
+                </div>
+            </details>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can count valence electrons, construct Lewis structures, identify lone pairs/multiple bonds, and use formal charge and resonance correctly.</label>
+        </div>
+    </details>
+    <!-- IX -->
+    <details class="summer-module" id="summer-stoich" data-toc="IX · Stoichiometry">
+        <summary>IX · Stoichiometry — Use a Balanced Equation as a Chemical Recipe</summary>
+        <div class="summer-body">
+            <p class="lesson-intro">Stoichiometry is dimensional analysis with a balanced chemical equation inserted between the known substance and the desired substance.</p>
+            <details class="sublesson" open="">
+                <summary>What coefficients mean</summary>
+                <div class="content">
+                    <div class="formula">N₂ + 3H₂ → 2NH₃</div>
+                    <p>This means 1 molecule N₂ reacts with 3 molecules H₂, and therefore 1 mol N₂ reacts with 3 mol H₂ to form 2 mol NH₃.</p>
+                    <div class="why-box"><b>Coefficients are mole ratios.</b> They are not mass ratios. Never use 1 g N₂ : 3 g H₂ simply because the coefficients are 1:3.</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Universal stoichiometry roadmap</summary>
+                <div class="content">
+                    <div class="conversion-map">
+                        <div><b>given unit</b><span>convert to mol</span></div><div class="arrow">→</div>
+                        <div><b>mol known</b><span>balanced-equation ratio</span></div><div class="arrow">→</div>
+                        <div><b>mol wanted</b><span>convert to requested unit</span></div>
+                    </div>
+                    <p>If grams are given and grams are requested, the full chain is:</p>
+                    <div class="formula">g A → mol A → mol B → g B</div>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Mass-to-mass example</summary>
+                <div class="content">
+                    <p>For propane combustion:</p>
+                    <div class="formula">C₃H₈ + 5O₂ → 3CO₂ + 4H₂O</div>
+                    <p>Every 1 mol propane produces 4 mol water. A mass problem converts propane mass → mol propane → mol water → mass water.</p>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Limiting reactant — the ingredient that runs out</summary>
+                <div class="content">
+                    <p>When amounts of two reactants are supplied, do <b>not</b> choose the one with fewer grams or fewer moles automatically. Compare amounts using the balanced equation.</p>
+                    <div class="algorithm">
+                        <div><span>1</span><b>balance equation</b></div>
+                        <div><span>2</span><b>convert both to moles</b></div>
+                        <div><span>3</span><b>calculate product from each</b></div>
+                        <div><span>4</span><b>smaller product wins</b><p>that reactant is limiting</p></div>
+                    </div>
+                    <details class="example"><summary>Al + Cl₂ example from the stoichiometry notes</summary><div class="content">
+                        <div class="formula">2Al + 3Cl₂ → 2AlCl₃</div>
+                        <p>10.0 g Al could make about 49.4 g AlCl₃; 35.0 g Cl₂ could make about 43.9 g AlCl₃.</p>
+                        <div class="answer">Cl₂ is limiting because it produces less product.</div>
+                    </div></details>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Excess reactant remaining</summary>
+                <div class="content">
+                    <p>Once the limiting reactant is identified, start with the limiting reactant and calculate how much excess reactant was actually consumed. Then subtract from the amount initially present.</p>
+                    <div class="formula">excess remaining = excess initial − excess used</div>
+                    <p>In the Al/Cl₂ class example, the notes calculate about 8.8 g Al used from 10.0 g, leaving about 1.2 g Al.</p>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Theoretical yield, actual yield, percent yield</summary>
+                <div class="content">
+                    <table>
+                        <tr><th>Term</th><th>Meaning</th></tr>
+                        <tr><td>theoretical yield</td><td>maximum product predicted from limiting reactant</td></tr>
+                        <tr><td>actual yield</td><td>product actually isolated experimentally</td></tr>
+                    </table>
+                    <div class="formula">% yield = actual yield / theoretical yield ×100</div>
+                    <p>Actual yield can be lower because of incomplete reactions, side reactions, loss during transfer/purification, or measurement limitations.</p>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Particle-diagram stoichiometry</summary>
+                <div class="content">
+                    <p>Treat each pictured molecule as a countable particle and group particles according to coefficients. For N₂ + 3H₂ → 2NH₃, every set of 1 N₂ and 3 H₂ makes 2 NH₃. The reagent that cannot form another complete set is limiting.</p>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Empirical-formula stoichiometry connection</summary>
+                <div class="content">
+                    <p>Combustion analysis is another stoichiometric chain. CO₂ tells you the amount of carbon; H₂O tells you the amount of hydrogen; oxygen can be found by mass difference when appropriate. Convert recovered elemental amounts to moles and simplify the ratio.</p>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Hydrate calculations</summary>
+                <div class="content">
+                    <p>Heating a hydrate drives off water. Use the mass lost to find moles H₂O and the remaining anhydrous salt mass to find moles salt.</p>
+                    <div class="formula">hydrate mass − anhydrous mass = mass H₂O</div>
+                    <div class="formula">moles H₂O / moles salt → hydrate subscript</div>
+                    <details class="example"><summary>General pattern</summary><div class="content">
+                        <p>If the ratio is 1 mol salt : 5 mol H₂O, the hydrate is salt·5H₂O and is named pentahydrate.</p>
+                    </div></details>
+                </div>
+            </details>
+            <details class="sublesson">
+                <summary>Stoichiometry error checklist</summary>
+                <div class="content">
+                    <ul class="trap-list">
+                        <li>Equation must be balanced before using coefficients.</li>
+                        <li>Coefficients compare moles, not grams.</li>
+                        <li>Do not use the excess reactant to calculate final product after finding the limiting reactant.</li>
+                        <li>The limiting reactant is not necessarily the smallest mass or smallest number of moles.</li>
+                        <li>Track units through every conversion.</li>
+                        <li>Round at the end and apply sig figs.</li>
+                    </ul>
+                </div>
+            </details>
+            <label class="checkrow"><input class="mastery" type="checkbox"/> I can perform mole-ratio stoichiometry, identify a limiting reactant, calculate excess remaining, and distinguish theoretical from actual yield.</label>
+        </div>
+    </details>
+    <details class="summer-module summer-selfcheck">
+        <summary>Summer Packet Mastery Check</summary>
+        <div class="summer-body">
+            <ol class="selfcheck">
+                <li>Why does CuO need a Roman numeral but CaO does not?</li>
+                <li>Why is dimensional analysis safer than memorizing separate conversion formulas?</li>
+                <li>Why does multiplication use sig figures while addition uses decimal places?</li>
+                <li>Why can you change coefficients but never subscripts when balancing?</li>
+                <li>What determines whether a double-replacement reaction actually forms a precipitate?</li>
+                <li>Why must stoichiometry pass through moles?</li>
+                <li>Why can two reactants with equal masses still have different limiting behavior?</li>
+                <li>Why is NO₃⁻ represented by multiple resonance contributors?</li>
+                <li>What makes a molecular formula different from an empirical formula?</li>
+            </ol>
+            <details><summary>Answer guide</summary><div class="content">
+                <ol>
+                    <li>Cu can form multiple common charges, so its ionic charge must be stated; Ca is treated as fixed +2.</li>
+                    <li>Units themselves enforce the correct conversion path and expose inverted/missing factors.</li>
+                    <li>Multiplication/division depends on relative precision; addition/subtraction depends on the least precise place value.</li>
+                    <li>Coefficients change the number of particles; subscripts change the identity of the substance.</li>
+                    <li>The solubility of the predicted products in water.</li>
+                    <li>Balanced-equation coefficients are particle/mole ratios, not mass ratios.</li>
+                    <li>Different molar masses produce different mole amounts, and the reaction ratio also matters.</li>
+                    <li>The double bond can be placed in equivalent positions; the actual electron distribution is delocalized.</li>
+                    <li>Empirical formula is the simplest ratio; molecular formula gives actual atom counts in one molecule.</li>
+                </ol>
+            </div></details>
+        </div>
+    </details>
+</section>
+<footer class="site-footer">AP Chemistry Study Hub</footer>
+</div></main>
+</div>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
