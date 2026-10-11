@@ -1,0 +1,30 @@
+/* lesson.css — styles for lesson recap pages.
+   Loaded after site.css. */
+.lede{font-size:16px;color:#42515d;max-width:760px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.pill{background:#e3eeea;color:#315a50;padding:6px 11px;border-radius:50px;font-size:12px;font-weight:750}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.mini{background:#fbfcfd;border:1px solid var(--edge);padding:17px;border-radius:12px}
+.mini b{display:block;margin-bottom:4px}
+.muted{color:var(--muted)}
+.callout{background:#edf7f3;border-left:4px solid #598878;padding:14px 18px;border-radius:7px;margin:15px 0}
+.warning{background:#fff7df;border-left:4px solid #d8b15f;padding:14px 18px;border-radius:7px;margin:15px 0}
+.formula{font-family:Georgia,serif;font-size:17px;background:#f5f7f8;border:1px solid #dfe4e8;padding:12px 16px;border-radius:9px;margin:12px 0}
+details{border:1px solid var(--edge);border-radius:11px;overflow:hidden;margin:10px 0;background:white}
+summary{cursor:pointer;padding:13px 17px;background:#f7f9fa;font-weight:750}
+.answer{padding:14px 18px;background:#f2f8f5}
+.question{border:1px solid var(--edge);border-radius:14px;padding:18px;margin:15px 0}
+.qtop{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.qtag{font-size:11px;background:var(--mint);border-radius:30px;padding:4px 9px;color:var(--accent);font-weight:800}
+.choice{display:block;margin:7px 0;padding:8px 11px;border:1px solid var(--edge);border-radius:8px}
+.choice input{margin-right:10px}
+.qfeedback{margin-top:10px;padding:10px 13px;border-radius:9px;background:#f0f6f3;display:none}
+.btn{border:0;background:var(--accent);color:white;border-radius:9px;font-weight:750;padding:9px 14px;cursor:pointer;margin-top:12px}
+.btn.secondary{background:white;border:1px solid #aebbb7;color:#345b52}
+.step{margin:9px 0;border-left:2px solid #bed2cb;padding:5px 13px}
+table{border-collapse:collapse;width:100%}
+td,th{padding:10px;text-align:left;border-bottom:1px solid var(--edge)}
+th{background:#f7f9fa}
+@media(max-width:850px){
+  .grid{grid-template-columns:1fr}
+}

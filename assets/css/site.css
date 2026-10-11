@@ -1,0 +1,176 @@
+/* =========================================================
+   AP Chemistry Study Hub — shared site styles
+   Loaded on every page. Holds design tokens, the sidebar
+   layout, and base typography/components.
+   Page-specific styles live in notes.css, practice.css,
+   and lesson.css.
+   ========================================================= */
+
+:root {
+  /* Surfaces & text */
+  --bg: #f4f6f8;
+  --paper: #ffffff;
+  --ink: #17212b;
+  --muted: #66727f;
+  --line: #dfe4e8;
+  --shadow: 0 8px 28px rgba(24, 35, 45, .06);
+
+  /* Brand (sage green) */
+  --sage: #345b52;
+  --sage2: #eaf1ef;
+  --accent: #345b52;
+  --mint: #eaf1ef;
+  --edge: #dfe4e8;
+
+  /* Callout colors */
+  --blue: #eef5ff;   --blueLine: #8eb0d6;
+  --gold: #fff7df;   --goldLine: #d8b15f;
+  --green: #edf7f0;  --greenLine: #86ad8f;
+  --purple: #f5f0fa; --purpleLine: #bba3cd;
+  --rose: #fff1f1;
+
+  /* Sidebar */
+  --nav: #182129;
+  --nav2: #24323c;
+  --nav-text: #cbd5db;
+  --nav-muted: #7f909c;
+  --nav-accent: #7db5a7;
+
+  --sidebar-w: 288px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15.5px/1.68 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+button, input { font: inherit; }
+a { color: #285f91; }
+.hidden { display: none !important; }
+
+/* ---------- Layout ---------- */
+.layout { display: grid; grid-template-columns: var(--sidebar-w) 1fr; min-height: 100vh; }
+main { padding: 32px 48px 80px; min-width: 0; }
+.wrap { max-width: 1080px; margin: auto; }
+
+/* ---------- Sidebar ---------- */
+aside.sidebar {
+  position: sticky; top: 0; height: 100vh; overflow-y: auto;
+  background: var(--nav); color: #eef4f5;
+  padding: 22px 16px 28px;
+}
+.sidebar .brand {
+  display: block; color: #fff; text-decoration: none;
+  font-weight: 800; font-size: 1.18rem; letter-spacing: -.02em; line-height: 1.25;
+}
+.sidebar .sub { color: #aeb9c1; font-size: .84rem; margin: 3px 0 14px; }
+.sidebar .search {
+  width: 100%; padding: 9px 11px; border-radius: 10px;
+  background: #222e37; color: #fff; border: 1px solid #34424d;
+}
+.sidebar .search::placeholder { color: #87949e; }
+.sidebar .navtitle {
+  color: var(--nav-muted); font-size: .66rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .14em; margin: 18px 9px 4px;
+}
+.sidebar nav a {
+  display: block; color: var(--nav-text); text-decoration: none;
+  padding: 6px 9px; border-radius: 6px; border-left: 2px solid transparent;
+  font-size: .9rem; line-height: 1.4;
+}
+.sidebar nav a:hover { background: var(--nav2); color: #fff; }
+.sidebar nav a.current { background: var(--nav2); color: #fff; border-left-color: var(--nav-accent); font-weight: 700; }
+.sidebar nav a .badge {
+  display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 99px;
+  background: #2f5a50; color: #d7ebe5; font-size: .66rem; font-weight: 800; letter-spacing: .04em;
+  vertical-align: 1px;
+}
+.sidebar .toc a {
+  font-size: .8rem; color: #9fb2bd; padding: 4px 9px 4px 14px; margin-left: 8px;
+  border-left: 1px solid rgba(255, 255, 255, .08); border-radius: 0 6px 6px 0;
+}
+.sidebar .toc a:hover { color: #d6e3ea; background: rgba(255, 255, 255, .04); }
+.sidebar .toc a.active { color: #fff; background: rgba(255, 255, 255, .07); border-left-color: var(--nav-accent); }
+
+.sidebar .prog { border-top: 1px solid #31404b; margin-top: 18px; padding-top: 12px; }
+.sidebar .prow { display: flex; justify-content: space-between; color: #aeb9c1; font-size: .8rem; }
+.sidebar .bar { height: 7px; background: #31404b; border-radius: 99px; overflow: hidden; margin-top: 4px; }
+.sidebar .fill { height: 100%; width: 0; background: var(--nav-accent); transition: width .2s; }
+.sidebar .actions { display: flex; gap: 7px; margin-top: 10px; }
+.sidebar .actions button {
+  flex: 1; border: 1px solid #34424d; background: #222e37; color: #dfe8ec;
+  border-radius: 8px; padding: 6px 8px; cursor: pointer; font-size: .82rem;
+}
+.sidebar .actions button:hover { background: #2a3944; }
+.search-empty { color: #aeb9c1; font-size: .82rem; margin: 8px 4px 0; }
+
+/* Mobile top bar (hidden on desktop) */
+.mobilebar { display: none; }
+
+/* ---------- Base content components ---------- */
+.hero, .card {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: 18px; box-shadow: var(--shadow);
+}
+.hero { padding: 36px; margin-bottom: 20px; background: linear-gradient(145deg, #ffffff, #f4f9f7); }
+.card { padding: 28px; margin: 20px 0; }
+.eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: .72rem; font-weight: 850; color: #46786d; }
+h1, h2, h3, h4 { line-height: 1.2; letter-spacing: -.025em; }
+h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 780; margin: .12em 0 .2em; }
+h2 { font-size: 1.75rem; font-weight: 750; margin: .1em 0 .5em; }
+h3 { font-size: 1.2rem; font-weight: 720; }
+.lead { font-size: 1.03rem; color: #40505c; max-width: 900px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.chip { background: var(--sage2); border: 1px solid #d2ddd9; border-radius: 999px; padding: 6px 10px; font-size: .83rem; }
+
+/* Page footer + prev/next pager */
+.site-footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 28px 10px 0; }
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 28px 0 0; }
+.pager a {
+  display: block; text-decoration: none; color: var(--ink); background: var(--paper);
+  border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px;
+}
+.pager a:hover { border-color: #87afa3; background: #f6faf9; }
+.pager small { display: block; color: var(--muted); font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.pager .next { text-align: right; grid-column: 2; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 950px) {
+  .layout { display: block; }
+  .mobilebar {
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 30;
+    background: var(--nav); color: #fff; padding: 10px 14px;
+  }
+  .mobilebar a { color: #fff; text-decoration: none; font-weight: 800; }
+  .mobilebar button {
+    background: #24323c; color: #fff; border: 1px solid #34424d;
+    border-radius: 8px; padding: 6px 12px; cursor: pointer;
+  }
+  aside.sidebar {
+    position: fixed; z-index: 40; top: 0; left: 0; bottom: 0;
+    width: min(86vw, 320px); height: auto;
+    transform: translateX(-102%); transition: transform .2s ease;
+  }
+  body.nav-open aside.sidebar { transform: none; box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .35); }
+  main { padding: 20px 14px 60px; }
+  .hero, .card { padding: 22px; }
+}
+@media (max-width: 560px) {
+  .pager { grid-template-columns: 1fr; }
+  .pager .next { grid-column: 1; }
+}
+
+@media print {
+  aside.sidebar, .mobilebar, .pager, .practice-controls, .printnote { display: none !important; }
+  .layout { display: block; }
+  main { padding: 0; }
+  body { background: #fff; }
+  .card, .hero { box-shadow: none; break-inside: avoid; }
+}
+
+/* First heading on a notes page (styled like a section title, but it's the page's h1) */
+h1.page-title { font-size: 2rem; font-weight: 760; margin: .1em 0 .45em; }
